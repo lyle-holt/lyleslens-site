@@ -529,6 +529,19 @@ blockquote.pull {
   text-align: center;
 }
 
+.featured-video { max-width: 640px; margin: 36px auto 0; }
+.featured-video a { display: block; position: relative; }
+.featured-video img { width: 100%; display: block; border: 1px solid var(--line-on-light); }
+.featured-video .play-badge {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 64px; height: 64px; border-radius: 50%; background: rgba(15, 15, 15, 0.7);
+  display: flex; align-items: center; justify-content: center;
+}
+.featured-video .play-badge svg { width: 24px; height: 24px; fill: #fff; margin-left: 3px; }
+.featured-video figcaption { font-size: 13px; color: var(--gray-on-light); margin-top: 12px; text-align: center; }
+.featured-video figcaption a { color: var(--gold); }
+.featured-video figcaption a:hover { text-decoration: underline; }
+
 /* ---------- Stats footer strip ---------- */
 .stats-strip {
   background: var(--dark);
