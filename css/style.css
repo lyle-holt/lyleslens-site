@@ -542,6 +542,13 @@ blockquote.pull {
 .featured-video figcaption a { color: var(--gold); }
 .featured-video figcaption a:hover { text-decoration: underline; }
 
+.demo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; align-items: end; }
+.demo-grid figure { margin: 0; }
+.demo-grid img { width: 100%; display: block; border: 1px solid var(--line-on-light); }
+.demo-grid figcaption { font-size: 14px; color: var(--gray-on-light); line-height: 1.5; margin-top: 12px; }
+.demo-grid figcaption strong { display: block; color: var(--ink); font-family: var(--serif); font-size: 15px; margin-bottom: 4px; }
+@media (max-width: 860px) { .demo-grid { grid-template-columns: 1fr; } }
+
 /* ---------- Stats footer strip ---------- */
 .stats-strip {
   background: var(--dark);
