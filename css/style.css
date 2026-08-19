@@ -1,19 +1,21 @@
 /* Lyle's Lens Photography — site stylesheet */
 
 :root {
-  --dark: #0c0d11;
-  --dark-soft: #14161c;
-  --cream: #f5f3ef;
-  --cream-alt: #efece6;
-  --gold: #c9a24d;
-  --gold-soft: #ceac66;
-  --ink: #1a1a1a;
-  --gray-on-light: #62605c;
-  --gray-on-dark: #a8a6a1;
-  --line-on-light: #ddd9d1;
-  --line-on-dark: #2b2d33;
-  --serif: "Fraunces", "Georgia", serif;
-  --sans: "Fraunces", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  /* Locked palette — style guide v1, 2026-08-19 (5_Style_Guide_v1.pdf) */
+  --dark: #0C1218;        /* Ink navy — structure & text */
+  --dark-soft: #161d26;   /* Lighter ink-navy tint, hero fallback only — not in the locked 4 */
+  --cream: #F4F6F7;       /* Cool white — background */
+  --cream-alt: #eceef0;   /* Subtle cool-toned alt for zebra sections — not in the locked 4 */
+  --gold: #d4af37;        /* Gold — accent, dark-bg & graphic use, ~9:1 on ink navy */
+  --gold-deep: #8a691c;   /* Deep gold — accent, small text links on cool white, ~4.7:1 */
+  --gold-soft: #c7a955;   /* Muted gold for large text blocks on dark bg — not in the locked 4 */
+  --ink: #0C1218;         /* Same ink navy, used as text colour on light backgrounds */
+  --gray-on-light: #5b6068;
+  --gray-on-dark: #a7abb0;
+  --line-on-light: #dde1e3;
+  --line-on-dark: #242b34;
+  --serif: "Lora", "Georgia", serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --max: 1200px;
 }
 
@@ -49,9 +51,11 @@ a { color: inherit; text-decoration: none; }
   font-size: 12px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--gold-deep);
   font-weight: 600;
 }
+/* Bright gold only reads on the ink-navy dark contexts — cool-white sections use deep gold */
+.section-dark .eyebrow, .strip-dark .eyebrow, .hero .eyebrow { color: var(--gold); }
 
 /* ---------- Header ---------- */
 .site-header {
@@ -108,6 +112,18 @@ a { color: inherit; text-decoration: none; }
 }
 .btn-outline:hover { background: var(--gold); color: var(--dark); }
 
+/* CTA lives inside .main-nav so it moves into the mobile menu instead of
+   crowding the header row and pushing the hamburger off-screen. Restate
+   the button styling here since ".main-nav a" (class+element) otherwise
+   outranks the plain ".btn-outline" class selector. */
+.main-nav .btn-outline {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-size: 13px;
+  padding: 14px 26px;
+}
+.main-nav .btn-outline:hover { background: var(--gold); color: var(--dark); }
+
 /* Header variant for inner pages without a full dark hero underneath */
 .site-header.on-light { position: relative; background: var(--cream); padding: 32px 0 0 0; }
 .site-header.on-light .brand { color: var(--ink); }
@@ -143,6 +159,17 @@ a { color: inherit; text-decoration: none; }
 .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
+/* Header nav/CTA sit on ink-navy (hero, mobile overlay) by default — bright gold is correct there.
+   On the cool-white "on-light" header (desktop only; mobile always drops to the dark overlay), use deep gold. */
+@media (min-width: 901px) {
+  .site-header.on-light .main-nav a:hover,
+  .site-header.on-light .main-nav a.active { color: var(--gold-deep); }
+  /* ".main-nav .btn-outline" added so this out-specifies ".site-header.on-light .main-nav a"
+     (both are 3 classes; without the extra class here, that rule's element selector wins the tiebreak). */
+  .site-header.on-light .main-nav .btn-outline { border-color: var(--gold-deep); color: var(--gold-deep); }
+  .site-header.on-light .main-nav .btn-outline:hover { background: var(--gold-deep); color: var(--cream); }
+}
+
 @media (max-width: 900px) {
   .main-nav {
     position: fixed;
@@ -160,9 +187,9 @@ a { color: inherit; text-decoration: none; }
   }
   .main-nav.mobile-open { transform: translateX(0); }
   .main-nav a { font-size: 22px; color: #fff; }
+  .main-nav .nav-cta { margin-top: 10px; font-size: 13px; }
   .nav-toggle { display: block; }
   body.nav-locked { overflow: hidden; }
-  .site-header .wrap > .btn-outline { display: none; }
 }
 
 /* ---------- Hero ---------- */
@@ -255,7 +282,7 @@ a { color: inherit; text-decoration: none; }
   margin: 12px 0 28px 0;
 }
 .section-dark h2 { color: #fff; }
-.section h2 .accent { color: var(--gold); }
+.section h2 .accent { color: var(--gold-deep); }
 
 .lede {
   font-size: 21px;
@@ -288,7 +315,7 @@ a { color: inherit; text-decoration: none; }
 .col-3 .rule {
   width: 40px;
   height: 2px;
-  background: var(--gold);
+  background: var(--gold-deep);
   border: none;
   margin: 0 0 20px 0;
 }
@@ -299,7 +326,7 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 20px;
 }
 .col-3 .step-head .num {
-  color: var(--gold);
+  color: var(--gold-deep);
   font-weight: 600;
   font-size: 15px;
   font-family: var(--sans);
@@ -319,7 +346,7 @@ a { color: inherit; text-decoration: none; }
 }
 .col-3 p { font-size: 17px; line-height: 1.6; color: var(--gray-on-light); margin: 0 0 18px 0; }
 .section-dark .col-3 p { color: var(--gray-on-dark); }
-.col-3 .cta-link { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); font-weight: 600; display: block; margin-bottom: 6px; }
+.col-3 .cta-link { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; display: block; margin-bottom: 6px; }
 .col-3 .cta-sub { font-size: 14px; color: var(--gray-on-light); }
 
 /* ---------- Numbered list ---------- */
@@ -333,7 +360,7 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.5;
 }
 .section-dark .numbered-list .item { border-top: 1px solid var(--line-on-dark); }
-.numbered-list .num { color: var(--gold); font-weight: 600; font-family: var(--sans); min-width: 24px; }
+.numbered-list .num { color: var(--gold-deep); font-weight: 600; font-family: var(--sans); min-width: 24px; }
 
 /* ---------- Process steps ---------- */
 .process-grid {
@@ -482,14 +509,14 @@ blockquote.pull {
   font-size: 22px;
   line-height: 1.5;
   color: var(--ink);
-  border-left: 2px solid var(--gold);
+  border-left: 2px solid var(--gold-deep);
   padding-left: 24px;
   margin: 30px 0;
 }
 
 .credential-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px 48px; margin-top: 24px; }
 @media (max-width: 700px) { .credential-grid { grid-template-columns: 1fr; } }
-.credential-grid h4 { font-family: var(--sans); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin: 0 0 10px 0; }
+.credential-grid h4 { font-family: var(--sans); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-deep); margin: 0 0 10px 0; }
 .credential-grid p { font-size: 17px; line-height: 1.6; color: #4a4844; margin: 0; }
 
 .commendation {
@@ -542,7 +569,7 @@ blockquote.pull {
 }
 .featured-video .play-badge svg { width: 24px; height: 24px; fill: #fff; margin-left: 3px; }
 .featured-video figcaption { font-size: 13px; color: var(--gray-on-light); margin-top: 12px; text-align: center; }
-.featured-video figcaption a { color: var(--gold); }
+.featured-video figcaption a { color: var(--gold-deep); }
 .featured-video figcaption a:hover { text-decoration: underline; }
 
 .demo-grid { display: grid; grid-template-columns: 1.11fr 1fr; gap: 28px 32px; }
