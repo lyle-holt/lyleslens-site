@@ -309,6 +309,11 @@ a { color: inherit; text-decoration: none; }
   gap: 56px;
   margin-top: 24px;
 }
+/* Columns stretch to equal height by default (grid), but content was top-aligned within
+   each one — so the CTA landed at a different height per column depending on paragraph
+   length. Flex + margin-top:auto on the CTA pins it to the same baseline across all three. */
+.col-3 > div { display: flex; flex-direction: column; }
+.col-3 .cta-link { margin-top: auto; }
 @media (max-width: 860px) {
   .col-3 { grid-template-columns: 1fr; gap: 48px; }
 }
