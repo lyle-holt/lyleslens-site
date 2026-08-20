@@ -36,6 +36,20 @@ img { max-width: 100%; display: block; }
 
 a { color: inherit; text-decoration: none; }
 
+/* Inline text links (body copy, reason blocks, references, captions) get a
+   visible link treatment — colour plus underline — so readers can tell
+   content is sourced/clickable. Nav, buttons, brand and social-icon links
+   keep their own distinct treatment (below) and are unaffected. */
+p a, .refs a, figcaption a {
+  color: var(--gold-deep);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
+.section-dark p a, .section-dark .refs a, .section-dark figcaption a { color: var(--gold); }
+.section-dark p a:hover, .section-dark .refs a:hover, .section-dark figcaption a:hover { color: var(--gold-soft); }
+
 .wrap {
   max-width: var(--max);
   margin: 0 auto;
@@ -57,18 +71,29 @@ a { color: inherit; text-decoration: none; }
 /* Bright gold only reads on the ink-navy dark contexts — cool-white sections use deep gold */
 .section-dark .eyebrow, .strip-dark .eyebrow, .hero .eyebrow { color: var(--gold); }
 
-/* ---------- Header ---------- */
+/* ---------- Header ----------
+   Fixed (not absolute) so the header — and its nav links — stay reachable
+   the whole time a reader scrolls, on every page. The default (hero) header
+   starts transparent over the hero image; nav.js adds .is-static once the
+   reader scrolls past the hero, switching it to a subdued translucent bar
+   that stays pinned rather than disappearing. .on-light pages (About,
+   Evidence, Women's Sport) are solid from the start, so they only pick up a
+   subtle hairline shadow once scrolled — see .on-light.is-static below. */
 .site-header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 50;
   padding: 32px 0;
+  transition: background 0.25s ease, padding 0.25s ease, box-shadow 0.25s ease;
 }
 .site-header.is-static {
-  position: relative;
-  background: var(--dark);
+  background: rgba(12, 18, 24, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
+  padding: 20px 0;
 }
 .site-header .wrap {
   display: flex;
@@ -125,7 +150,8 @@ a { color: inherit; text-decoration: none; }
 .main-nav .btn-outline:hover { background: var(--gold); color: var(--dark); }
 
 /* Header variant for inner pages without a full dark hero underneath */
-.site-header.on-light { position: relative; background: var(--cream); padding: 32px 0 0 0; }
+.site-header.on-light { position: fixed; background: var(--cream); padding: 32px 0 20px 0; }
+.site-header.on-light.is-static { box-shadow: 0 1px 0 var(--line-on-light); padding: 18px 0; }
 .site-header.on-light .brand { color: var(--ink); }
 .site-header.on-light .main-nav a { color: var(--gray-on-light); }
 
@@ -408,8 +434,10 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ---------- Case record header ---------- */
-.case-header { padding: 40px 0 40px 0; background: var(--cream); }
-.page-intro { padding: 40px 0 20px 0; background: var(--cream); }
+/* padding-top clears the now-fixed header; nav.js sets --header-height to
+   its real measured height, the px value is just the pre-JS fallback. */
+.case-header { padding: calc(40px + var(--header-height, 118px)) 0 40px 0; background: var(--cream); }
+.page-intro { padding: calc(20px + var(--header-height, 118px)) 0 20px 0; background: var(--cream); }
 .case-header .eyebrow { margin-bottom: 10px; display: block; }
 .case-header h1 {
   font-family: var(--serif);
