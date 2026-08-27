@@ -89,9 +89,10 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
   transition: background 0.25s ease, padding 0.25s ease, box-shadow 0.25s ease;
 }
 .site-header.is-static {
-  background: rgba(12, 18, 24, 0.92);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  /* Solid rather than blurred: backdrop-filter on a position:fixed bar is a
+     known compositing hazard on mobile GPUs (the bar can drop out of the
+     repaint entirely while scrolling). The near-opaque fill reads the same. */
+  background: rgba(12, 18, 24, 0.96);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
   padding: 20px 0;
 }
@@ -160,26 +161,30 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
   background: none;
   border: none;
   cursor: pointer;
-  width: 26px;
-  height: 20px;
+  /* 44x44 minimum tap target (the bars stay 26x20 inside it) */
+  width: 44px;
+  height: 44px;
+  margin: -12px -9px;
   position: relative;
   z-index: 60;
-  padding: 0;
+  padding: 12px 9px;
   color: #fff;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 .site-header.on-light .nav-toggle { color: var(--ink); }
 .nav-toggle span {
   display: block;
   position: absolute;
-  left: 0;
-  width: 100%;
+  left: 9px;
+  width: 26px;
   height: 2px;
   background: currentColor;
   transition: transform 0.25s ease, opacity 0.2s ease;
 }
-.nav-toggle span:nth-child(1) { top: 0; }
-.nav-toggle span:nth-child(2) { top: 9px; }
-.nav-toggle span:nth-child(3) { top: 18px; }
+.nav-toggle span:nth-child(1) { top: 12px; }
+.nav-toggle span:nth-child(2) { top: 21px; }
+.nav-toggle span:nth-child(3) { top: 30px; }
 .nav-toggle[aria-expanded="true"] { color: #fff; }
 .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
 .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
@@ -196,26 +201,80 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
   .site-header.on-light .main-nav .btn-outline:hover { background: var(--gold-deep); color: var(--cream); }
 }
 
+/* ---------- Mobile menu ----------
+   The open menu is the header itself expanded to fill the screen, with the
+   nav laid out in normal flow inside it. It deliberately does NOT use a
+   position:fixed panel nested inside the position:fixed header: that
+   nesting is unreliable on mobile Safari, which can resolve the inner
+   element against the header's box instead of the viewport and render the
+   menu as a small misplaced block. Nothing here relies on fixed-inside-
+   fixed, transforms, or viewport-unit sizing on a child element. */
 @media (max-width: 900px) {
-  .main-nav {
-    position: fixed;
-    inset: 0;
+  .nav-toggle { display: block; }
+
+  .main-nav { display: none; }
+
+  .site-header.nav-open {
     background: var(--dark);
+    height: 100vh;
+    height: 100dvh;
+    padding-top: max(24px, env(safe-area-inset-top));
+    padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: none;
+  }
+  .site-header.on-light.nav-open { background: var(--dark); box-shadow: none; }
+  .site-header.nav-open .brand,
+  .site-header.on-light.nav-open .brand { color: #fff; }
+  .site-header.on-light.nav-open .nav-toggle { color: #fff; }
+
+  .site-header.nav-open .wrap {
+    height: 100%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+  /* Brand and close button share the top row; the nav takes the row below.
+     Without explicit order the full-width nav pushes the toggle onto a third
+     row and the close button ends up stranded below the menu. */
+  .site-header.nav-open .brand { order: 1; }
+  .site-header.nav-open .nav-toggle { order: 2; }
+  .site-header.nav-open .main-nav { order: 3; }
+
+  .site-header.nav-open .main-nav {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    flex: 1 1 100%;
+    width: 100%;
+    /* Fill the screen below the brand/close row so the links sit centred in
+       the space that's left, and scroll rather than clip if a future menu
+       grows past a short viewport. */
+    min-height: calc(100% - 48px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     gap: 30px;
-    padding: 48px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    z-index: 55;
+    padding: 24px 0 40px 0;
   }
-  .main-nav.mobile-open { transform: translateX(0); }
-  .main-nav a { font-size: 22px; color: #fff; }
-  .main-nav .nav-cta { margin-top: 10px; font-size: 13px; }
-  .nav-toggle { display: block; }
+  /* gap fallback for older mobile browsers that don't support it in flexbox */
+  @supports not (gap: 30px) {
+    .site-header.nav-open .main-nav > * { margin-bottom: 30px; }
+  }
+  .site-header.nav-open .main-nav a { font-size: 22px; color: #fff; }
+  .site-header.nav-open .main-nav a.active { color: var(--gold); }
+  .site-header.nav-open .main-nav .nav-cta {
+    font-size: 13px;
+    white-space: normal;
+    text-align: center;
+    max-width: 100%;
+  }
+
   body.nav-locked { overflow: hidden; }
+}
+
+@media (max-width: 360px) {
+  .site-header.nav-open .main-nav a { font-size: 20px; }
+  .main-nav .btn-outline { padding: 14px 18px; letter-spacing: 0.06em; }
 }
 
 /* ---------- Hero ---------- */
