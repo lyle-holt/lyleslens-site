@@ -105,6 +105,10 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   window.addEventListener('resize', function () {
-    if (window.innerWidth > 900) closeNav();
+    // Must match the nav breakpoint in style.css (max-width: 1180px). When this
+    // said 900 the overlay was the only nav between 901 and 1180px, yet any
+    // resize event closed it — and on tablets the address bar hiding fires
+    // resize, so the menu shut itself mid-tap.
+    if (window.innerWidth > 1180) closeNav();
   });
 });

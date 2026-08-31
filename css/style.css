@@ -111,6 +111,12 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
   font-weight: 600;
   font-size: 18px;
   color: #fff;
+  /* Without these the brand is a shrinkable flex item: between the old 900px
+     hamburger breakpoint and roughly 1180px the nav needed more room than was
+     left, so "LYLE'S LENS" was compressed from ~200px to ~85px, wrapped to two
+     lines, and collided with the first nav link. */
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 .brand img { height: 40px; width: auto; }
 
@@ -191,8 +197,9 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
 /* Header nav/CTA sit on ink-navy (hero, mobile overlay) by default — bright gold is correct there.
-   On the cool-white "on-light" header (desktop only; mobile always drops to the dark overlay), use deep gold. */
-@media (min-width: 901px) {
+   On the cool-white "on-light" header (desktop only; below 1180px the nav always drops to the dark
+   overlay), use deep gold. Kept in step with the mobile-menu breakpoint below. */
+@media (min-width: 1181px) {
   .site-header.on-light .main-nav a:hover,
   .site-header.on-light .main-nav a.active { color: var(--gold-deep); }
   /* ".main-nav .btn-outline" added so this out-specifies ".site-header.on-light .main-nav a"
@@ -209,7 +216,12 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
    element against the header's box instead of the viewport and render the
    menu as a small misplaced block. Nothing here relies on fixed-inside-
    fixed, transforms, or viewport-unit sizing on a child element. */
-@media (max-width: 900px) {
+/* Breakpoint raised from 900px to 1180px: the full nav row (four links plus the
+   "Request a Discovery Audit" button) needs about 730px, which does not fit
+   alongside the brand until roughly 1180px. Below that the menu goes to the
+   overlay. Layout breakpoints elsewhere in this file stay at 900px — only the
+   nav moved. */
+@media (max-width: 1180px) {
   .nav-toggle { display: block; }
 
   .main-nav { display: none; }
@@ -676,9 +688,16 @@ blockquote.pull {
 .demo-grid figure:nth-of-type(2) { grid-column: 2; grid-row: 1; }
 .demo-grid figure:nth-of-type(3) { grid-column: 2; grid-row: 2; }
 .demo-grid img { width: 100%; height: auto; display: block; border: 1px solid var(--line-on-light); object-fit: cover; }
+/* Aspect ratios must match the source order in evidence.html:
+   (1) deployment-governance-report.jpg  1414x2000 portrait
+   (2) crop-athlete.jpg                  5500x5289 near-square
+   (3) deployment-sponsor-banner.jpg     1920x1080 landscape
+   Rules 2 and 3 were previously swapped, which forced the 16:9 sponsor
+   banner into a near-square box and cropped the wordmark out of the
+   negative space the frame was built to leave open. */
 .demo-grid figure:nth-of-type(1) img { aspect-ratio: 1414 / 2000; }
-.demo-grid figure:nth-of-type(2) img { aspect-ratio: 1920 / 1080; }
-.demo-grid figure:nth-of-type(3) img { aspect-ratio: 5500 / 5289; }
+.demo-grid figure:nth-of-type(2) img { aspect-ratio: 5500 / 5289; }
+.demo-grid figure:nth-of-type(3) img { aspect-ratio: 1920 / 1080; }
 .demo-grid figcaption { font-size: 14px; color: var(--gray-on-light); line-height: 1.5; margin-top: 12px; }
 .demo-grid figcaption strong { display: block; color: var(--ink); font-family: var(--serif); font-size: 15px; margin-bottom: 4px; }
 @media (max-width: 860px) {
