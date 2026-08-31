@@ -406,11 +406,11 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
   gap: 56px;
   margin-top: 24px;
 }
-/* Columns stretch to equal height by default (grid), but content was top-aligned within
-   each one — so the CTA landed at a different height per column depending on paragraph
-   length. Flex + margin-top:auto on the CTA pins it to the same baseline across all three. */
+/* Columns stretch to equal height by default (grid); flex keeps their content
+   top-aligned within that height. The per-column CTAs these columns used to carry
+   were removed 2026-08-31 — a single call to action now sits at the page close —
+   so the margin-top:auto baseline rule that pinned them went with them. */
 .col-3 > div { display: flex; flex-direction: column; }
-.col-3 .cta-link { margin-top: auto; }
 @media (max-width: 860px) {
   .col-3 { grid-template-columns: 1fr; gap: 48px; }
 }
@@ -448,8 +448,6 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
 }
 .col-3 p { font-size: 17px; line-height: 1.6; color: var(--gray-on-light); margin: 0 0 18px 0; }
 .section-dark .col-3 p { color: var(--gray-on-dark); }
-.col-3 .cta-link { font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; display: block; margin-bottom: 6px; }
-.col-3 .cta-sub { font-size: 14px; color: var(--gray-on-light); }
 
 /* ---------- Numbered list ---------- */
 .numbered-list { margin-top: 32px; }
