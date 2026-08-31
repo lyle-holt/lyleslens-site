@@ -763,6 +763,90 @@ blockquote.pull {
 .refs ol { padding-left: 18px; }
 .refs li { margin-bottom: 6px; }
 
+
+/* ---------- Pivot line ----------
+   One sentence alone on a dark field. The space around it is the point:
+   it breaks the framework argument in two and gives the reader somewhere
+   to stop before the visual proof begins. Added 2026-08-31. */
+.pivot { background: var(--dark); padding: clamp(120px, 15vw, 220px) 0; }
+.pivot p {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(28px, 4.4vw, 62px);
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+  color: #fff;
+  max-width: 1000px;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* ---------- Deployment proof (homepage) ----------
+   The same one-frame-three-deployments argument that runs on evidence.html,
+   brought onto the homepage so the three channels are shown rather than only
+   described. Added 2026-08-31.
+
+   Aspect ratios are set by CLASS, not by nth-of-type. The evidence.html grid
+   used nth-of-type and the rules fell out of step with the source order when
+   the figures were reordered, which cropped the sponsor wordmark out of the
+   negative space it was shot to leave. Classes cannot drift that way. */
+.proof-source { margin-top: 8px; }
+.proof-source img { width: 100%; height: auto; }
+.proof-caption { font-size: 14px; line-height: 1.6; color: var(--gray-on-light); margin: 14px 0 0; max-width: 560px; }
+
+.deploy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(28px, 3.4vw, 56px);
+  align-items: start;
+  margin-top: clamp(56px, 7vw, 96px);
+}
+@media (max-width: 860px) { .deploy-grid { grid-template-columns: 1fr; gap: 48px; } }
+.deploy-grid figure { margin: 0; display: flex; flex-direction: column; }
+.deploy-grid .rule { width: 40px; height: 2px; background: var(--gold-deep); border: none; margin: 0 0 20px 0; }
+.deploy-grid img { width: 100%; object-fit: cover; margin-bottom: 20px; }
+.deploy-grid .ar-portrait { aspect-ratio: 1414 / 2000; }
+.deploy-grid .ar-square   { aspect-ratio: 5500 / 5289; }
+.deploy-grid .ar-wide     { aspect-ratio: 1920 / 1080; }
+/* Label above the image, not below it: the three frames are deliberately
+   different shapes, so a label underneath lands at a different height in each
+   column. Above, all three align on one line and the true crops are kept. */
+.deploy-grid h3 { font-family: var(--serif); font-weight: 600; font-size: 23px; line-height: 1.25; margin: 0 0 18px 0; }
+.deploy-grid p { font-size: 17px; line-height: 1.6; color: var(--gray-on-light); margin: 0 0 16px 0; }
+.deploy-grid figcaption { font-size: 14px; line-height: 1.6; color: var(--gray-on-light); }
+.deploy-note { font-size: 14px; line-height: 1.6; color: var(--gray-on-light); margin: 40px 0 0; max-width: 780px; }
+
+/* ---------- Identity portrait band ----------
+   Full-bleed, no captions. The homepage previously carried one photograph;
+   this is the only place on it where the work is simply shown rather than
+   argued. Falls to a horizontal filmstrip below 860px rather than tiling to
+   an uneven row — five items never divide cleanly into two or three columns.
+   Added 2026-08-31. */
+.portrait-band { background: var(--dark); padding: 0 0 clamp(72px, 9vw, 120px); }
+.portrait-band .wrap { margin-bottom: 26px; }
+/* Four frames, one per athlete. Four divides evenly at every breakpoint, so the
+   band never ends on an orphaned panel — five did. Order alternates exposure and
+   pose rather than grouping them. Revised 2026-08-31. */
+.portrait-band .band { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.portrait-band .band img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center; }
+/* Two frames need the crop window moved off centre. A lower percentage shows
+   more of the frame's left, which pushes the subject right in the panel; a
+   higher percentage does the reverse. Set per image because it depends on where
+   the subject sits in that specific frame, not on the layout. */
+.portrait-band .band .op-20 { object-position: 20% center; }
+.portrait-band .band .op-66 { object-position: 66% center; }
+@media (max-width: 860px) { .portrait-band .band { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- Two-column lead-in ----------
+   Heading held in the left column against the body copy on the right, so a
+   short statement gets the same weight as the paragraphs answering it.
+   Added 2026-08-31. */
+.split-lead { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(40px, 6vw, 96px); align-items: start; }
+@media (max-width: 900px) { .split-lead { grid-template-columns: 1fr; gap: 32px; } }
+.split-lead h2 { margin-top: 0; }
+.split-lead p { font-size: 18px; line-height: 1.7; color: #4a4844; margin: 0 0 22px 0; max-width: 620px; }
+.split-lead p:last-child { margin-bottom: 0; }
+
 /* ---------- Utility ---------- */
 .text-center { text-align: center; }
 .mt-0 { margin-top: 0; }
