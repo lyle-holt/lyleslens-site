@@ -154,10 +154,64 @@ UNUSED  = present in the repo, referenced by no page
    images/about/portrait/ and images/evidence/corporate-governance/. Only the second is
    referenced. Delete one and point both pages at it.
 
+── PORTRAIT BAND — CROP VALUES (homepage)
+   object-position per frame, verified 1 September by rendering candidates at the
+   real 226px panel width beside the full frame:
+     alyssa-elite-identity-45-black          default (already 4:5, no crop)
+     lucy-elite-identity-profile-backlit     25%   faces left; low value keeps
+                                                   the negative space ahead of
+                                                   her gaze. 66% discarded it.
+     georgie-elite-identity-dramatic-black   default (already 4:5, no crop)
+     marcelle-...-standing-angle-backlit     32%   faces right; keeps ponytail
+                                                   clear of the panel edge.
+   These sources are WIDER than the panel, so a LOWER percentage keeps more of
+   the frame's LEFT. Counter-intuitive — re-render before changing either.
+
+── PORTRAIT BAND — CROP COST (homepage)
+   The band panels are 4:5. How much of each source frame survives:
+
+   FILE                                     NATIVE      RETAINED
+   alyssa-elite-identity-45-black            864x1080    100%  (already 4:5)
+   georgie-elite-identity-dramatic-black    1080x1350    100%  (already 4:5)
+   marcelle-...-standing-angle-backlit      2048x2048     80%  (square)
+   lucy-elite-identity-profile-backlit      2048x1365     53%  (3:2 landscape)
+
+   The Lucy profile frame loses 47% of its width. Kept deliberately: it is the
+   only profile pose available and the only frame dark enough to break up the
+   sequence, so it earns its place on composition. But on a site whose argument
+   is engineered negative space and modular crops, discarding half a frame in the
+   showcase band is a real cost.
+
+   Cheaper alternatives if the pose is not worth it: lucy-elite-identity-hair-up
+   or -hair-down, both 2048x2048, retaining 80%. Both are front-on, so swapping
+   loses the profile from the band entirely.
+
+── ATHLETE REGISTER
+   Confirmed with Lyle 31 August 2026. Spellings for West, Smith and Brick are
+   corroborated by Hockey ACT's own 2025 national junior squad announcement.
+
+   FILE                                          ATHLETE          NOTES
+   alyssa-elite-identity-*                        Alyssa Smith     identity portrait
+   georgie-elite-identity-dramatic-black          Georgina West    identity portrait
+   lucy-elite-identity-*                          (unrecorded)     first name Lucy
+   marcelle-elite-identity-*                      (unrecorded)     first name Marcelle
+   lucy-nash-athlete-identity-action              Lucy Nash        selected Australia U21 Jillaroos, 2026
+   cameron-brick-athlete-identity-action          Cameron Brick    selected Australia U21 Burras, 2026
+
+   Named on the live homepage: Lucy Nash, Cameron Brick (deployment pair captions).
+   Not named on any page: Alyssa Smith, Georgina West, and the Lucy/Marcelle
+   identity portraits, which run in the portrait band without captions.
+
+   NOTE: "lucy-elite-identity-*" and "lucy-nash-*" may or may not be the same
+   athlete — unconfirmed. Do not assume.
+
+   STILL OPEN: release scope per athlete. Naming an athlete publicly is a
+   permission; the permission needs recording alongside the name.
+
 ── ATHLETE NAMING — OPEN ITEM
    Filenames carry first names or first-plus-surname (alyssa, georgie, lucy, marcelle,
    lucy-nash, cameron-brick) but no page records the athlete's full name, and alt text is
    generic ("Hockey ACT athlete identity portrait"). Confirmed in conversation 2026-08-31:
    alyssa-elite-identity-helmet-white = Alyssa Smith; georgie-elite-identity-dramatic-black
-   = Georgia West. The remaining names are unrecorded. Names in alt text and captions are a
+   = Georgina West. The remaining names are unrecorded. Names in alt text and captions are a
    release question as well as an SEO one — resolve before publishing them.

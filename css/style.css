@@ -508,7 +508,8 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
 .case-header { padding: calc(40px + var(--header-height, 118px)) 0 40px 0; background: var(--cream); }
 .page-intro { padding: calc(20px + var(--header-height, 118px)) 0 20px 0; background: var(--cream); }
 .case-header .eyebrow { margin-bottom: 10px; display: block; }
-.case-header h1 {
+.case-header h1,
+.case-header h2.case-title {
   font-family: var(--serif);
   font-weight: 600;
   font-size: clamp(30px, 4vw, 46px);
@@ -781,6 +782,20 @@ blockquote.pull {
   text-wrap: pretty;
 }
 
+/* ---------- Deployment pair (homepage) ----------
+   Two frames used in real institutional deployment: athletes told of their
+   Australia under-21 selection. Sits above the crop study because it is real
+   and the crop study's mock-ups are explicitly not. Added 2026-08-31. */
+.pair-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 2vw, 28px); margin-top: 40px; }
+@media (max-width: 760px) { .pair-grid { grid-template-columns: 1fr; } }
+.pair-grid figure { margin: 0; }
+/* 4:3 rather than 3:2. The two frames arrive at different shapes — Lucy Nash's
+   is square (2048x2048), Cameron Brick's is 3:2 — and a shared 3:2 box took a
+   third of the height off the square one. 4:3 splits the loss between them. */
+.pair-grid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.pair-grid figcaption { font-size: 15px; line-height: 1.6; color: var(--gray-on-light); margin-top: 14px; }
+.pair-grid figcaption strong { display: block; font-family: var(--serif); font-size: 17px; color: var(--ink); margin-bottom: 3px; }
+
 /* ---------- Deployment proof (homepage) ----------
    The same one-frame-three-deployments argument that runs on evidence.html,
    brought onto the homepage so the three channels are shown rather than only
@@ -819,22 +834,31 @@ blockquote.pull {
 /* ---------- Identity portrait band ----------
    Full-bleed, no captions. The homepage previously carried one photograph;
    this is the only place on it where the work is simply shown rather than
-   argued. Falls to a horizontal filmstrip below 860px rather than tiling to
-   an uneven row — five items never divide cleanly into two or three columns.
-   Added 2026-08-31. */
+   argued. Four across on desktop, 2x2 below 860px.
+   Added 2026-08-31, revised 2026-09-01. */
 .portrait-band { background: var(--dark); padding: 0 0 clamp(72px, 9vw, 120px); }
 .portrait-band .wrap { margin-bottom: 26px; }
 /* Four frames, one per athlete. Four divides evenly at every breakpoint, so the
-   band never ends on an orphaned panel — five did. Order alternates exposure and
-   pose rather than grouping them. Revised 2026-08-31. */
+   band never ends on an orphaned panel — five did.
+   Order is set by MEASURED mean luminance of each panel's visible crop (Rec.709),
+   not by eye: Alyssa 73.5 / Lucy 43.2 / Georgina 66.7 / Marcelle 57.7 — bright,
+   dark, bright, mid. Pose alternates with it: three-quarter, profile, front-on,
+   three-quarter. Re-measure before reordering. Revised 2026-09-01. */
 .portrait-band .band { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
 .portrait-band .band img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center; }
-/* Two frames need the crop window moved off centre. A lower percentage shows
-   more of the frame's left, which pushes the subject right in the panel; a
-   higher percentage does the reverse. Set per image because it depends on where
-   the subject sits in that specific frame, not on the layout. */
-.portrait-band .band .op-20 { object-position: 20% center; }
-.portrait-band .band .op-66 { object-position: 66% center; }
+/* Two frames need the crop window moved off centre.
+   DIRECTION, because it is counter-intuitive and I got it wrong twice: these
+   sources are WIDER than the 4:5 panel, so the percentage slides a window across
+   the source. A LOWER percentage keeps more of the frame's LEFT.
+   Lucy faces left and the engineered negative space is the void ahead of her
+   gaze, on the left — so she needs a LOW value to keep it. At 66% that void was
+   discarded and her nose sat against the panel edge.
+   Marcelle faces right and sits left of centre; 32% keeps her ponytail clear of
+   the edge with room still ahead of the gaze.
+   Verified by rendering candidates at the real 226px panel width against the full
+   frame. Do that again before changing either number. */
+.portrait-band .band .op-25 { object-position: 25% center; }
+.portrait-band .band .op-32 { object-position: 32% center; }
 @media (max-width: 860px) { .portrait-band .band { grid-template-columns: repeat(2, 1fr); } }
 
 /* ---------- Two-column lead-in ----------
@@ -850,3 +874,32 @@ blockquote.pull {
 /* ---------- Utility ---------- */
 .text-center { text-align: center; }
 .mt-0 { margin-top: 0; }
+
+
+/* Footer link row — quiet routes to the acquisition pages, which sit outside the main nav. */
+.footer-nav { display: flex; gap: 26px; align-items: center; flex-wrap: wrap; justify-content: center; }
+.footer-nav a { color: var(--gray-on-dark); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s ease; }
+.footer-nav a:hover { color: var(--gold); }
+
+
+/* Evidence hub case cards. Used only on /evidence.html, where the page is now an
+   index into individual case URLs rather than one long scroll. */
+.case-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 36px; }
+@media (max-width: 1000px) { .case-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .case-cards { grid-template-columns: 1fr; } }
+.case-cards a { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line-on-light); transition: border-color 0.2s ease, transform 0.2s ease; }
+.case-cards a:hover { border-color: var(--gold-deep); transform: translateY(-2px); }
+.case-cards img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 8%; display: block; }
+.case-cards .card-body { padding: 22px 24px 26px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.case-cards h3 { font-family: var(--serif); font-weight: 600; font-size: 21px; margin: 0; line-height: 1.25; }
+.case-cards p { font-size: 15px; line-height: 1.6; color: var(--gray-on-light); margin: 0; }
+.case-cards .card-go { margin-top: auto; padding-top: 12px; color: var(--gold-deep); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* Participation figures on Why Women's Sport. The only quantified third-party
+   number in the evidence base, so it is set as data rather than buried in a line. */
+.stat-band { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 48px); margin: 32px 0 8px 0; padding: 36px 0; border-top: 1px solid var(--line-on-light); border-bottom: 1px solid var(--line-on-light); }
+@media (max-width: 640px) { .stat-band { grid-template-columns: 1fr; gap: 24px; padding: 28px 0; } }
+.stat-band .stat-num { font-family: var(--serif); font-weight: 600; font-size: clamp(44px, 6vw, 68px); line-height: 1; letter-spacing: -0.02em; margin: 0 0 10px 0; }
+.stat-band .stat-num.is-fallen { color: var(--gold-deep); }
+.stat-band .stat-label { font-size: 15px; line-height: 1.5; color: var(--gray-on-light); margin: 0; }
+.stat-source { font-size: 14px; line-height: 1.6; color: var(--gray-on-light); margin: 14px 0 0 0; max-width: 720px; }

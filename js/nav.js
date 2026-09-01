@@ -17,10 +17,24 @@ document.addEventListener('DOMContentLoaded', function () {
     // While the menu is open the header fills the screen; measuring then would
     // push every page's top padding down by a full viewport height.
     if (header.classList.contains('nav-open')) return;
-    document.documentElement.style.setProperty('--header-height', header.offsetHeight + 'px');
+    // Never write 0px. If this runs before the header has laid out (fonts still
+    // loading, logo not yet decoded), offsetHeight reads 0 — and writing that
+    // literal zero defeats the 118px fallback in the stylesheet, collapsing the
+    // top padding on .case-header and .page-intro so the fixed header sits over
+    // the eyebrow and cuts through the first line of the H1. Leaving the
+    // property unset lets the fallback hold until a real measurement exists.
+    var h = header.offsetHeight;
+    if (!h) {
+      // Re-measure after layout settles, then again once webfonts land.
+      requestAnimationFrame(updateHeaderHeight);
+      return;
+    }
+    document.documentElement.style.setProperty('--header-height', h + 'px');
   }
   updateHeaderHeight();
+  window.addEventListener('load', updateHeaderHeight);
   window.addEventListener('resize', updateHeaderHeight);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateHeaderHeight);
   if (header) header.addEventListener('transitionend', updateHeaderHeight);
 
   // --- Scrolled state ------------------------------------------------------
