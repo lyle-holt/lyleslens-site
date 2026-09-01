@@ -650,12 +650,14 @@ blockquote.pull {
 .document-grid figcaption a:hover { text-decoration: underline; }
 @media (max-width: 700px) { .document-grid { grid-template-columns: 1fr; } }
 
-.document-feature { margin-top: 48px; }
+/* The width cap lives on the container, not on the image and caption separately,
+   so the caption can never drift wider than the frame it describes. Reduced from
+   640px on 1 Sep — the Kabul frame is a low-resolution 2009 file and visibly
+   pixelated at the larger size. This is a display cap, not a crop. */
+.document-feature { margin-top: 48px; max-width: 400px; margin-left: auto; margin-right: auto; }
 .document-feature img {
   width: 100%;
-  max-width: 640px;
   display: block;
-  margin: 0 auto;
 }
 .document-feature-caption {
   font-family: var(--serif);
@@ -663,7 +665,7 @@ blockquote.pull {
   font-size: 19px;
   line-height: 1.6;
   color: #fff;
-  max-width: 640px;
+  max-width: 100%;
   margin: 22px auto 0;
   text-align: center;
 }
@@ -840,24 +842,34 @@ blockquote.pull {
 .portrait-band .wrap { margin-bottom: 26px; }
 /* Four frames, one per athlete. Four divides evenly at every breakpoint, so the
    band never ends on an orphaned panel — five did.
-   Order is set by MEASURED mean luminance of each panel's visible crop (Rec.709),
-   not by eye: Alyssa 73.5 / Lucy 43.2 / Georgina 66.7 / Marcelle 57.7 — bright,
-   dark, bright, mid. Pose alternates with it: three-quarter, profile, front-on,
-   three-quarter. Re-measure before reordering. Revised 2026-09-01. */
+   Order revised 1 Sep at Lyle's instruction: Lucy and Alyssa swapped, so the band
+   now opens on Lucy. Measured mean luminance (Rec.709) of each panel's visible
+   crop is therefore Lucy 43.2 / Alyssa 73.5 / Georgina 66.7 / Marcelle 57.7 —
+   dark, bright, bright, mid. Pose runs profile, three-quarter, front-on,
+   three-quarter. The two bright panels now sit adjacent, which the earlier
+   alternating order avoided; that is a deliberate trade for the requested
+   sequence. Re-measure before reordering again. */
 .portrait-band .band { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
 .portrait-band .band img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center; }
-/* Two frames need the crop window moved off centre.
+/* One frame needs the crop window moved off centre.
    DIRECTION, because it is counter-intuitive and I got it wrong twice: these
    sources are WIDER than the 4:5 panel, so the percentage slides a window across
    the source. A LOWER percentage keeps more of the frame's LEFT.
    Lucy faces left and the engineered negative space is the void ahead of her
-   gaze, on the left — so she needs a LOW value to keep it. At 66% that void was
-   discarded and her nose sat against the panel edge.
+   gaze, on the left — so a LOWER value keeps more of it and pushes her body toward
+   the panel's RIGHT edge; a HIGHER value moves her left and drops void. She has
+   been at 66% (void gone, nose against the edge), 25% (full void, but she occupied
+   only the panel's right 47%) and 38% (matched to Marcelle). Now centred, 1 Sep, at
+   Lyle's instruction: the hair detail he wants visible only reads with the crop
+   window at the middle of the frame. Centring is the default rule above, so Lucy
+   carries no class. This deliberately spends the engineered negative space — the
+   thing the sponsor-banner mock-up higher up the page exists to demonstrate — in
+   exchange for the detail. Known trade, not an oversight.
    Marcelle faces right and sits left of centre; 32% keeps her ponytail clear of
    the edge with room still ahead of the gaze.
    Verified by rendering candidates at the real 226px panel width against the full
    frame. Do that again before changing either number. */
-.portrait-band .band .op-25 { object-position: 25% center; }
+.portrait-band .band .op-38 { object-position: 38% center; }
 .portrait-band .band .op-32 { object-position: 32% center; }
 @media (max-width: 860px) { .portrait-band .band { grid-template-columns: repeat(2, 1fr); } }
 
@@ -890,6 +902,10 @@ blockquote.pull {
 .case-cards a { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line-on-light); transition: border-color 0.2s ease, transform 0.2s ease; }
 .case-cards a:hover { border-color: var(--gold-deep); transform: translateY(-2px); }
 .case-cards img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; object-position: 50% 8%; display: block; }
+/* Frames that must be shown whole rather than cropped to the card box — the
+   Catherine Roberts session frame is wider than the card and loses both subjects
+   to a cover crop. */
+.case-cards img.fit-whole { object-fit: contain; background: var(--cream); }
 .case-cards .card-body { padding: 22px 24px 26px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .case-cards h3 { font-family: var(--serif); font-weight: 600; font-size: 21px; margin: 0; line-height: 1.25; }
 .case-cards p { font-size: 15px; line-height: 1.6; color: var(--gray-on-light); margin: 0; }
