@@ -683,6 +683,24 @@ blockquote.pull {
 .featured-video figcaption a { color: var(--gold-deep); }
 .featured-video figcaption a:hover { text-decoration: underline; }
 
+/* ---------- Public record (About page, veteran/Indigenous-owned block) ---------- */
+.public-record { margin-top: 8px; }
+.public-record .eyebrow { display: block; margin: 8px 0 12px 0; }
+.public-record .record-cite { font-size: 18px; line-height: 1.65; max-width: 760px; color: var(--gray-on-light); margin: 0 0 22px 0; }
+.record-links { display: flex; flex-direction: column; gap: 14px; margin: 0 0 32px 0; }
+.record-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  color: var(--ink);
+  text-decoration: none;
+  width: max-content;
+}
+.record-link svg { width: 14px; height: 14px; flex-shrink: 0; }
+.record-link:hover { color: var(--gold-deep); }
+.record-rule { width: 40px; height: 2px; background: var(--gold-deep); border: none; margin: 0; }
+
 .demo-grid { display: grid; grid-template-columns: 1.11fr 1fr; gap: 28px 32px; }
 .demo-grid figure { margin: 0; }
 .demo-grid figure:nth-of-type(1) { grid-column: 1; grid-row: 1 / span 2; }
@@ -808,6 +826,7 @@ blockquote.pull {
    the figures were reordered, which cropped the sponsor wordmark out of the
    negative space it was shot to leave. Classes cannot drift that way. */
 .proof-source { margin-top: 8px; }
+.proof-source .eyebrow { display: block; margin-bottom: 12px; }
 .proof-source img { width: 100%; height: auto; }
 .proof-caption { font-size: 14px; line-height: 1.6; color: var(--gray-on-light); margin: 14px 0 0; max-width: 560px; }
 
@@ -890,8 +909,8 @@ blockquote.pull {
 
 /* Footer link row — quiet routes to the acquisition pages, which sit outside the main nav. */
 .footer-nav { display: flex; gap: 26px; align-items: center; flex-wrap: wrap; justify-content: center; }
-.footer-nav a { color: var(--gray-on-dark); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; transition: color 0.2s ease; }
-.footer-nav a:hover { color: var(--gold); }
+.footer-nav a { color: var(--gold); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; text-underline-offset: 3px; text-decoration: underline; text-decoration-color: rgba(212,175,55,0.4); transition: color 0.2s ease, text-decoration-color 0.2s ease; }
+.footer-nav a:hover { color: var(--gold-soft); text-decoration-color: var(--gold-soft); }
 
 
 /* Evidence hub case cards. Used only on /evidence.html, where the page is now an
