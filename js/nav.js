@@ -126,3 +126,18 @@ document.addEventListener('DOMContentLoaded', function () {
     if (window.innerWidth > 1180) closeNav();
   });
 });
+
+// Lead-generation key event — 2026-09-07. GA4 was recording traffic but no
+// conversions: every "Request a Discovery Audit" link is a mailto, so a click
+// leaves the site and GA4 never sees it as an event by default. This fires a
+// dedicated event on every such link, sitewide, so future readouts can report
+// actual enquiries, not just page views. Guarded so pages without gtag loaded
+// don't throw.
+document.addEventListener('click', function (e) {
+  var link = e.target.closest('a[href^="mailto:lyle.holt@lyleslens.com"]');
+  if (!link || typeof gtag !== 'function') return;
+  gtag('event', 'discovery_audit_click', {
+    link_url: link.getAttribute('href'),
+    page_path: window.location.pathname
+  });
+});

@@ -919,3 +919,41 @@ blockquote.pull {
 .stat-band .stat-num.is-fallen { color: var(--gold-deep); }
 .stat-band .stat-label { font-size: 15px; line-height: 1.5; color: var(--gray-on-light); margin: 0; }
 .stat-source { font-size: 14px; line-height: 1.6; color: var(--gray-on-light); margin: 14px 0 0 0; max-width: 720px; }
+
+/* ---------- Evidence trail (identity -> pathway -> membership -> governance) ----------
+   Added 2026-09-08. Connected-sequence treatment for the Hockey ACT case page's
+   "Same Library, Redeployed" -> "From Athlete to Institution" rework. No cards, no
+   boxes, hairline separation only, per Style Guide v1. */
+.trail-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: start;
+  gap: 4px;
+  margin-top: 32px;
+}
+.trail-step { padding: 0 14px; }
+.trail-step:first-child { padding-left: 0; }
+.trail-step:last-child { padding-right: 0; }
+.trail-step img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+.trail-label {
+  display: block; margin-top: 16px; font-size: 12px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--gold-deep); font-weight: 600;
+}
+.trail-step h4 {
+  font-family: var(--serif); font-weight: 600; font-size: 18px;
+  margin: 6px 0 8px 0; color: var(--ink);
+}
+.trail-step p { font-size: 14px; line-height: 1.55; color: var(--gray-on-light); margin: 0; }
+.trail-connector {
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold-deep); font-size: 22px; padding-top: 130px;
+}
+.trail-note {
+  font-size: 13px; color: var(--gray-on-light); margin-top: 32px;
+  border-top: 1px solid var(--line-on-light); padding-top: 20px; max-width: 780px;
+}
+@media (max-width: 900px) {
+  .trail-grid { grid-template-columns: 1fr; gap: 28px; }
+  .trail-connector { padding-top: 0; transform: rotate(90deg); height: 20px; }
+  .trail-step { padding: 0 !important; }
+}
