@@ -931,26 +931,27 @@ blockquote.pull {
   gap: 4px;
   margin-top: 32px;
 }
-.trail-step { padding: 0 14px; }
+.trail-step {
+  padding: 0 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 .trail-step:first-child { padding-left: 0; }
 .trail-step:last-child { padding-right: 0; }
-.trail-step img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+/* Fixed height (not aspect-ratio) so all four panels render at an identical
+   box size regardless of any column-width rounding — literally the same
+   dimension, not just the same ratio. */
+.trail-step img { width: 100%; height: 340px; object-fit: cover; display: block; }
 .trail-label {
-  display: block; margin-top: 16px; font-size: 12px; letter-spacing: 0.14em;
+  display: block; margin: 16px 0 0 0; font-size: 12px; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--gold-deep); font-weight: 600;
+  font-family: var(--sans);
 }
-.trail-step h4 {
-  font-family: var(--serif); font-weight: 600; font-size: 18px;
-  margin: 6px 0 8px 0; color: var(--ink);
-}
-.trail-step p { font-size: 14px; line-height: 1.55; color: var(--gray-on-light); margin: 0; }
+.trail-step p { font-size: 14px; line-height: 1.55; color: var(--gray-on-light); margin: 8px 0 0 0; align-self: stretch; }
 .trail-connector {
   display: flex; align-items: center; justify-content: center;
-  color: var(--gold-deep); font-size: 22px; padding-top: 130px;
-}
-.trail-note {
-  font-size: 13px; color: var(--gray-on-light); margin-top: 32px;
-  border-top: 1px solid var(--line-on-light); padding-top: 20px; max-width: 780px;
+  color: var(--gold-deep); font-size: 22px; padding-top: 159px;
 }
 @media (max-width: 900px) {
   .trail-grid { grid-template-columns: 1fr; gap: 28px; }
