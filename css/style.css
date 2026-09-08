@@ -120,10 +120,10 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
 }
 .brand img { height: 40px; width: auto; }
 
-.main-nav { display: flex; align-items: center; gap: 44px; }
+.main-nav { display: flex; align-items: center; gap: 24px; }
 .main-nav a {
   font-size: 14px;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #cfcfcf;
   font-weight: 600;
@@ -152,7 +152,8 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
   border: 1px solid var(--gold);
   color: var(--gold);
   font-size: 13px;
-  padding: 14px 26px;
+  letter-spacing: 0.06em;
+  padding: 13px 18px;
 }
 .main-nav .btn-outline:hover { background: var(--gold); color: var(--dark); }
 
@@ -197,9 +198,9 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
 /* Header nav/CTA sit on ink-navy (hero, mobile overlay) by default — bright gold is correct there.
-   On the cool-white "on-light" header (desktop only; below 1180px the nav always drops to the dark
+   On the cool-white "on-light" header (desktop only; below 1000px the nav always drops to the dark
    overlay), use deep gold. Kept in step with the mobile-menu breakpoint below. */
-@media (min-width: 1181px) {
+@media (min-width: 1001px) {
   .site-header.on-light .main-nav a:hover,
   .site-header.on-light .main-nav a.active { color: var(--gold-deep); }
   /* ".main-nav .btn-outline" added so this out-specifies ".site-header.on-light .main-nav a"
@@ -216,12 +217,14 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
    element against the header's box instead of the viewport and render the
    menu as a small misplaced block. Nothing here relies on fixed-inside-
    fixed, transforms, or viewport-unit sizing on a child element. */
-/* Breakpoint raised from 900px to 1180px: the full nav row (four links plus the
-   "Request a Discovery Audit" button) needs about 730px, which does not fit
-   alongside the brand until roughly 1180px. Below that the menu goes to the
-   overlay. Layout breakpoints elsewhere in this file stay at 900px — only the
-   nav moved. */
-@media (max-width: 1180px) {
+/* Breakpoint lowered to 1000px on 2026-09-08 (F19). At 1180px the overlay was
+   swallowing the whole nav — including the Discovery Audit CTA — on 1280px
+   displays and iPad landscape, the everyday widths inside a sporting
+   organisation. Tighter link gap (44px to 24px), 0.06em tracking and a shorter
+   CTA bring the row to about 870px, so it fits alongside the brand from 1000px
+   up. Measured, not estimated: re-measure before changing tracking or padding.
+   Layout breakpoints elsewhere in this file stay at 900px. */
+@media (max-width: 1000px) {
   .nav-toggle { display: block; }
 
   .main-nav { display: none; }
@@ -290,10 +293,15 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
 }
 
 /* ---------- Hero ---------- */
+/* P1, 2026-09-08: was min-height:100vh, which sealed the hero to the viewport
+   at every screen height and gave the reader no signal that anything structural
+   followed. The reveal is now a controlled band rather than a percentage: the
+   hero yields 72-140px (scaling with viewport height) to the next section, so
+   its heading breaks the fold at 768px, 900px and 1080px alike. */
 .hero {
   position: relative;
   background: var(--dark-soft);
-  min-height: 100vh;
+  min-height: calc(100vh - clamp(72px, 12vh, 140px));
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -320,9 +328,9 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: 160px 48px 96px 48px;
+  padding: 160px 48px 72px 48px;
 }
-.hero-copy-inner { max-width: 640px; }
+.hero-copy-inner { max-width: 700px; }
 .hero-copy h1 {
   font-family: var(--serif);
   font-weight: 600;
@@ -338,15 +346,27 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
   margin: 0 0 28px 0;
   border: none;
 }
+/* P1: the qualifying sentence — the one naming organisations, pathway
+   programmes and academies — was the smallest, lowest-contrast element in the
+   frame, and margin:0 on both paragraphs fused them into one block. The first
+   paragraph now leads at full white; the second sits under it as support. */
 .hero-copy p {
-  color: #e9e7e2;
+  color: #dcd9d3;
   text-shadow: 0 1px 4px rgba(0,0,0,0.55);
-  font-size: 17px;
-  max-width: 440px;
-  margin: 0;
+  font-size: clamp(17px, 1.5vw, 18px);
+  line-height: 1.6;
+  max-width: 520px;
+  margin: 0 0 18px 0;
 }
+.hero-copy p:first-of-type {
+  color: #fff;
+  font-size: clamp(19px, 1.7vw, 22px);
+  line-height: 1.5;
+  max-width: 620px;
+}
+.hero-copy p:last-of-type { margin-bottom: 0; }
 @media (max-width: 900px) {
-  .hero { min-height: 92vh; }
+  .hero { min-height: calc(100vh - clamp(56px, 9vh, 96px)); }
   .hero-copy { padding: 140px 24px 56px 24px; }
   .hero-image img { object-position: 78% center; }
 }
@@ -365,8 +385,11 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
 }
 
 /* ---------- Sections ---------- */
-.section { padding: 100px 0; }
-.section-tight { padding: 60px 0; }
+/* F8, 2026-09-08: padding was a flat 100px at every width, which put 200px of
+   empty ground between consecutive text sections on a 390px screen. Fluid now;
+   the pivot band keeps its own large clamp deliberately. */
+.section { padding: clamp(56px, 8vw, 100px) 0; }
+.section-tight { padding: clamp(40px, 5vw, 60px) 0; }
 .section-dark { background: var(--dark); color: #fff; }
 .section-cream { background: var(--cream); color: var(--ink); }
 .section-cream-alt { background: var(--cream-alt); color: var(--ink); }
@@ -490,6 +513,21 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
 .process-step p { color: var(--gray-on-dark); font-size: 17px; line-height: 1.6; margin: 0 0 12px 0; }
 
 /* ---------- Buttons / CTA ---------- */
+/* .cta-link was in the markup on Why Women's Sport but declared nowhere, so the
+   only forward route out of that page's argument rendered as plain text.
+   Declared here against the same gold treatment as .btn-gold. Added 2026-09-08. */
+.cta-link {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--dark);
+  padding: 16px 30px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-decoration: none;
+}
+.cta-link:hover { background: var(--gold-deep); color: var(--cream); }
 .cta-row { margin-top: 40px; display: flex; gap: 20px; flex-wrap: wrap; }
 .btn-gold {
   background: var(--gold);
@@ -536,22 +574,48 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
 .gallery-block { padding: 20px 0 60px 0; }
 .gallery-block .eyebrow { display: block; margin-bottom: 8px; }
 .gallery-block .gallery-caption { font-size: 16px; line-height: 1.6; color: #4a4844; max-width: 760px; margin: 0 0 24px 0; }
+/* F13/F30, 2026-09-08: the ratio now follows the photograph's orientation, not
+   the grid. The old default was five columns at a forced 4:5, which put every
+   landscape competition frame through a portrait window (roughly 40% of the
+   frame's width discarded) at about 211px wide. Landscape sets are 3:2 at three
+   across (~360px); portrait identity sets keep 4:5 at four across. */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 12px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
+.gallery-grid img { width: 100%; height: auto; object-fit: cover; aspect-ratio: 3/2; }
 .gallery-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
 .gallery-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
 .gallery-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
-.gallery-grid img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4/5; }
-.gallery-grid.cols-2 img, .gallery-grid.cols-3 img { aspect-ratio: 3/2; }
+/* Identity portraits: upright frames, cropped from the top so the head is never
+   the thing that goes. */
+.gallery-grid.cols-4 img { aspect-ratio: 4/5; object-position: center top; }
+/* Upright variant, as the name says: media-day and identity portrait sets are
+   2:3 sources and keep a portrait window, cropped from the top. The homepage's
+   landscape trio was wrongly carrying this class and now uses .cols-3. */
 .gallery-grid.cols-3-tall { grid-template-columns: repeat(3, 1fr); }
 .gallery-grid.cols-3-tall img { aspect-ratio: 4/5; object-position: top center; }
+/* F17: mixed pair. Wide frame at 2fr in 3:2, upright frame at 1fr in its native
+   2:3, so an archival portrait is never cover-cropped across its subject. */
+.gallery-grid.pair-wide-tall { grid-template-columns: 2fr 1fr; align-items: start; }
+.gallery-grid.pair-wide-tall img:first-child { aspect-ratio: 3/2; }
+.gallery-grid.pair-wide-tall img:last-child { aspect-ratio: 2/3; object-position: center top; }
 .gallery-feature img { width: 100%; display: block; }
 @media (max-width: 860px) {
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-grid.cols-3, .gallery-grid.cols-4, .gallery-grid.cols-3-tall { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid,
+  .gallery-grid.cols-3,
+  .gallery-grid.cols-4,
+  .gallery-grid.cols-3-tall { grid-template-columns: repeat(2, 1fr); }
+}
+/* F30: two columns at 390px meant 165px photographs. One column below 720px. */
+@media (max-width: 720px) {
+  .gallery-grid,
+  .gallery-grid.cols-2,
+  .gallery-grid.cols-3,
+  .gallery-grid.cols-4,
+  .gallery-grid.cols-3-tall,
+  .gallery-grid.pair-wide-tall { grid-template-columns: 1fr; }
 }
 
 /* Mixed portrait + landscape gallery (e.g. institutional governance set) */
@@ -701,30 +765,12 @@ blockquote.pull {
 .record-link:hover { color: var(--gold-deep); }
 .record-rule { width: 40px; height: 2px; background: var(--gold-deep); border: none; margin: 0; }
 
-.demo-grid { display: grid; grid-template-columns: 1.11fr 1fr; gap: 28px 32px; }
-.demo-grid figure { margin: 0; }
-.demo-grid figure:nth-of-type(1) { grid-column: 1; grid-row: 1 / span 2; }
-.demo-grid figure:nth-of-type(2) { grid-column: 2; grid-row: 1; }
-.demo-grid figure:nth-of-type(3) { grid-column: 2; grid-row: 2; }
-.demo-grid img { width: 100%; height: auto; display: block; border: 1px solid var(--line-on-light); object-fit: cover; }
-/* Aspect ratios must match the source order in evidence.html:
-   (1) deployment-governance-report.jpg  1414x2000 portrait
-   (2) crop-athlete.jpg                  5500x5289 near-square
-   (3) deployment-sponsor-banner.jpg     1920x1080 landscape
-   Rules 2 and 3 were previously swapped, which forced the 16:9 sponsor
-   banner into a near-square box and cropped the wordmark out of the
-   negative space the frame was built to leave open. */
-.demo-grid figure:nth-of-type(1) img { aspect-ratio: 1414 / 2000; }
-.demo-grid figure:nth-of-type(2) img { aspect-ratio: 5500 / 5289; }
-.demo-grid figure:nth-of-type(3) img { aspect-ratio: 1920 / 1080; }
-.demo-grid figcaption { font-size: 14px; color: var(--gray-on-light); line-height: 1.5; margin-top: 12px; }
-.demo-grid figcaption strong { display: block; color: var(--ink); font-family: var(--serif); font-size: 15px; margin-bottom: 4px; }
-@media (max-width: 860px) {
-  .demo-grid { grid-template-columns: 1fr; }
-  .demo-grid figure:nth-of-type(1),
-  .demo-grid figure:nth-of-type(2),
-  .demo-grid figure:nth-of-type(3) { grid-column: 1; grid-row: auto; }
-}
+/* F25, 2026-09-08: .demo-grid removed. It was a second implementation of the
+   same one-frame-three-deployments argument, with its aspect ratios bound to
+   source order (which had already fallen out of step once and cropped the
+   sponsor wordmark out of the negative space the frame was built to leave).
+   Evidence now renders that section with .deploy-grid, whose ratios are set by
+   class and whose labels sit above the images. */
 
 /* ---------- Stats footer strip ---------- */
 .stats-strip {
@@ -825,17 +871,31 @@ blockquote.pull {
    used nth-of-type and the rules fell out of step with the source order when
    the figures were reordered, which cropped the sponsor wordmark out of the
    negative space it was shot to leave. Classes cannot drift that way. */
-.proof-source { margin-top: 8px; }
+/* P5B, 2026-09-08: the source frame drops from the full 1104px measure to 460px
+   and stays inside the text measure; a single rule falls from it into the row of
+   uses below. The three applications are PARALLEL uses of one frame, not a
+   sequence, so they sit on one common top line — no stepping, no offset, nothing
+   that implies chronology. */
+.proof-source { margin-top: 8px; max-width: 460px; }
 .proof-source .eyebrow { display: block; margin-bottom: 12px; }
 .proof-source img { width: 100%; height: auto; }
-.proof-caption { font-size: 14px; line-height: 1.6; color: var(--gray-on-light); margin: 14px 0 0; max-width: 560px; }
+.proof-caption { font-size: 14px; line-height: 1.6; color: var(--gray-on-light); margin: 14px 0 0; max-width: 460px; }
+.proof-connector { width: 2px; height: 72px; background: var(--gold-deep); border: none; margin: 24px 0 0 229px; }
+@media (max-width: 760px) { .proof-connector { margin-left: 50%; height: 48px; } }
 
+/* The row of uses breaks out past the text measure so each application lands
+   at roughly 450px rather than 330px: the deployments now outweigh the source,
+   which is the whole point of the section. Equal 1fr columns keep the three
+   parallel. */
 .deploy-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: clamp(28px, 3.4vw, 56px);
+  gap: clamp(24px, 2.6vw, 40px);
   align-items: start;
-  margin-top: clamp(56px, 7vw, 96px);
+  margin-top: 28px;
+  --bleed: min(168px, max(0px, calc((100vw - 100% - 24px) / 2)));
+  margin-left: calc(-1 * var(--bleed));
+  margin-right: calc(-1 * var(--bleed));
 }
 @media (max-width: 860px) { .deploy-grid { grid-template-columns: 1fr; gap: 48px; } }
 .deploy-grid figure { margin: 0; display: flex; flex-direction: column; }
@@ -850,7 +910,40 @@ blockquote.pull {
 .deploy-grid h3 { font-family: var(--serif); font-weight: 600; font-size: 23px; line-height: 1.25; margin: 0 0 18px 0; }
 .deploy-grid p { font-size: 17px; line-height: 1.6; color: var(--gray-on-light); margin: 0 0 16px 0; }
 .deploy-grid figcaption { font-size: 14px; line-height: 1.6; color: var(--gray-on-light); }
+/* P6, 2026-09-08: illustrative applications sit inset on a tinted substrate and
+   read as flat artboards on a mount; genuine photographic evidence stays
+   full-bleed. The distinction is carried by treatment alone — no badge, label or
+   caption is added, so the disclaimer copy is supported rather than duplicated. */
+.deploy-grid .mockup { background: #dfe3e6; border: 1px solid #cfd5d9; padding: 14px; margin-bottom: 20px; }
+.deploy-grid .mockup img { margin-bottom: 0; }
 .deploy-note { font-size: 14px; line-height: 1.6; color: var(--gray-on-light); margin: 40px 0 0; max-width: 780px; }
+
+/* ---------- Deployment band (P2B) ----------
+   First photographic material on Evidence. The three frames that carry the real
+   redeployment argument elsewhere on the site — competition, membership,
+   governance — held at one common HEIGHT with width:auto, so each is scaled
+   whole and nothing is cropped to achieve alignment. Native format is the
+   visible variable: square, landscape, upright. No object-fit here on purpose;
+   adding one would trade photographic integrity for a tidy edge. Added
+   2026-09-08. */
+.deploy-band { background: var(--dark); padding: clamp(28px, 3.5vw, 44px) 0; }
+.deploy-band .strip {
+  display: flex;
+  gap: 2px;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0 24px;
+}
+.deploy-band .strip img {
+  height: clamp(240px, 26vw, 380px);
+  width: auto;
+  max-width: 100%;
+  display: block;
+}
+@media (max-width: 900px) {
+  .deploy-band .strip { flex-direction: column; gap: 12px; }
+  .deploy-band .strip img { height: auto; width: 100%; }
+}
 
 /* ---------- Identity portrait band ----------
    Full-bleed, no captions. The homepage previously carried one photograph;
@@ -943,13 +1036,23 @@ blockquote.pull {
    Added 2026-09-08. Connected-sequence treatment for the Hockey ACT case page's
    "Same Library, Redeployed" -> "From Athlete to Institution" rework. No cards, no
    boxes, hairline separation only, per Style Guide v1. */
+/* F12, 2026-09-08: was four columns across one row, each panel about 228px wide
+   with a fixed 340px height and object-fit:cover. The four sources are 1:1, 1:1,
+   3:2 and 2:3, so a single window centre-cropped all of them and the governance
+   page — which only works as evidence if it reads as a real document — was
+   illegible. Two rows of two takes each frame to roughly 520px at its native
+   shape. Explanation beside it runs at 760px; the proof is no longer smaller
+   than the sentence describing it. */
 .trail-grid {
   display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  grid-template-columns: 1fr auto 1fr;
   align-items: start;
-  gap: 20px;
+  gap: clamp(32px, 4vw, 56px) 24px;
   margin-top: 32px;
 }
+/* The middle connector is dropped so the four steps fall as two rows of two;
+   reading order still runs 1-2-3-4. It returns in the single-column layout. */
+.trail-grid > .trail-connector:nth-child(4) { display: none; }
 /* No per-step padding: the four image columns are "1fr" and must stay
    exactly equal. Padding on only some steps (e.g. via :first-child /
    :last-child overrides) silently shrinks the middle columns' content
@@ -960,10 +1063,10 @@ blockquote.pull {
   flex-direction: column;
   align-items: flex-start;
 }
-/* Fixed height (not aspect-ratio) so all four panels render at an identical
-   box size regardless of any column-width rounding — literally the same
-   dimension, not just the same ratio. */
-.trail-step img { width: 100%; height: 340px; object-fit: cover; display: block; }
+/* Native shape. Identical box sizes were the bug, not the feature: they were
+   what forced the crop. Equal COLUMN width is what makes the four steps read as
+   one sequence, and the 1fr columns give that. */
+.trail-step img { width: 100%; height: auto; display: block; }
 .trail-label {
   display: block; margin: 16px 0 0 0; font-size: 12px; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--gold-deep); font-weight: 600;
@@ -972,9 +1075,10 @@ blockquote.pull {
 .trail-step p { font-size: 14px; line-height: 1.55; color: var(--gray-on-light); margin: 8px 0 0 0; align-self: stretch; }
 .trail-connector {
   display: flex; align-items: center; justify-content: center;
-  color: var(--gold-deep); font-size: 22px; padding-top: 159px;
+  color: var(--gold-deep); font-size: 22px; align-self: center;
 }
 @media (max-width: 900px) {
   .trail-grid { grid-template-columns: 1fr; gap: 28px; }
-  .trail-connector { padding-top: 0; transform: rotate(90deg); height: 20px; }
+  .trail-grid > .trail-connector:nth-child(4) { display: flex; }
+  .trail-connector { transform: rotate(90deg); height: 20px; }
 }
