@@ -1082,3 +1082,87 @@ blockquote.pull {
   .trail-grid > .trail-connector:nth-child(4) { display: flex; }
   .trail-connector { transform: rotate(90deg); height: 20px; }
 }
+
+/* ---------- The Day (homepage film, 2026-09-12) ----------
+   The film closes the "Your organisation already has photographs." section: it
+   has no heading, eyebrow, lede, caption or CTA of its own, and it never plays
+   until the reader presses Play. The section ground is --cream-alt so the
+   film's own paper (#F7F8F8) reads as a lighter plane on it. No border, shadow
+   or radius on the player. Inside the paper rectangle only ink is used: the
+   site's gold stays outside the picture (the captions link, below the frame).
+   Behaviour (play, captions, header protection, end reset) is in /js/film.js. */
+.film { margin: 40px 0 0 0; }
+/* The frame paints the poster behind the video so the end-of-film fade reveals
+   the first frame, not bare paper, while the video element is reset beneath. */
+.film-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #F7F8F8 url(/video/the-day-poster-first-frame.jpg) center / cover no-repeat;
+}
+.film-video { display: block; width: 100%; height: 100%; }
+
+/* Poster control: one ink weight, faint paper fill, centred in the empty paper
+   under the drawn desk (vertical centre at 72% of the player's height). The
+   rest state must already read as a control on touch, where there is no hover:
+   the paper fill and the label do that. */
+.film-play {
+  position: absolute; left: 50%; top: 72%; transform: translate(-50%, -50%);
+  display: flex; align-items: center; gap: 18px; white-space: nowrap;
+  margin: 0; padding: 8px; background: none; border: 0; cursor: pointer;
+  font-family: var(--sans); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink);
+}
+.film-play-disc {
+  width: 72px; height: 72px; border-radius: 50%; flex-shrink: 0;
+  border: 2px solid var(--ink); background: rgba(247, 248, 248, 0.6);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s ease;
+}
+.film-play-disc svg { display: block; fill: var(--ink); transition: fill 0.15s ease; }
+/* Hover and keyboard focus invert the disc to solid ink with a paper glyph;
+   never gold, never nothing. */
+.film-play:hover .film-play-disc,
+.film-play:focus-visible .film-play-disc { background: var(--ink); }
+.film-play:hover .film-play-disc svg,
+.film-play:focus-visible .film-play-disc svg { fill: #F7F8F8; }
+.film-play:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+
+/* Playing: the overlay is gone and out of the tab order (film.js toggles
+   .is-playing); native controls are the only controls from here. */
+.film.is-playing .film-play { display: none; }
+
+/* End of film: the video (at its final black frame) fades out over 250ms to
+   reveal the poster painted on the frame, then film.js resets it and restores
+   the overlay. Immediate under reduced motion. */
+.film-video { transition: opacity 0.25s ease; }
+.film.is-ending .film-video { opacity: 0; }
+@media (prefers-reduced-motion: reduce) { .film-video { transition: none; } }
+
+/* Captions route: text only, small, outside the paper, deep gold on the light
+   ground, left-aligned to the player. */
+.film-captions {
+  display: block; margin: 14px 0 0 0; padding: 0; background: none; border: 0;
+  cursor: pointer; font-family: var(--sans); font-size: 13px; line-height: 1.5;
+  color: var(--gold-deep); text-decoration: underline; text-underline-offset: 2px;
+}
+.film-captions:hover { color: var(--gold); }
+.film-captions:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+/* Header protection (film.js): while the film is playing inline and its
+   rectangle overlaps the fixed header band, the header is suppressed so the
+   film's day words are never covered. Instant, not animated: a transform on a
+   position:fixed bar is the compositing hazard the header comment above
+   describes, and visibility needs no compositing at all. Independent of
+   .is-static, which nav.js keeps toggling underneath. */
+.site-header.is-hidden-for-film { visibility: hidden; pointer-events: none; }
+
+/* Phones: same DOM order (heading, paragraphs, player). The player alone runs
+   edge to edge out of the 24px wrap padding; the captions button stays inside
+   it. Smaller disc, lower centre (78%) to clear the desk plank on a 219px-high
+   player. */
+@media (max-width: 720px) {
+  .film-frame { margin-left: -24px; margin-right: -24px; }
+  .film-play { top: 78%; gap: 12px; font-size: 11px; }
+  .film-play-disc { width: 48px; height: 48px; }
+  .film-play-disc svg { width: 18px; height: 18px; }
+}

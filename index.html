@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css?v=20260908c">
+<link rel="stylesheet" href="/css/style.css?v=20260912">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -107,6 +107,18 @@
       "url": "https://lyleslens.com/",
       "name": "Lyle's Lens Photography",
       "publisher": { "@id": "https://lyleslens.com/#organization" }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://lyleslens.com/#the-day",
+      "name": "The Day",
+      "description": "A two-minute explainer of visual infrastructure: a Monday and a Tuesday at the desk of someone who runs an elite sporting pathway.",
+      "thumbnailUrl": "https://lyleslens.com/video/the-day-poster-first-frame.jpg",
+      "contentUrl": "https://lyleslens.com/video/the-day-release-1080p-h264.mp4",
+      "uploadDate": "2026-09-12",
+      "duration": "PT2M20S",
+      "inLanguage": "en-AU",
+      "publisher": { "@id": "https://lyleslens.com/#organization" }
     }
   ]
 }
@@ -153,13 +165,37 @@
 </section>
 
 <!-- SECTION 2: THE PROBLEM -->
-<section class="section section-cream">
+<section class="section section-cream-alt">
   <div class="wrap">
     <h2>Your organisation already has photographs.</h2>
     <div class="body-copy">
       <p>You have game-day coverage. Media-day images. Social content. Thousands of photographs recording what happened.</p>
       <p>But an organisation needs imagery to do more than document the sport. It needs to support pathways, funding, sponsorship, governance, recruitment and communications.</p>
     </div>
+    <!-- The Day (2026-09-12): the film closes this section. The problem is stated in the
+         two paragraphs above, lived and resolved in the film, then diagnosed in the pivot
+         below. Deliberately no heading, eyebrow, lede, caption or CTA around it. Never
+         autoplays; native controls appear only once the viewer presses Play. Captions are
+         off by default (no `default` on the track); "Play with captions" turns them on.
+         Behaviour and header protection live in /js/film.js. -->
+    <figure class="film" id="the-day">
+      <div class="film-frame">
+        <video class="film-video" id="the-day-video"
+               preload="metadata" playsinline
+               poster="/video/the-day-poster-first-frame.jpg"
+               aria-label="The Day, a two minute twenty explainer">
+          <source src="/video/the-day-release-1080p-h264.mp4" type="video/mp4">
+          <track kind="captions" srclang="en" label="English" src="/video/the-day-captions.vtt">
+        </video>
+        <button class="film-play" type="button" aria-label="Play The Day, 2 minutes 20, sound on">
+          <span class="film-play-disc" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" focusable="false"><path d="M7 4.5v15l12-7.5z"/></svg>
+          </span>
+          <span class="film-play-label">Play &middot; 2:20 &middot; Sound on</span>
+        </button>
+      </div>
+      <button class="film-captions" type="button">Play with captions</button>
+    </figure>
   </div>
 </section>
 
@@ -439,5 +475,6 @@
 </footer>
 
 <script src="/js/nav.js?v=20260907"></script>
+<script src="/js/film.js?v=20260912"></script>
 </body>
 </html>
