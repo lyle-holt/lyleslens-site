@@ -8,6 +8,18 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-1S16LPGESH');
+  // Enquiry tracking: every enquiry path on this site is a mailto link, which GA4 does not measure natively.
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href^="mailto:"]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var m = href.match(/[?&]subject=([^&]*)/);
+    gtag('event', 'email_click', {
+      link_url: href,
+      link_subject: m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : '(none)',
+      link_text: (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80)
+    });
+  }, true);
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
