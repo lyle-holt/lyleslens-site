@@ -371,6 +371,18 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
   .hero-image img { object-position: 78% center; }
 }
 
+
+/* Mobile hero (2026-10-02): on narrow screens the copy sat over the athlete's face.
+   Stack the image above the copy instead, so both stay readable. */
+@media (max-width: 640px) {
+  .hero { display: block; min-height: 0; background: var(--dark-soft); }
+  .hero-image { position: relative; inset: auto; height: 62vh; min-height: 360px; }
+  .hero-image img { object-position: 72% 20%; }
+  .hero-scrim { inset: 0 0 auto 0; height: 62vh; min-height: 360px;
+    background: linear-gradient(180deg, rgba(12,13,17,0.45) 0%, rgba(12,13,17,0) 30%, rgba(12,13,17,0) 70%, rgba(12,13,17,0.95) 100%); }
+  .hero-copy { padding: 8px 20px 48px 20px; }
+}
+
 /* ---------- Deployment strip ---------- */
 .strip-dark {
   background: var(--dark);
