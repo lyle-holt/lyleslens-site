@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 490" role="img" aria-labelledby="t d" font-family="Verdana, Tahoma, sans-serif">
-  <title id="t">How Lyle's Lens works with an organisation</title>
-  <desc id="d">Three steps: a Discovery Audit of the photos you already have, building only what is missing, and keeping the library useful over time. Any single service can also be booked directly.</desc>
+  <title id="t">How Lyle's Lens works with a sporting organisation</title>
+  <desc id="d">For sporting organisations, three steps: a Discovery Audit of the photos you already have, building only what is missing, and keeping the library useful over time. Any single service can also be booked directly.</desc>
   <rect width="1200" height="490" fill="#f6f4ef"/>
   <rect x="40" y="50" width="350" height="290" rx="10" fill="#fff" stroke="#d9d4c9"/>
   <circle cx="76" cy="92" r="20" fill="#1f2a3a"/><text x="76" y="99" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">1</text>
@@ -15,9 +15,10 @@
   <circle cx="461" cy="92" r="20" fill="#1f2a3a"/><text x="461" y="99" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">2</text>
   <text x="493" y="99" font-size="19" font-weight="700" fill="#1f2a3a">Build what is missing</text>
   <text x="449" y="150" font-size="15" fill="#4a5360">Shoots planned around the gaps</text>
-  <text x="449" y="175" font-size="15" fill="#4a5360">the audit finds. Portraits,</text>
-  <text x="449" y="200" font-size="15" fill="#4a5360">event coverage and aerial.</text>
-  <text x="449" y="312" font-size="14" font-weight="700" fill="#1f2a3a">Services and prices below</text>
+  <text x="449" y="175" font-size="15" fill="#4a5360">the audit finds: event coverage,</text>
+  <text x="449" y="200" font-size="15" fill="#4a5360">media days, team portraits and</text>
+  <text x="449" y="225" font-size="15" fill="#4a5360">aerial.</text>
+  <text x="449" y="312" font-size="14" font-weight="700" fill="#1f2a3a">Services and prices</text>
   <rect x="810" y="50" width="350" height="290" rx="10" fill="#fff" stroke="#d9d4c9"/>
   <circle cx="846" cy="92" r="20" fill="#1f2a3a"/><text x="846" y="99" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">3</text>
   <text x="878" y="99" font-size="19" font-weight="700" fill="#1f2a3a">Keep it useful</text>
