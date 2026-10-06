@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 490" role="img" aria-labelledby="t d" font-family="Verdana, Tahoma, sans-serif">
+  <title id="t">How Lyle's Lens works with an organisation</title>
+  <desc id="d">Three steps: a Discovery Audit of the photos you already have, building only what is missing, and keeping the library useful over time. Any single service can also be booked directly.</desc>
+  <rect width="1200" height="490" fill="#f6f4ef"/>
+  <rect x="40" y="50" width="350" height="290" rx="10" fill="#fff" stroke="#d9d4c9"/>
+  <circle cx="76" cy="92" r="20" fill="#1f2a3a"/><text x="76" y="99" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+  <text x="108" y="99" font-size="19" font-weight="700" fill="#1f2a3a">Start with what you have</text>
+  <text x="64" y="150" font-size="15" fill="#4a5360">A written review of the photos you</text>
+  <text x="64" y="175" font-size="15" fill="#4a5360">already have, against what they</text>
+  <text x="64" y="200" font-size="15" fill="#4a5360">need to do for you.</text>
+  <text x="64" y="250" font-size="15" fill="#4a5360">Sometimes you already have</text>
+  <text x="64" y="275" font-size="15" fill="#4a5360">what you need.</text>
+  <text x="64" y="312" font-size="14" font-weight="700" fill="#1f2a3a">Discovery Audit  $1,200, credited</text>
+  <rect x="425" y="50" width="350" height="290" rx="10" fill="#fff" stroke="#d9d4c9"/>
+  <circle cx="461" cy="92" r="20" fill="#1f2a3a"/><text x="461" y="99" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+  <text x="493" y="99" font-size="19" font-weight="700" fill="#1f2a3a">Build what is missing</text>
+  <text x="449" y="150" font-size="15" fill="#4a5360">Shoots planned around the gaps</text>
+  <text x="449" y="175" font-size="15" fill="#4a5360">the audit finds. Portraits,</text>
+  <text x="449" y="200" font-size="15" fill="#4a5360">event coverage and aerial.</text>
+  <text x="449" y="312" font-size="14" font-weight="700" fill="#1f2a3a">Services and prices below</text>
+  <rect x="810" y="50" width="350" height="290" rx="10" fill="#fff" stroke="#d9d4c9"/>
+  <circle cx="846" cy="92" r="20" fill="#1f2a3a"/><text x="846" y="99" font-size="20" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+  <text x="878" y="99" font-size="19" font-weight="700" fill="#1f2a3a">Keep it useful</text>
+  <text x="834" y="150" font-size="15" fill="#4a5360">A season by season arrangement</text>
+  <text x="834" y="175" font-size="15" fill="#4a5360">that keeps the library current,</text>
+  <text x="834" y="200" font-size="15" fill="#4a5360">at lower rates than one-off work.</text>
+  <text x="834" y="312" font-size="14" font-weight="700" fill="#1f2a3a">Ongoing arrangements</text>
+  <path d="M395 195 H417" stroke="#9a948a" stroke-width="2"/><path d="M415 187 l10 8 l-10 8z" fill="#9a948a"/>
+  <path d="M780 195 H802" stroke="#9a948a" stroke-width="2"/><path d="M800 187 l10 8 l-10 8z" fill="#9a948a"/>
+  <path d="M130 440 H600 V352" stroke="#b5643c" stroke-width="2" fill="none" stroke-dasharray="6 5"/>
+  <path d="M592 362 l8 -12 l8 12z" fill="#b5643c"/>
+  <text x="130" y="425" font-size="16" fill="#b5643c" font-weight="700">Already know what you need?</text>
+  <text x="130" y="470" font-size="16" fill="#4a5360">Book any service directly. No audit required.</text>
+</svg>
