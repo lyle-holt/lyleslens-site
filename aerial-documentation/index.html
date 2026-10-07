@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1S16LPGESH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1S16LPGESH');
+  // Enquiry tracking: every enquiry path on this site is a mailto link, which GA4 does not measure natively.
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href^="mailto:"]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var m = href.match(/[?&]subject=([^&]*)/);
+    gtag('event', 'email_click', {
+      link_url: href,
+      link_subject: m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : '(none)',
+      link_text: (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80)
+    });
+  }, true);
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aerial Photography and Documentation | Lyle&rsquo;s Lens</title>
+<meta name="description" content="Drone and ground photography and video that records a property, a business or an event as it stands, for websites, tenders, recruitment and records. Canberra based, CASA ReOC and RePL.">
+<link rel="canonical" href="https://lyleslens.com/aerial-documentation/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:title" content="Aerial Photography and Documentation | Lyle&rsquo;s Lens">
+<meta property="og:description" content="Drone and ground photography and video that records a property, a business or an event as it stands, for websites, tenders, recruitment and records.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lyleslens.com/aerial-documentation/">
+<meta property="og:image" content="https://lyleslens.com/video/silos-estate-berry-2025-poster.jpg">
+<meta property="og:site_name" content="Lyle&rsquo;s Lens Photography">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/images/home/lyles-lens-logo-yellow-no-shadow.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css?v=20261002a">
+<style>
+  /* Example picker: one player, selectable thumbnails (page-scoped) */
+  .aerial-player video { display:block; width:100%; max-width:960px; aspect-ratio:16/9; background:var(--dark); }
+  .aerial-player .proof-caption { max-width:960px; }
+  .aerial-group { margin-top:36px; }
+  .aerial-group h3 { font-family:var(--sans); font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-deep); margin:0 0 14px 0; font-weight:600; }
+  .aerial-picks { display:grid; grid-template-columns:repeat(3, 1fr); gap:20px 24px; }
+  @media (max-width:900px) { .aerial-picks { grid-template-columns:repeat(2, 1fr); } }
+  @media (max-width:560px) { .aerial-picks { grid-template-columns:1fr; } }
+  .aerial-pick { display:block; width:100%; text-align:left; background:none; border:0; padding:0; cursor:pointer; color:inherit; font:inherit; text-decoration:none; }
+  .aerial-pick img { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; border:2px solid transparent; }
+  .aerial-pick[aria-pressed="true"] img { border-color:var(--gold); }
+  .aerial-pick:focus-visible { outline:2px solid var(--gold-deep); outline-offset:3px; }
+  .aerial-pick strong { display:block; font-size:16px; margin-top:10px; color:var(--ink); }
+  .aerial-pick span { display:block; font-size:14px; line-height:1.5; color:var(--gray-on-light); margin-top:4px; }
+  .aerial-pick:hover strong { color:var(--gold-deep); }
+  #aerial-player { scroll-margin-top:110px; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Aerial photography and documentation",
+  "url": "https://lyleslens.com/aerial-documentation/",
+  "description": "Drone and ground photography and video that records a property, a business or an event as it stands, with examples.",
+  "publisher": { "@id": "https://lyleslens.com/#organization" },
+  "inLanguage": "en-AU"
+}
+</script>
+<script type="application/ld+json">
+[
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "@id": "https://lyleslens.com/aerial-documentation/#fleet-helicopters",
+  "name": "Fleet Helicopters, Armidale: documenting an aviation business",
+  "description": "Fleet Helicopters at Armidale Regional Airport, August 2025: the base from the air, into the hangars, the aircraft, cockpits, identification and firefighting equipment inside, then a helicopter towed out, prepared on the apron and lifting off.",
+  "thumbnailUrl": "https://lyleslens.com/video/fleet-helicopters-armidale-2025-poster.jpg",
+  "contentUrl": "https://lyleslens.com/video/fleet-helicopters-armidale-2025-1920x1080-h264.mp4",
+  "uploadDate": "2026-10-07T18:45:00+11:00",
+  "duration": "PT53S",
+  "inLanguage": "en-AU",
+  "publisher": { "@id": "https://lyleslens.com/#organization" }
+},
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "@id": "https://lyleslens.com/aerial-documentation/#silos-estate",
+  "name": "Silos Estate, Berry: documenting a property and its grounds",
+  "description": "Silos Estate, Berry NSW, June 2025: a sunrise flight over the vineyard and dams, around the converted silo buildings and visitor facilities, then out to the farmland and Coolangatta Mountain.",
+  "thumbnailUrl": "https://lyleslens.com/video/silos-estate-berry-2025-poster.jpg",
+  "contentUrl": "https://lyleslens.com/video/silos-estate-berry-2025-1920x1080-h264.mp4",
+  "uploadDate": "2026-10-07T20:00:00+11:00",
+  "duration": "PT40S",
+  "inLanguage": "en-AU",
+  "publisher": { "@id": "https://lyleslens.com/#organization" }
+},
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "@id": "https://lyleslens.com/aerial-documentation/#aerial-documentation",
+  "name": "Aerial documentation of a farm property, Canterbury, New Zealand",
+  "description": "The layout of a farm site, its roofs and structures inside and out, and how they sit in the wider property. The same approach can document sporting grounds, stadium roofs and lighting infrastructure.",
+  "thumbnailUrl": "https://lyleslens.com/video/aerial-documentation-farm-canterbury-nz-poster.jpg",
+  "contentUrl": "https://lyleslens.com/video/aerial-documentation-farm-canterbury-nz-1920x1080-h264.mp4",
+  "uploadDate": "2026-10-07T18:00:00+11:00",
+  "duration": "PT33S",
+  "inLanguage": "en-AU",
+  "publisher": { "@id": "https://lyleslens.com/#organization" }
+},
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "@id": "https://lyleslens.com/aerial-documentation/#bangalay",
+  "name": "Bangalay Luxury Villas, Shoalhaven Heads: a venue in its coastal setting",
+  "description": "Bangalay Luxury Villas, Shoalhaven Heads NSW, June 2025: dawn on Seven Mile Beach, the villas, pools and gardens, a flight into a villa, Bangalay Dining and the golf course, finishing on the Shoalhaven estuary and the beach.",
+  "thumbnailUrl": "https://lyleslens.com/video/bangalay-shoalhaven-heads-2025-poster.jpg",
+  "contentUrl": "https://lyleslens.com/video/bangalay-shoalhaven-heads-2025-1920x1080-h264.mp4",
+  "uploadDate": "2026-10-07T20:00:00+11:00",
+  "duration": "PT1M4S",
+  "inLanguage": "en-AU",
+  "publisher": { "@id": "https://lyleslens.com/#organization" }
+},
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "@id": "https://lyleslens.com/aerial-documentation/#outback-air-race",
+  "name": "Outback Air Race 2025: an aviation journey from the air",
+  "description": "Outback Air Race 2025 with Team Charlie A. Foxtrot: departure from Nowra, the flight over Mundi Mundi and Kati Thanda-Lake Eyre, remote outback stops, the race fleet from a drone at Onslow and the Royal Flying Doctor Service at Broken Hill.",
+  "thumbnailUrl": "https://lyleslens.com/video/outback-air-race-2025-poster.jpg",
+  "contentUrl": "https://lyleslens.com/video/outback-air-race-2025-1920x1080-h264.mp4",
+  "uploadDate": "2026-10-07T20:00:00+11:00",
+  "duration": "PT1M5S",
+  "inLanguage": "en-AU",
+  "publisher": { "@id": "https://lyleslens.com/#organization" }
+},
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "@id": "https://lyleslens.com/aerial-documentation/#harvest-aerial-film",
+  "name": "Harvest, Canterbury, New Zealand: aerial film",
+  "description": "Harvest on a cropping farm in Canterbury, New Zealand, summer 2024 to 2025. Lyle's own aerial film, shot on his DJI Mavic 3 Pro.",
+  "thumbnailUrl": "https://lyleslens.com/video/harvest-canterbury-nz-2025-poster.jpg",
+  "contentUrl": "https://lyleslens.com/video/harvest-canterbury-nz-2025-1920x1080-h264.mp4",
+  "uploadDate": "2026-10-07T18:00:00+11:00",
+  "duration": "PT1M22S",
+  "inLanguage": "en-AU",
+  "publisher": { "@id": "https://lyleslens.com/#organization" }
+}
+]
+</script>
+</head>
+<body>
+
+<header class="site-header on-light">
+  <div class="wrap">
+    <a href="/" class="brand">
+      <img src="/images/home/lyles-lens-logo-yellow-no-shadow.png" alt="Lyle's Lens">
+      Lyle's Lens
+    </a>
+    <nav class="main-nav">
+      <a href="/">Home</a>
+      <a href="/services/" class="active">Services</a>
+      <a href="/evidence/">Evidence</a>
+      <a href="/why-womens-sport/">Women's Sport</a>
+      <a href="/about/">About</a>
+      <a href="mailto:lyle.holt@lyleslens.com" class="btn-outline nav-cta">Start the conversation</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<section class="case-header">
+  <div class="wrap">
+    <span class="eyebrow">Services</span>
+    <h1>Aerial photography and documentation</h1>
+  </div>
+</section>
+
+<section class="section section-cream" style="padding-top:20px;">
+  <div class="wrap">
+    <p class="lede">Drone and ground photography and video that records a site, a business or an event as it stands, so you have current media for your website, capability statements and tenders, recruitment, and a dated record of your buildings and equipment.</p>
+    <p style="max-width:760px;">Lyle flies a DJI Mavic 3 Pro under a CASA Remote Operator Certificate (ReOC) and Remote Pilot Licence (RePL). Each job starts with what the media needs to show and how you&rsquo;ll use it, then the flights and ground photography are planned around that, subject to weather, site permission and CASA rules. Prices are on the <a href="/services/#organisations">Services page</a>.</p>
+
+    <div class="aerial-player" id="aerial-player" style="margin-top:40px;">
+      <video id="aerial-video" controls preload="metadata" playsinline
+             poster="/video/fleet-helicopters-armidale-2025-poster.jpg"
+             aria-label="Fleet Helicopters at Armidale Regional Airport, August 2025: drone footage arriving at the base and moving through the hangars, finished photographs of the aircraft, cockpits, identification and firefighting equipment, then a helicopter towed out, prepared on the apron and lifting off. 53 seconds, music and helicopter sound, no speech.">
+        <source src="/video/fleet-helicopters-armidale-2025-1920x1080-h264.mp4" type="video/mp4">
+      </video>
+      <p class="proof-caption" id="aerial-caption" aria-live="polite"></p>
+    </div>
+
+    <div class="aerial-group">
+      <h3>Property and business documentation</h3>
+      <div class="aerial-picks">
+        <button type="button" class="aerial-pick" id="pick-fleet-helicopters" data-key="fleet-helicopters" aria-pressed="true"
+                data-src="/video/fleet-helicopters-armidale-2025-1920x1080-h264.mp4"
+                data-poster="/video/fleet-helicopters-armidale-2025-poster.jpg"
+                data-label="Fleet Helicopters at Armidale Regional Airport, August 2025: drone footage arriving at the base and moving through the hangars, finished photographs of the aircraft, cockpits, identification and firefighting equipment, then a helicopter towed out, prepared on the apron and lifting off. 53 seconds, music and helicopter sound, no speech.">
+          <img src="/video/thumbs/fleet-helicopters-armidale-2025-640.jpg" alt="" loading="lazy" width="640" height="360">
+          <strong>Fleet Helicopters, Armidale</strong>
+          <span>An aviation business: its base, hangars, aircraft and equipment.</span>
+        </button>
+        <button type="button" class="aerial-pick" id="pick-silos-estate" data-key="silos-estate" aria-pressed="false"
+                data-src="/video/silos-estate-berry-2025-1920x1080-h264.mp4"
+                data-poster="/video/silos-estate-berry-2025-poster.jpg"
+                data-label="Silos Estate at Berry, New South Wales, filmed from the air at sunrise in June 2025. 40 seconds, music, no speech.">
+          <img src="/video/thumbs/silos-estate-berry-2025-640.jpg" alt="" loading="lazy" width="640" height="360">
+          <strong>Silos Estate, Berry</strong>
+          <span>A property: its layout, buildings, grounds and visitor facilities.</span>
+        </button>
+        <button type="button" class="aerial-pick" id="pick-aerial-documentation" data-key="aerial-documentation" aria-pressed="false"
+                data-src="/video/aerial-documentation-farm-canterbury-nz-1920x1080-h264.mp4"
+                data-poster="/video/aerial-documentation-farm-canterbury-nz-poster.jpg"
+                data-label="Aerial documentation of a farm property in Canterbury, New Zealand, with on-screen captions. 33 seconds, music, no speech.">
+          <img src="/video/thumbs/aerial-documentation-farm-canterbury-nz-640.jpg" alt="" loading="lazy" width="640" height="360">
+          <strong>Farm property, Canterbury, New Zealand</strong>
+          <span>A working site: roofs and structures inside and out.</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="aerial-group">
+      <h3>Venue and destination</h3>
+      <div class="aerial-picks">
+        <button type="button" class="aerial-pick" id="pick-bangalay" data-key="bangalay" aria-pressed="false"
+                data-src="/video/bangalay-shoalhaven-heads-2025-1920x1080-h264.mp4"
+                data-poster="/video/bangalay-shoalhaven-heads-2025-poster.jpg"
+                data-label="Bangalay Luxury Villas at Shoalhaven Heads, New South Wales, June 2025: the beach at dawn, the villas, pools and gardens, Bangalay Dining and the golf course, filmed from the air. 64 seconds, music, no speech.">
+          <img src="/video/thumbs/bangalay-shoalhaven-heads-2025-640.jpg" alt="" loading="lazy" width="640" height="360">
+          <strong>Bangalay Luxury Villas, Shoalhaven Heads</strong>
+          <span>A venue in its coastal setting: accommodation and amenities.</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="aerial-group">
+      <h3>Further applications</h3>
+      <div class="aerial-picks">
+        <button type="button" class="aerial-pick" id="pick-outback-air-race" data-key="outback-air-race" aria-pressed="false"
+                data-src="/video/outback-air-race-2025-1920x1080-h264.mp4"
+                data-poster="/video/outback-air-race-2025-poster.jpg"
+                data-label="Outback Air Race 2025, filmed from inside a light aircraft and from a drone, with location captions. 65 seconds, music, no speech.">
+          <img src="/video/thumbs/outback-air-race-2025-640.jpg" alt="" loading="lazy" width="640" height="360">
+          <strong>Outback Air Race 2025</strong>
+          <span>An aviation journey: air-to-ground and drone.</span>
+        </button>
+        <a class="aerial-pick" href="/sports-photography-canberra/#invictus-expo">
+          <img src="/video/thumbs/invictus-australia-defence-community-sport-expo-2025-640.jpg" alt="" loading="lazy" width="640" height="360">
+          <strong>Invictus Australia sport expo&nbsp;&rarr;</strong>
+          <span>An event and the people taking part, on the sports photography page.</span>
+        </a>
+        <button type="button" class="aerial-pick" id="pick-harvest-aerial-film" data-key="harvest-aerial-film" aria-pressed="false"
+                data-src="/video/harvest-canterbury-nz-2025-1920x1080-h264.mp4"
+                data-poster="/video/harvest-canterbury-nz-2025-poster.jpg"
+                data-label="Harvest on a cropping farm in Canterbury, New Zealand, filmed from the air. 82 seconds, music, no speech.">
+          <img src="/video/thumbs/harvest-canterbury-nz-2025-640.jpg" alt="" loading="lazy" width="640" height="360">
+          <strong>Harvest, Canterbury, New Zealand</strong>
+          <span>Lyle&rsquo;s own aerial film of a harvest.</span>
+        </button>
+      </div>
+    </div>
+
+    <div hidden>
+      <div data-caption-for="fleet-helicopters">Fleet Helicopters, Armidale Regional Airport, August 2025. Lyle spent two days at the base so the business had a current, usable record of its hangars, aircraft and equipment. The photographs and video are intended for the operator&rsquo;s website and social media, capability statements and tenders, recruitment, and as a dated record of its aircraft and equipment. <small>Music: Sam Will, &ldquo;The Long Ride&rdquo;, courtesy of <a href="https://www.epidemicsound.com" target="_blank" rel="noopener">Epidemic Sound</a>.</small></div>
+      <div data-caption-for="silos-estate">Silos Estate, Berry, New South Wales, June 2025. A sunrise flight over the vineyard and dams, around the converted silo buildings and visitor facilities, then out to the farmland and Coolangatta Mountain. It records how the property is laid out and how it sits in its setting, which suits a property&rsquo;s website, listings and promotional material. <small>Music: Sunfish Grove, &ldquo;Unbroken Spirit&rdquo;, courtesy of <a href="https://www.epidemicsound.com" target="_blank" rel="noopener">Epidemic Sound</a>.</small></div>
+      <div data-caption-for="aerial-documentation">Aerial documentation of a farm property in Canterbury, New Zealand: the layout of the site, its roofs and structures inside and out, and how they sit in the wider property. The same approach can document sporting grounds, stadium roofs and lighting infrastructure. <small>Music: Out To The World, &ldquo;Motion Clarity&rdquo;, courtesy of <a href="https://www.epidemicsound.com" target="_blank" rel="noopener">Epidemic Sound</a>.</small></div>
+      <div data-caption-for="bangalay">Bangalay Luxury Villas, Shoalhaven Heads, New South Wales, June 2025. Dawn on Seven Mile Beach, then the villas, pools and gardens, a flight into a villa, Bangalay Dining and the golf course, back to the coast, and finishing on the estuary and the beach. It shows a venue&rsquo;s accommodation and amenities and where they sit between the ocean and the golf course. <small>Music: Jakob Ahlbom, &ldquo;Crossing the Rubicon&rdquo;, courtesy of <a href="https://www.epidemicsound.com" target="_blank" rel="noopener">Epidemic Sound</a>.</small></div>
+      <div data-caption-for="outback-air-race">Outback Air Race 2025, August and September 2025. Lyle took part with Team Charlie A. Foxtrot, a fundraiser for the Royal Flying Doctor Service, and filmed the journey from inside the aircraft: the departure from Nowra, the flight over Mundi Mundi and Kati Thanda&ndash;Lake Eyre, remote outback stops, the race fleet from the drone at Onslow and the RFDS at Broken Hill. <small>Music: Adriel Fair, &ldquo;Ropes Away&rdquo;, courtesy of <a href="https://www.epidemicsound.com" target="_blank" rel="noopener">Epidemic Sound</a>.</small></div>
+      <div data-caption-for="harvest-aerial-film">Harvest on a cropping farm in Canterbury, New Zealand, summer 2024&ndash;25. Lyle&rsquo;s own aerial film, shot on his DJI Mavic 3 Pro. <small>Music: Bonnie Grace, &ldquo;The Sound of Arrows&rdquo;, courtesy of <a href="https://www.epidemicsound.com" target="_blank" rel="noopener">Epidemic Sound</a>.</small></div>
+    </div>
+
+    <p class="lede" style="margin-top:48px;"><a href="mailto:lyle.holt@lyleslens.com?subject=Aerial%20and%20documentation">Ask about a site or a job&nbsp;&rarr;</a></p>
+  </div>
+</section>
+
+<section class="stats-strip">
+  <div class="wrap">
+    <h2>Planning aerial or documentation work?</h2>
+    <p>Tell Lyle about the site and what the media needs to show. Based in Canberra | Ngunnawal Country.</p>
+    <div class="cta-row" style="justify-content:center;">
+      <a href="mailto:lyle.holt@lyleslens.com?subject=Aerial%20and%20documentation" class="btn-gold">Start the conversation&nbsp;&rarr;</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var video = document.getElementById('aerial-video');
+  var caption = document.getElementById('aerial-caption');
+  var picks = Array.prototype.slice.call(document.querySelectorAll('button.aerial-pick'));
+  function captionFor(id) {
+    var el = document.querySelector('[data-caption-for="' + id + '"]');
+    return el ? el.innerHTML : '';
+  }
+  function select(btn, play) {
+    picks.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+    var src = btn.getAttribute('data-src');
+    if (video.querySelector('source').getAttribute('src') !== src) {
+      video.pause();
+      video.setAttribute('poster', btn.getAttribute('data-poster'));
+      video.querySelector('source').setAttribute('src', src);
+      video.setAttribute('aria-label', btn.getAttribute('data-label'));
+      video.load();
+    }
+    caption.innerHTML = captionFor(btn.getAttribute('data-key'));
+    if (play) {
+      var p = video.play(); if (p && p.catch) p.catch(function () {});
+      document.getElementById('aerial-player').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+  picks.forEach(function (b) {
+    b.addEventListener('click', function () {
+      select(b, true);
+      if (history.replaceState) history.replaceState(null, '', '#' + b.getAttribute('data-key'));
+    });
+  });
+  var start = picks[0];
+  var hash = (location.hash || '').slice(1);
+  picks.forEach(function (b) { if (b.getAttribute('data-key') === hash) start = b; });
+  select(start, false);
+  if (hash && start.getAttribute('data-key') === hash) {
+    // a deep link (e.g. /aerial-documentation/#fleet-helicopters) selects that example and lands on the player
+    var land = function () { document.getElementById('aerial-player').scrollIntoView({ block: 'start' }); };
+    if (document.readyState === 'complete') { setTimeout(land, 50); }
+    else { window.addEventListener('load', function () { setTimeout(land, 50); }); }
+  }
+})();
+</script>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div>&copy; 2026 Lyle's Lens Photography. All rights reserved.<br>ACT Working with Vulnerable People Reg. 00758088. A veteran-owned Australian business on Ngunnawal Country.<br><a href="mailto:lyle.holt@lyleslens.com">lyle.holt@lyleslens.com</a></div>
+    <nav class="footer-nav" aria-label="More">
+      <a href="/sports-photography-canberra/">Canberra</a>
+      <a href="/athlete-photography/">Athlete Identity</a>
+      <a href="/sports-media-day/">Media Days</a>
+      <a href="/executive-portraits/">Executive Portraits</a>
+      <a href="/services/">Prices</a>
+    </nav>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/lyleslens/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.9 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.35 2.63 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.63 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.63-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-10.87a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></a>
+      <a href="https://www.linkedin.com/in/lyleholt/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
+      <a href="https://www.facebook.com/lyleslens" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/nav.js?v=20260907"></script>
+</body>
+</html>
