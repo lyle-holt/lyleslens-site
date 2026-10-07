@@ -9,15 +9,22 @@
   gtag('js', new Date());
   gtag('config', 'G-1S16LPGESH');
   // Enquiry tracking: every enquiry path on this site is a mailto link, which GA4 does not measure natively.
+  // One event per click, and the only enquiry listener on the site (nav.js no longer sends one).
+  // Discovery Audit enquiries send discovery_audit_click (the key event set up 2026-09-07);
+  // every other enquiry (shoot, media day, portrait, aerial, general) sends email_click.
   document.addEventListener('click', function (e) {
     var a = e.target && e.target.closest ? e.target.closest('a[href^="mailto:"]') : null;
     if (!a) return;
     var href = a.getAttribute('href') || '';
     var m = href.match(/[?&]subject=([^&]*)/);
-    gtag('event', 'email_click', {
+    var subject = m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : '(none)';
+    var text = (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80);
+    var isAudit = /discovery audit/i.test(subject) || /discovery audit/i.test(text);
+    gtag('event', isAudit ? 'discovery_audit_click' : 'email_click', {
       link_url: href,
-      link_subject: m ? decodeURIComponent(m[1].replace(/\+/g, ' ')) : '(none)',
-      link_text: (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80)
+      link_subject: subject,
+      link_text: text,
+      page_path: window.location.pathname
     });
   }, true);
 </script>
@@ -38,7 +45,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css?v=20261002a">
+<link rel="stylesheet" href="/css/style.css?v=20261007b">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -74,12 +81,14 @@
       Lyle's Lens
     </a>
     <nav class="main-nav">
-      <a href="/">Home</a>
-      <a href="/services/">Services</a>
+      <a href="/sports-photography-canberra/">Sport</a>
+      <a href="/athlete-photography/">Athletes</a>
+      <a href="/executive-portraits/">Leaders</a>
+      <a href="/aerial-documentation/">Businesses</a>
       <a href="/evidence/" class="active">Evidence</a>
-      <a href="/why-womens-sport/">Women's Sport</a>
+      <a href="/services/">Prices</a>
       <a href="/about/">About</a>
-      <a href="mailto:lyle.holt@lyleslens.com" class="btn-outline nav-cta">Start the conversation</a>
+      <a href="mailto:lyle.holt@lyleslens.com" class="btn-outline nav-cta">Get in touch</a>
     </nav>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
@@ -265,10 +274,12 @@
 <section class="stats-strip">
   <div class="wrap">
     <h2>Start with what you already have.</h2>
-    <p>Based in Canberra | Ngunnawal Country.</p>
+    <p>A Discovery Audit reviews the photos your organisation already has and finds the gaps. Already know what you need? Book a shoot directly.</p>
     <div class="cta-row" style="justify-content:center;">
-      <a href="mailto:lyle.holt@lyleslens.com" class="btn-gold">Request a Discovery Audit</a>
+      <a href="mailto:lyle.holt@lyleslens.com?subject=Discovery%20Audit" class="btn-gold">Ask about a Discovery Audit&nbsp;&rarr;</a>
+      <a href="mailto:lyle.holt@lyleslens.com?subject=Shoot%20enquiry" class="btn-outline">Book a shoot&nbsp;&rarr;</a>
     </div>
+    <p style="max-width:640px; margin:22px auto 0;">You'll get a written reply within one business day.<br>Based in Canberra | Ngunnawal Country.</p>
   </div>
 </section>
 
@@ -276,11 +287,13 @@
   <div class="wrap">
     <div>&copy; 2026 Lyle's Lens Photography. All rights reserved.<br>ACT Working with Vulnerable People Reg. 00758088. A veteran-owned Australian business on Ngunnawal Country.<br><a href="mailto:lyle.holt@lyleslens.com">lyle.holt@lyleslens.com</a></div>
     <nav class="footer-nav" aria-label="More">
-      <a href="/sports-photography-canberra/">Canberra</a>
-      <a href="/athlete-photography/">Athlete Identity</a>
-      <a href="/sports-media-day/">Media Days</a>
-      <a href="/executive-portraits/">Executive Portraits</a>
+      <a href="/sports-photography-canberra/">Sporting organisations</a>
+      <a href="/sports-media-day/">Media days</a>
+      <a href="/athlete-photography/">Athlete portraits</a>
+      <a href="/executive-portraits/">Executive portraits</a>
+      <a href="/aerial-documentation/">Aerial and documentation</a>
       <a href="/services/">Prices</a>
+      <a href="/why-womens-sport/">Why women's sport</a>
     </nav>
     <div class="footer-socials">
       <a href="https://www.instagram.com/lyleslens/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.9 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.35 2.63 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.63 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.63-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-10.87a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></a>
@@ -290,6 +303,6 @@
   </div>
 </footer>
 
-<script src="/js/nav.js?v=20260907"></script>
+<script src="/js/nav.js?v=20261007b"></script>
 </body>
 </html>

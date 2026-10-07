@@ -198,9 +198,9 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
 .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 
 /* Header nav/CTA sit on ink-navy (hero, mobile overlay) by default — bright gold is correct there.
-   On the cool-white "on-light" header (desktop only; below 1000px the nav always drops to the dark
+   On the cool-white "on-light" header (desktop only; below 1120px the nav always drops to the dark
    overlay), use deep gold. Kept in step with the mobile-menu breakpoint below. */
-@media (min-width: 1001px) {
+@media (min-width: 1121px) {
   .site-header.on-light .main-nav a:hover,
   .site-header.on-light .main-nav a.active { color: var(--gold-deep); }
   /* ".main-nav .btn-outline" added so this out-specifies ".site-header.on-light .main-nav a"
@@ -224,7 +224,12 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
    CTA bring the row to about 870px, so it fits alongside the brand from 1000px
    up. Measured, not estimated: re-measure before changing tracking or padding.
    Layout breakpoints elsewhere in this file stay at 900px. */
-@media (max-width: 1000px) {
+/* Raised to 1120px on 2026-10-07: the nav now carries the four client routes
+   (Sport, Athletes, Leaders, Businesses) as well as Evidence, Prices and About.
+   Measured with webfonts loaded: brand 185px + nav 790px (CTA "Get in touch")
+   needs about 1095px of viewport, so 1120 leaves a small margin. iPad landscape
+   (1180) and 1280px displays keep the full row. Re-measure before adding items. */
+@media (max-width: 1120px) {
   .nav-toggle { display: block; }
 
   .main-nav { display: none; }
@@ -772,6 +777,9 @@ blockquote.pull {
   color: var(--ink);
   text-decoration: none;
   width: max-content;
+  /* Without a cap, max-content let the longest record title run past a 375px
+     screen and push the whole page (and the menu button) sideways. */
+  max-width: 100%;
 }
 .record-link svg { width: 14px; height: 14px; flex-shrink: 0; }
 .record-link:hover { color: var(--gold-deep); }
@@ -1007,6 +1015,32 @@ blockquote.pull {
 .split-lead p { font-size: 18px; line-height: 1.7; color: #4a4844; margin: 0 0 22px 0; max-width: 620px; }
 .split-lead p:last-child { margin-bottom: 0; }
 
+/* Executive portraits, 2026-10-07. The page opened on text alone; the homepage
+   Leaders card lands here, so the opening screen shows the same Walker frame,
+   paired with the identical look on black to show the two backgrounds the copy
+   describes further down. The pair stays side by side on phones: the comparison is the point. */
+/* Intro row: lede left, pair right, so the opening screen carries a portrait. */
+.exec-intro { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(32px, 5vw, 80px); align-items: start; }
+@media (max-width: 900px) { .exec-intro { grid-template-columns: 1fr; } }
+.exec-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0; max-width: 460px; }
+.exec-pair img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+.exec-pair figcaption { grid-column: 1 / -1; font-size: 14px; line-height: 1.6; color: var(--gray-on-light); margin-top: 4px; }
+/* Recent work: two Walker portraits (4:5) beside one wide command portrait.
+   At 1fr 1fr 2fr the 4:5 and 8:5 boxes come out the same height. */
+.exec-recent { display: grid; grid-template-columns: 1fr 1fr 2fr; gap: 12px; margin-top: 20px; }
+.exec-recent img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; display: block; }
+.exec-recent img.wide { aspect-ratio: 8 / 5; object-position: center; }
+.exec-caption { max-width: 760px; margin-top: 10px; }
+.exec-recent + .exec-caption { margin-top: 16px; }
+@media (max-width: 860px) {
+  .exec-recent { grid-template-columns: 1fr 1fr; }
+  .exec-recent img.wide { grid-column: 1 / -1; }
+}
+/* Follows F30: one column below 720px rather than 165px photographs. */
+@media (max-width: 720px) {
+  .exec-recent { grid-template-columns: 1fr; }
+}
+
 /* ---------- Utility ---------- */
 .text-center { text-align: center; }
 .mt-0 { margin-top: 0; }
@@ -1034,6 +1068,51 @@ blockquote.pull {
 .case-cards h3 { font-family: var(--serif); font-weight: 600; font-size: 21px; margin: 0; line-height: 1.25; }
 .case-cards p { font-size: 15px; line-height: 1.6; color: var(--gray-on-light); margin: 0; }
 .case-cards .card-go { margin-top: auto; padding-top: 12px; color: var(--gold-deep); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+
+/* About: a named subsection inside a body-copy run (Women's pathways). */
+.about-subhead { font-family: var(--serif); font-weight: 600; font-size: 24px; margin: 36px 0 16px 0; }
+.section-dark .about-subhead { color: #fff; }
+
+/* Homepage "Who it's for" routes, 2026-10-07. Visitors choose by who they are:
+   sporting organisations get the wide feature card (the principal focus), the
+   three direct-booking clients sit in a row beneath. Card styling follows
+   .case-cards so the two read as one system. */
+.route-feature { display: grid; grid-template-columns: 1.25fr 1fr; background: #fff; border: 1px solid var(--line-on-light); margin-top: 36px; }
+.route-feature-image img { width: 100%; height: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+.route-feature-copy { padding: clamp(24px, 3vw, 40px); display: flex; flex-direction: column; justify-content: center; }
+.route-feature-copy h3, .route-card h3 { font-family: var(--serif); font-weight: 600; font-size: 26px; line-height: 1.25; margin: 0 0 12px 0; }
+.route-feature-copy h3 a { text-decoration: none; color: var(--ink); }
+.route-feature-copy h3 a:hover { color: var(--gold-deep); }
+.route-feature-copy p { font-size: 17px; line-height: 1.6; color: #4a4844; margin: 0 0 14px 0; }
+.route-links { list-style: none; padding: 0; margin: 6px 0 0 0; display: flex; flex-wrap: wrap; gap: 10px 24px; }
+.route-links a, .route-card .route-more { color: var(--gold-deep); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; }
+.route-links a:hover { color: var(--ink); }
+.route-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 28px; }
+.route-card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line-on-light); transition: border-color 0.2s ease, transform 0.2s ease; }
+.route-card:hover { border-color: var(--gold-deep); transform: translateY(-2px); }
+.route-card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: 50% 15%; display: block; }
+.route-card h3 { font-size: 22px; margin: 22px 24px 8px 24px; }
+.route-card p { font-size: 16px; line-height: 1.6; color: var(--gray-on-light); margin: 0 24px; }
+.route-card .route-more { margin: auto 24px 0 24px; padding: 16px 0 24px 0; }
+.route-capabilities { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--line-on-light); }
+.route-capabilities ul { list-style: none; padding: 0; margin: 12px 0 14px 0; display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 16px; color: var(--ink); }
+.route-capabilities li::before { content: "\2014\00a0"; color: var(--gold-deep); }
+.route-capabilities p { font-size: 16px; color: var(--gray-on-light); margin: 0; }
+@media (max-width: 900px) {
+  .route-feature { grid-template-columns: 1fr; }
+  .route-grid { grid-template-columns: 1fr; gap: 20px; }
+  .route-card img { aspect-ratio: 3 / 2; }
+  .route-capabilities ul { flex-direction: column; }
+}
+/* On phones the three direct-booking cards go image-left so the routes stay
+   within about two screens instead of three. */
+@media (max-width: 640px) {
+  .route-card { display: grid; grid-template-columns: 112px 1fr; grid-template-rows: auto auto 1fr; column-gap: 16px; }
+  .route-card img { grid-row: 1 / span 3; aspect-ratio: auto; height: 100%; min-height: 150px; }
+  .route-card h3 { font-size: 20px; margin: 16px 16px 6px 0; }
+  .route-card p { font-size: 15px; margin: 0 16px 0 0; }
+  .route-card .route-more { margin: 0 16px 0 0; padding: 10px 0 16px 0; }
+}
 
 /* Participation figures on Why Women's Sport. The only quantified third-party
    number in the evidence base, so it is set as data rather than buried in a line. */
