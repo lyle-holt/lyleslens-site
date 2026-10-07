@@ -52,7 +52,10 @@
   .aerial-player .proof-caption { max-width:960px; }
   .aerial-group { margin-top:36px; }
   .aerial-group h3 { font-family:var(--sans); font-size:13px; letter-spacing:0.08em; text-transform:uppercase; color:var(--gold-deep); margin:0 0 14px 0; font-weight:600; }
-  .aerial-picks { display:grid; grid-template-columns:repeat(3, 1fr); gap:20px 24px; }
+  /* align-items:start: grid stretches items to the row height, and a <button>
+     vertically centres its own content, which pushed thumbnails with shorter
+     captions down out of line with the rest. */
+  .aerial-picks { display:grid; grid-template-columns:repeat(3, 1fr); gap:20px 24px; align-items:start; }
   @media (max-width:900px) { .aerial-picks { grid-template-columns:repeat(2, 1fr); } }
   @media (max-width:560px) { .aerial-picks { grid-template-columns:1fr; } }
   .aerial-pick { display:block; width:100%; text-align:left; background:none; border:0; padding:0; cursor:pointer; color:inherit; font:inherit; text-decoration:none; }
