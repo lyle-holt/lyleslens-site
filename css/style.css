@@ -47,8 +47,10 @@ p a, .refs a, figcaption a {
   text-underline-offset: 3px;
 }
 p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
-.section-dark p a, .section-dark .refs a, .section-dark figcaption a { color: var(--gold); }
-.section-dark p a:hover, .section-dark .refs a:hover, .section-dark figcaption a:hover { color: var(--gold-soft); }
+.section-dark p a, .section-dark .refs a, .section-dark figcaption a,
+.stats-strip p a, .portrait-band p a, .pivot p a, .deploy-band p a { color: var(--gold); }
+.section-dark p a:hover, .section-dark .refs a:hover, .section-dark figcaption a:hover,
+.stats-strip p a:hover, .portrait-band p a:hover, .pivot p a:hover, .deploy-band p a:hover { color: var(--gold-soft); }
 
 .wrap {
   max-width: var(--max);
@@ -69,7 +71,8 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
   font-weight: 600;
 }
 /* Bright gold only reads on the ink-navy dark contexts — cool-white sections use deep gold */
-.section-dark .eyebrow, .strip-dark .eyebrow, .hero .eyebrow { color: var(--gold); }
+.section-dark .eyebrow, .strip-dark .eyebrow, .hero .eyebrow,
+.stats-strip .eyebrow, .portrait-band .eyebrow, .pivot .eyebrow, .deploy-band .eyebrow { color: var(--gold); }
 
 /* ---------- Header ----------
    Fixed (not absolute) so the header — and its nav links — stay reachable
@@ -410,6 +413,9 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
 .section-dark { background: var(--dark); color: #fff; }
 .section-cream { background: var(--cream); color: var(--ink); }
 .section-cream-alt { background: var(--cream-alt); color: var(--ink); }
+/* Deep gold is 4.4:1 on the alt background, under WCAG AA. A slightly deeper tint here reaches 4.7:1,
+   matching what the locked deep gold gets on cool white. */
+.section-cream-alt { --gold-deep: #84651a; }
 
 .section h2 {
   font-family: var(--serif);
@@ -703,6 +709,8 @@ blockquote.pull {
 @media (max-width: 700px) { .credential-grid { grid-template-columns: 1fr; } }
 .credential-grid h4 { font-family: var(--sans); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-deep); margin: 0 0 10px 0; }
 .credential-grid p { font-size: 17px; line-height: 1.6; color: #4a4844; margin: 0; }
+.section-dark .credential-grid h4 { color: var(--gold); }
+.section-dark .credential-grid p { color: #c7c5c0; }
 
 .commendation {
   background: var(--dark);
