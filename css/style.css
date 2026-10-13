@@ -439,7 +439,7 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
 .body-copy p {
   font-size: 18px;
   line-height: 1.65;
-  max-width: 760px;
+  max-width: 38em;
   margin: 0 0 20px 0;
 }
 .section-dark .body-copy p { color: #c7c5c0; }
@@ -486,6 +486,7 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
   background: var(--line-on-light);
 }
 .section-dark .col-3 .step-head .rule-h { background: var(--line-on-dark); }
+.section-dark .col-3 .step-head .num { color: var(--gold); }
 .col-3 h3 {
   font-family: var(--serif);
   font-weight: 600;
@@ -596,7 +597,7 @@ p a:hover, .refs a:hover, figcaption a:hover { color: var(--gold); }
 
 .gallery-block { padding: 20px 0 60px 0; }
 .gallery-block .eyebrow { display: block; margin-bottom: 8px; }
-.gallery-block .gallery-caption { font-size: 16px; line-height: 1.6; color: #4a4844; max-width: 760px; margin: 0 0 24px 0; }
+.gallery-block .gallery-caption { font-size: 16px; line-height: 1.6; color: #4a4844; max-width: 38em; margin: 0 0 24px 0; }
 /* F13/F30, 2026-09-08: the ratio now follows the photograph's orientation, not
    the grid. The old default was five columns at a forced 4:5, which put every
    landscape competition frame through a portrait window (roughly 40% of the
@@ -707,9 +708,9 @@ blockquote.pull {
 .credential-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px 48px; margin-top: 24px; }
 @media (max-width: 900px) { .credential-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 700px) { .credential-grid { grid-template-columns: 1fr; } }
-.credential-grid h4 { font-family: var(--sans); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-deep); margin: 0 0 10px 0; }
+.credential-grid h3, .credential-grid h4 { font-family: var(--sans); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-deep); margin: 0 0 10px 0; }
 .credential-grid p { font-size: 17px; line-height: 1.6; color: #4a4844; margin: 0; }
-.section-dark .credential-grid h4 { color: var(--gold); }
+.section-dark .credential-grid h3, .section-dark .credential-grid h4 { color: var(--gold); }
 .section-dark .credential-grid p { color: #c7c5c0; }
 
 .commendation {
@@ -775,7 +776,7 @@ blockquote.pull {
 /* ---------- Public record (About page, veteran/Indigenous-owned block) ---------- */
 .public-record { margin-top: 8px; }
 .public-record .eyebrow { display: block; margin: 8px 0 12px 0; }
-.public-record .record-cite { font-size: 18px; line-height: 1.65; max-width: 760px; color: var(--gray-on-light); margin: 0 0 22px 0; }
+.public-record .record-cite { font-size: 18px; line-height: 1.65; max-width: 38em; color: var(--gray-on-light); margin: 0 0 22px 0; }
 .record-links { display: flex; flex-direction: column; gap: 14px; margin: 0 0 32px 0; }
 .record-link {
   display: inline-flex;
@@ -844,15 +845,16 @@ blockquote.pull {
 .reason-block { border-top: 1px solid var(--line-on-light); padding: 48px 0; }
 .reason-block:first-child { border-top: none; }
 .reason-block .eyebrow { margin-bottom: 10px; display: block; }
-.reason-block h3 {
+.reason-block h2, .reason-block h3 {
   font-family: var(--serif);
   font-weight: 600;
   font-size: 28px;
   margin: 0 0 16px 0;
+  line-height: inherit;
 }
-.reason-block p { font-size: 18px; line-height: 1.65; color: #4a4844; max-width: 780px; margin: 0 0 12px 0; }
+.reason-block p { font-size: 18px; line-height: 1.65; color: #4a4844; max-width: 38em; margin: 0 0 12px 0; }
 .fact-list { list-style: none; padding: 0; margin: 0 0 14px 0; }
-.fact-list li { font-size: 18px; line-height: 1.55; color: #4a4844; max-width: 780px; margin: 0 0 8px 0; padding-left: 22px; position: relative; }
+.fact-list li { font-size: 18px; line-height: 1.55; color: #4a4844; max-width: 38em; margin: 0 0 8px 0; padding-left: 22px; position: relative; }
 .fact-list li::before { content: "\2014"; position: absolute; left: 0; color: var(--gold-deep); }
 .refs { font-size: 13px; color: var(--gray-on-light); margin-top: 60px; border-top: 1px solid var(--line-on-light); padding-top: 24px; }
 .refs ol { padding-left: 18px; }
@@ -944,7 +946,7 @@ blockquote.pull {
    caption is added, so the disclaimer copy is supported rather than duplicated. */
 .deploy-grid .mockup { background: #dfe3e6; border: 1px solid #cfd5d9; padding: 14px; margin-bottom: 20px; }
 .deploy-grid .mockup img { margin-bottom: 0; }
-.deploy-note { font-size: 14px; line-height: 1.6; color: var(--gray-on-light); margin: 40px 0 0; max-width: 780px; }
+.deploy-note { font-size: 14px; line-height: 1.6; color: var(--gray-on-light); margin: 40px 0 0; max-width: 38em; }
 
 /* ---------- Deployment band (P2B) ----------
    First photographic material on Evidence. The three frames that carry the real
@@ -1129,7 +1131,7 @@ blockquote.pull {
 .stat-band .stat-num { font-family: var(--serif); font-weight: 600; font-size: clamp(44px, 6vw, 68px); line-height: 1; letter-spacing: -0.02em; margin: 0 0 10px 0; }
 .stat-band .stat-num.is-fallen { color: var(--gold-deep); }
 .stat-band .stat-label { font-size: 15px; line-height: 1.5; color: var(--gray-on-light); margin: 0; }
-.stat-source { font-size: 14px; line-height: 1.6; color: var(--gray-on-light); margin: 14px 0 0 0; max-width: 720px; }
+.stat-source { font-size: 14px; line-height: 1.6; color: var(--gray-on-light); margin: 14px 0 0 0; max-width: 38em; }
 
 /* ---------- Evidence trail (identity -> pathway -> membership -> governance) ----------
    Added 2026-09-08. Connected-sequence treatment for the Hockey ACT case page's
@@ -1171,7 +1173,7 @@ blockquote.pull {
   text-transform: uppercase; color: var(--gold-deep); font-weight: 600;
   font-family: var(--sans);
 }
-.trail-step p { font-size: 14px; line-height: 1.55; color: var(--gray-on-light); margin: 8px 0 0 0; align-self: stretch; }
+.trail-step p { font-size: 14px; line-height: 1.55; color: var(--gray-on-light); margin: 8px 0 0 0; align-self: stretch; max-width: none; }
 .trail-connector {
   display: flex; align-items: center; justify-content: center;
   color: var(--gold-deep); font-size: 22px; align-self: center;
@@ -1265,3 +1267,9 @@ blockquote.pull {
   .film-play-disc { width: 48px; height: 48px; }
   .film-play-disc svg { width: 18px; height: 18px; }
 }
+
+/* ---------- Reading measure ----------
+   Prose lines stay under about 80 characters. em-based, so the cap tracks each
+   element's own font size. :where() keeps specificity at zero, so any rule that
+   sets its own max-width still wins. */
+:where(.section, .gallery-block, .case-body) :where(p, li) { max-width: 38em; }
