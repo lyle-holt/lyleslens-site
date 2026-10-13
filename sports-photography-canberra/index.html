@@ -45,7 +45,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css?v=20261013d">
+<link rel="stylesheet" href="/css/style.css?v=20261013f">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -104,11 +104,12 @@
 </script>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header on-light">
   <div class="wrap">
     <a href="/" class="brand">
-      <img src="/images/home/lyles-lens-logo-yellow-no-shadow.png" alt="Lyle's Lens">
+      <img src="/images/home/lyles-lens-logo-yellow-no-shadow.png" alt="Lyle's Lens" width="800" height="800">
       Lyle's Lens
     </a>
     <nav class="main-nav">
@@ -119,11 +120,13 @@
       <a href="/evidence/">Evidence</a>
       <a href="/services/">Prices</a>
       <a href="/about/">About</a>
-      <a href="mailto:lyle.holt@lyleslens.com" class="btn-outline nav-cta">Get in touch</a>
+      <a href="mailto:lyle.holt@lyleslens.com?subject=Photography%20enquiry" class="btn-outline nav-cta">Get in touch</a>
     </nav>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
+
+<main id="main" tabindex="-1">
 
 <section class="case-header">
   <div class="wrap">
@@ -143,6 +146,11 @@
         <p>You probably have thousands of photographs of what happened. When a board, funder or sponsor asks you to show the programme&rsquo;s value, can you use any of them in the case for continued funding or a partnership renewal?</p>
         <p>Lyle&rsquo;s Lens counts a photo as finished when the people making the decision can drop it straight into the document, deck or report in front of them.</p>
       </div>
+    </div>
+    <div class="gallery-grid cols-3-tall evidence-lead">
+      <a href="/evidence/hockey-act-athlete-identity/"><img src="/images/evidence/hockey-act/lucy-nash-athlete-identity-action.jpg" alt="Hockey ACT pathway athlete in competition, Canberra" width="2048" height="2048"><span class="evidence-name">Hockey ACT</span><span class="evidence-go">Case record&nbsp;&rarr;</span></a>
+      <a href="/evidence/afl-canberra-media-day/"><img src="/images/evidence/afl-canberra/afl-canberra-media-day-399.jpg" alt="AFL Canberra Media Day portrait, Belconnen Magpies player" decoding="async" width="1365" height="2048"><span class="evidence-name">AFL Canberra</span><span class="evidence-go">Case record&nbsp;&rarr;</span></a>
+      <a href="/evidence/act-gridiron-flag-football/"><img src="/images/evidence/act-gridiron/flag-football-227.jpg" alt="American Football ACT flag football, Canberra competition" decoding="async" width="2048" height="2048"><span class="evidence-name">American Football ACT</span><span class="evidence-go">Case record&nbsp;&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -249,8 +257,6 @@
     <h2>Start with what you already have.</h2>
     <p class="lede">Before anyone picks up a camera, Lyle reviews the photos your organisation already owns against the jobs you need them to do. The Discovery Audit shows what already works, what can be reused, where the gaps are, and whether a new shoot is worth it. You share the photos you already have and tell Lyle what they need to do, and you get his findings in writing. It costs $1,200, credited against any work that follows.</p>
     <p class="lede">Already know what you need? Book a shoot directly. No audit required.</p>
-    <style>.hiw-diagram { display:none; } @media (min-width: 861px) { .hiw-diagram { display:block; width:100%; height:auto; margin:32px 0 0; border-radius:10px; } .hiw-cards { display:none; } }</style>
-    <img class="hiw-diagram" src="/images/services/three-step-model.svg" alt="For sporting organisations, three steps: 1 Start with what you have, a Discovery Audit of the photos you already have. 2 Build what is missing, shoots planned around the gaps. 3 Keep it useful, a season by season arrangement. Already know what you need? Book any service directly, no audit required.">
     <div class="col-3 hiw-cards">
       <div>
         <div class="step-head"><span class="num">01</span><span class="rule-h"></span></div>
@@ -279,13 +285,7 @@
   <div class="wrap">
     <span class="eyebrow">Canberra Organisations</span>
     <h2 style="font-family:var(--serif); font-weight:600; font-size:clamp(26px,3.2vw,34px); margin:10px 0 20px 0;">Already in the evidence.</h2>
-    <div class="gallery-grid cols-3-tall">
-      <a href="/evidence/hockey-act-athlete-identity/"><img src="/images/evidence/hockey-act/lucy-nash-athlete-identity-action.jpg" alt="Hockey ACT pathway athlete in competition, Canberra"></a>
-      <a href="/evidence/afl-canberra-media-day/"><img src="/images/evidence/afl-canberra/afl-canberra-media-day-399.jpg" alt="AFL Canberra Media Day portrait, Belconnen Magpies player" loading="lazy" decoding="async"></a>
-      <a href="/evidence/act-gridiron-flag-football/"><img src="/images/evidence/act-gridiron/flag-football-227.jpg" alt="American Football ACT flag football, Canberra competition" loading="lazy" decoding="async"></a>
-    </div>
-    <p class="proof-caption">Hockey ACT, AFL Canberra and American Football ACT. Case records on the Evidence page.</p>
-    <figure id="chill-v-blaze" style="margin:48px 0 0 0; scroll-margin-top:120px;">
+    <figure id="chill-v-blaze" style="margin:12px 0 0 0; scroll-margin-top:120px;">
       <video controls preload="metadata" playsinline
              poster="/video/chill-v-blaze-2025-poster.jpg"
              style="display:block;width:100%;max-width:540px;aspect-ratio:4/5;background:#0C1218;"
@@ -331,6 +331,8 @@
     <p style="margin:14px auto 0; font-size:15px;">Or email <a href="mailto:lyle.holt@lyleslens.com">lyle.holt@lyleslens.com</a></p>
   </div>
 </section>
+
+</main>
 
 <footer class="site-footer">
   <div class="wrap">
