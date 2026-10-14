@@ -1,4 +1,45 @@
+/* Self-hosted fonts (14 Oct 2026): Latin subsets of Inter 400/600, Lora 600
+   and Lora italic 400. These replace the Google Fonts stylesheet. */
+@font-face {
+  font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("/fonts/inter-400.v1.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url("/fonts/inter-600.v1.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lora"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url("/fonts/lora-600.v1.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lora"; font-style: italic; font-weight: 400; font-display: swap;
+  src: url("/fonts/lora-italic-400.v1.woff2") format("woff2");
+}
+
 /* Lyle's Lens Photography — site stylesheet */
+
+/* Metric-matched fallbacks (same values as site.css) */
+@font-face {
+  font-family: "Lora Fallback"; font-weight: 600; font-style: normal;
+  src: local("Georgia Bold"), local("Georgia-Bold");
+  size-adjust: 92%; ascent-override: 109.3%; descent-override: 29.8%; line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Lora Fallback"; font-weight: 400; font-style: italic;
+  src: local("Georgia Italic"), local("Georgia-Italic");
+  size-adjust: 99.8%; ascent-override: 100.8%; descent-override: 27.5%; line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Inter Fallback"; font-weight: 400; font-style: normal;
+  src: local("Arial"), local("ArialMT");
+  size-adjust: 106.8%; ascent-override: 90.7%; descent-override: 22.7%; line-gap-override: 0%;
+}
+@font-face {
+  font-family: "Inter Fallback"; font-weight: 600; font-style: normal;
+  src: local("Arial Bold"), local("Arial-BoldMT");
+  size-adjust: 101.6%; ascent-override: 95.3%; descent-override: 23.8%; line-gap-override: 0%;
+}
 
 :root {
   /* Locked palette — style guide v1, 2026-08-19 (5_Style_Guide_v1.pdf) */
@@ -14,8 +55,8 @@
   --gray-on-dark: #a7abb0;
   --line-on-light: #dde1e3;
   --line-on-dark: #242b34;
-  --serif: "Lora", "Georgia", serif;
-  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  --serif: "Lora", "Lora Fallback", "Georgia", serif;
+  --sans: "Inter", "Inter Fallback", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --max: 1200px;
 }
 

@@ -11,8 +11,8 @@
    ========================================================================== */
 
 /* ---------- Fonts ----------
-   Inter 400/600 are self-hosted (Latin subset). Lora 600 and Lora italic 400
-   still come from Google Fonts (see the <link> in each page head).
+   All four faces are self-hosted Latin subsets: Inter 400/600, Lora 600
+   (instanced from the variable font) and Lora italic 400 (quotations).
    Metric-matched fallbacks keep the swap from shifting the layout. */
 @font-face {
   font-family: "Inter"; font-style: normal; font-weight: 400; font-display: swap;
@@ -21,6 +21,14 @@
 @font-face {
   font-family: "Inter"; font-style: normal; font-weight: 600; font-display: swap;
   src: url("/fonts/inter-600.v1.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lora"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url("/fonts/lora-600.v1.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Lora"; font-style: italic; font-weight: 400; font-display: swap;
+  src: url("/fonts/lora-italic-400.v1.woff2") format("woff2");
 }
 @font-face {
   font-family: "Lora Fallback"; font-weight: 600; font-style: normal;
