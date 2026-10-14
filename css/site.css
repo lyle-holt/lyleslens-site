@@ -735,3 +735,7 @@ body.nav-locked .record-bar { display: none; }
 .posts { margin-top: var(--space-m); max-width: 55rem; }
 .posts figcaption { margin-top: 0.625rem; }
 .record-list .posts-note { margin-top: var(--space-s); font-size: var(--type-small); line-height: 1.5; color: var(--ink-soft); max-width: var(--measure); }
+
+/* A link inside a figure caption sits on its own line, so its tap padding
+   doesn't open up the caption's line spacing */
+.caption .text-link { display: block; width: fit-content; margin-top: var(--space-2xs); }
