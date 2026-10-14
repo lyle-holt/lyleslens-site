@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en-AU">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1S16LPGESH"></script>
 <script>
@@ -28,8 +30,6 @@
     });
   }, true);
 </script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About | Lyle's Lens Photography</title>
 <meta name="description" content="Lyle Holt served 34 years in the Royal Australian Navy and Air Force. Lyle&rsquo;s Lens now produces decision-grade visual evidence for elite sport.">
 <link rel="canonical" href="https://lyleslens.com/about/">
@@ -45,7 +45,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preload" href="/fonts/inter-400.v1.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/lora-600.v1.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/css/style.css?v=20261014s">
+<link rel="stylesheet" href="/css/site.css?v=20261015b">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -59,100 +59,85 @@
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header on-light">
+<header class="site-header on-paper">
   <div class="wrap">
     <a href="/" class="brand">
-      <img src="/images/home/lyles-lens-logo-80.png" srcset="/images/home/lyles-lens-logo-80.png 2x, /images/home/lyles-lens-logo-120.png 3x" alt="Lyle's Lens" width="40" height="40">
-      Lyle's Lens
+      <img src="/images/home/lyles-lens-logo-80.png" srcset="/images/home/lyles-lens-logo-80.png 2x, /images/home/lyles-lens-logo-120.png 3x" alt="" width="40" height="40">
+      <span class="brand-word">Lyle's Lens</span>
     </a>
-    <nav class="main-nav" id="main-nav">
+    <nav class="main-nav" id="main-nav" aria-label="Main">
       <a href="/portraits/">Identity</a>
       <a href="/sports-photography-canberra/">Action</a>
       <a href="/evidence/">Evidence</a>
-      <a href="/about/" class="active" aria-current="page">About</a>
+      <a href="/about/" aria-current="page">About</a>
       <a href="/why-womens-sport/">Why women's sport</a>
-      <a href="mailto:lyle.holt@lyleslens.com?subject=Enquiry" class="btn-outline nav-cta">Get in touch</a>
+      <a href="mailto:lyle.holt@lyleslens.com?subject=Enquiry" class="nav-cta">Get in touch<span class="sr-only"> (opens email)</span></a>
     </nav>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
   </div>
 </header>
 
 <main id="main" tabindex="-1">
+<div class="wrap page-body">
+  <header class="page-head">
+    <p class="label">About</p>
+    <h1 class="title">34 years producing evidence for people who carried the risk.</h1>
+  </header>
 
-<section class="case-header">
-  <div class="wrap">
-    <span class="eyebrow">About</span>
-    <h1>34 years producing evidence for people who carried the risk.</h1>
-  </div>
-</section>
-
-<section class="section section-cream" style="padding-top:20px;">
-  <div class="wrap">
-    <div class="bio-grid">
-      <figure>
-        <img fetchpriority="high" src="/images/about/portrait/holt-f111-portrait.jpg" alt="Lyle Holt" width="1365" height="2048">
-      </figure>
-      <div class="body-copy">
-        <p>Lyle Holt spent 34 years making operational judgement calls under uncertainty, where getting them wrong had real consequences.</p>
-        <p>He had to work out what mattered, what was missing and what was being overlooked. He also had to spot what would disappear once a competing priority arrived. Over time he learned to notice what others had stopped seeing.</p>
-        <p>He brings the same habit to photography. Lyle photographs athletes, leaders and speakers, sporting organisations, and businesses and venues. Each shoot starts with where the photos will be used: a selection application, a LinkedIn profile, a sponsor deck, a tender or a board paper. He looks past the obvious photograph to the people and the work behind it, and thinks about the person who will eventually see the image.</p>
-        <p>For sporting organisations, he plans each frame around the questions a board, funder or sponsor is about to ask:</p>
-        <p><strong>Can this programme represent us?<br>Can this programme justify our funding support?<br>Will this partnership stand up to board scrutiny when it comes up for renewal?</strong></p>
-      </div>
+  <div class="split">
+    <figure class="split-frame">
+      <img src="/images/v2/about-holt-f111-portrait-800.jpg" srcset="/images/v2/about-holt-f111-portrait-400.jpg 400w, /images/v2/about-holt-f111-portrait-800.jpg 800w, /images/v2/about-holt-f111-portrait-1200.jpg 1200w" sizes="(min-width: 64em) 28rem, (min-width: 40em) 30rem, 100vw" width="1200" height="1800" alt="Lyle Holt" fetchpriority="high" decoding="async">
+    </figure>
+    <div class="prose">
+      <p>Lyle Holt spent 34 years making operational judgement calls under uncertainty, where getting them wrong had real consequences.</p>
+      <p>He had to work out what mattered, what was missing and what was being overlooked. He also had to spot what would disappear once a competing priority arrived. Over time he learned to notice what others had stopped seeing.</p>
+      <p>He brings the same habit to photography. Lyle photographs athletes, leaders and speakers, sporting organisations, and businesses and venues. Each shoot starts with where the photos will be used: a selection application, a LinkedIn profile, a sponsor deck, a tender or a board paper. He looks past the obvious photograph to the people and the work behind it, and thinks about the person who will eventually see the image.</p>
+      <p>For sporting organisations, he plans each frame around the questions a board, funder or sponsor is about to ask:</p>
+      <p><strong>Can this programme represent us?<br>Can this programme justify our funding support?<br>Will this partnership stand up to board scrutiny when it comes up for renewal?</strong></p>
     </div>
   </div>
-</section>
+</div>
 
-<section class="section section-dark">
+<section class="read-section on-ink" aria-labelledby="background">
   <div class="wrap">
-    <span class="eyebrow">Operational Background</span>
-    <h2>34 years in the Royal Australian Navy and Air Force</h2>
-    <div class="body-copy">
+    <p class="label">Operational Background</p>
+    <h2 id="background" class="section-title">34 years in the Royal Australian Navy and Air Force</h2>
+    <div class="prose stack-m">
       <p>Lyle served 34 years in the Royal Australian Navy and Air Force across operational deployments, aviation, senior command and disruptive innovation.</p>
       <p>He commanded international operations in Japan involving nine nations supporting the defence of the Korean Peninsula. He led more than 500 people operating Australia's air and space defence surveillance network. He flew the F-111 and built Number 5 Flight from scratch to establish Australia's medium-altitude, long-endurance uncrewed aircraft capability.</p>
       <p>As Director of Plan Jericho, he questioned established assumptions and moved new ideas from concept into working capability.</p>
       <p>What carries over to sport is the kind of environment he learned to work in.</p>
-      <p><a href="https://www.linkedin.com/in/lyleholt/" target="_blank" rel="noopener">Lyle's LinkedIn profile&nbsp;&rarr;</a> has his full operational background, appointments and professional record.</p>
-    </div>
-    <h3 class="about-subhead" id="womens-pathways">Women&rsquo;s pathways</h3>
-    <div class="body-copy">
+      <p><a href="https://www.linkedin.com/in/lyleholt/" target="_blank" rel="noopener">Lyle's LinkedIn profile<span class="arrow" aria-hidden="true">&nbsp;&rarr;</span></a> has his full operational background, appointments and professional record.</p>
+      <h3 class="subhead" id="womens-pathways">Women&rsquo;s pathways</h3>
       <p>His focus on women's elite sport comes from his military career. Again and again, it showed him the same problem from different angles. Did women have space to participate? Did the systems actually accommodate them? Was their contribution visible?</p>
       <p>Most of the support that turns an athlete&rsquo;s ability into recognition arrives once she reaches the top. Lyle works with women&rsquo;s pathways to bring some of it forward, building the athlete&rsquo;s and the programme&rsquo;s identity while they&rsquo;re still developing.</p>
-      <p><a href="/why-womens-sport/">Why women&rsquo;s elite sport&nbsp;&rarr;</a></p>
+      <p><a class="text-link" href="/why-womens-sport/">Why women&rsquo;s elite sport<span class="arrow" aria-hidden="true">&nbsp;&rarr;</span></a></p>
     </div>
-    <div class="document-feature">
-      <img src="/images/about/afghanistan-service/afghanistan-girl-soccer.jpg" alt="A girl holds a soccer ball, Kabul, 2009" loading="lazy" decoding="async" width="2048" height="1024">
-      <p class="document-feature-caption">Kabul, 2009. Here Lyle saw what access to sport made possible for a girl, and what its absence cost her. That thread runs from his military career to his work in women's elite sport today.</p>
-    </div>
+    <figure class="feature-quote">
+      <img src="/images/v2/about-kabul-girl-soccer-800.jpg" srcset="/images/v2/about-kabul-girl-soccer-400.jpg 400w, /images/v2/about-kabul-girl-soccer-800.jpg 800w" sizes="(min-width: 40em) 25rem, calc(100vw - 3rem)" width="800" height="400" alt="A girl holds a soccer ball, Kabul, 2009" loading="lazy" decoding="async">
+      <figcaption>Kabul, 2009. Here Lyle saw what access to sport made possible for a girl, and what its absence cost her. That thread runs from his military career to his work in women's elite sport today.</figcaption>
+    </figure>
   </div>
 </section>
 
-<section class="gallery-block section-cream">
-  <div class="wrap">
-    <span class="eyebrow">Historical</span>
-    <div class="gallery-grid cols-3" style="margin-top:20px;">
-      <figure style="margin:0;">
-        <img src="/images/about/historical/holt-westralia-1992.jpg" alt="Navy bridge scene, 1992" loading="lazy" decoding="async" width="2048" height="1379">
-      </figure>
-      <figure style="margin:0;">
-        <img src="/images/about/historical/korea-dmz-north-korea-dprk.jpg" alt="Korean Demilitarized Zone, Joint Security Area" loading="lazy" decoding="async" width="2048" height="1284">
-      </figure>
-      <figure style="margin:0;">
-        <img src="/images/about/portrait/holt-heron-portrait.jpg" alt="Heron uncrewed aircraft portrait" loading="lazy" decoding="async" width="2048" height="1365">
-      </figure>
-    </div>
-    <div class="gallery-grid pair-wide-tall" style="margin-top:12px;">
-      <img src="/images/about/historical/avalon-heron-holt-skidmore-acaust-2011.jpg" alt="Heron uncrewed aircraft at Avalon Airshow, 2011" loading="lazy" decoding="async" width="2048" height="1536">
-      <img src="/images/about/portrait/holt-f111-portrait.jpg" alt="F-111 aircraft with squadron markings" loading="lazy" decoding="async" width="1365" height="2048">
-    </div>
+<section class="read-section wrap" aria-labelledby="historical">
+  <h2 id="historical" class="section-title">Historical</h2>
+  <div class="gallery gallery--3">
+    <img src="/images/v2/about-westralia-1992-800.jpg" srcset="/images/v2/about-westralia-1992-400.jpg 400w, /images/v2/about-westralia-1992-800.jpg 800w, /images/v2/about-westralia-1992-1200.jpg 1200w" sizes="(min-width: 84em) 27rem, (min-width: 40em) 31vw, calc(100vw - 3rem)" width="1200" height="800" alt="Navy bridge scene, 1992" loading="lazy" decoding="async">
+    <img src="/images/v2/about-korea-dmz-800.jpg" srcset="/images/v2/about-korea-dmz-400.jpg 400w, /images/v2/about-korea-dmz-800.jpg 800w, /images/v2/about-korea-dmz-1200.jpg 1200w" sizes="(min-width: 84em) 27rem, (min-width: 40em) 31vw, calc(100vw - 3rem)" width="1200" height="800" alt="Korean Demilitarized Zone, Joint Security Area" loading="lazy" decoding="async">
+    <img src="/images/v2/about-heron-portrait-800.jpg" srcset="/images/v2/about-heron-portrait-400.jpg 400w, /images/v2/about-heron-portrait-800.jpg 800w, /images/v2/about-heron-portrait-1200.jpg 1200w" sizes="(min-width: 84em) 27rem, (min-width: 40em) 31vw, calc(100vw - 3rem)" width="1200" height="800" alt="Heron uncrewed aircraft portrait" loading="lazy" decoding="async">
+  </div>
+  <div class="gallery gallery--2">
+    <img src="/images/v2/about-avalon-heron-2011-4x5-800.jpg" srcset="/images/v2/about-avalon-heron-2011-4x5-400.jpg 400w, /images/v2/about-avalon-heron-2011-4x5-800.jpg 800w, /images/v2/about-avalon-heron-2011-4x5-1200.jpg 1200w" sizes="(min-width: 84em) 41rem, (min-width: 40em) 46vw, 46vw" width="1200" height="1499" alt="Heron uncrewed aircraft at Avalon Airshow, 2011" loading="lazy" decoding="async">
+    <img src="/images/v2/about-holt-f111-4x5-800.jpg" srcset="/images/v2/about-holt-f111-4x5-400.jpg 400w, /images/v2/about-holt-f111-4x5-800.jpg 800w, /images/v2/about-holt-f111-4x5-1200.jpg 1200w" sizes="(min-width: 84em) 41rem, (min-width: 40em) 46vw, 46vw" width="1200" height="1499" alt="F-111 aircraft with squadron markings" loading="lazy" decoding="async">
   </div>
 </section>
 
-<section class="section section-dark">
+<section class="read-section on-ink" aria-labelledby="recognition">
   <div class="wrap">
-    <span class="eyebrow">Recognition</span>
-    <h2>Recognition and professional standards</h2>
-    <div class="credential-grid" style="margin-top:24px;">
+    <p class="label">Recognition</p>
+    <h2 id="recognition" class="section-title">Recognition and professional standards</h2>
+    <div class="credentials">
       <div>
         <h3>Photography recognition</h3>
         <p>Lyle's photography has been independently recognised by Capture Magazine (Australasia's Top Emerging Photographers 2024, two Commended awards, judged by a 25-member international panel), Australian Photography Magazine (Mono Awards 2023, Highly Commended) and the International Association of Art Photographers. His work has been published editorially in <em>Bold and Beyond Magazine</em>, and six times in <em>Fashion and Beauty Magazine</em>.</p>
@@ -169,66 +154,49 @@
   </div>
 </section>
 
-<section class="section section-cream">
-  <div class="wrap">
-    <span class="eyebrow">Heritage &amp; Service</span>
-    <h2>A family tradition of defending Country.</h2>
-    <div class="body-copy">
-      <p>Lyle is a Palawa man. His father&rsquo;s family comes from Flinders Island and traces its lineage to Mannalargenna, a Trawlwoolway leader and warrior of the Frontier Wars.</p>
-      <p>Lyle is the third generation of his family to serve. His grandfather Harold served at Gallipoli and on the Western Front, enlisted as a &ldquo;natural born British subject&rdquo; with his Aboriginality left off the record. His uncle Pat was a prisoner of war on the Sumatra railway, and later fought in Korea at the battles of Kapyong and Maryang-San. His father served aboard HMAS <em>Anzac</em> in Korea. Lyle pieced that history together only about a decade ago, through digitised family and mission records.</p>
-      <p>In his words to the Australian War Memorial: &ldquo;The legacy is less about fighting foreign wars as it is defending country.&rdquo;</p>
-      <p>Lyle&rsquo;s Lens is a veteran-owned business based on Ngunnawal Country, in Canberra. Service and heritage are part of the public record, not a marketing line.</p>
-    </div>
+<section class="read-section wrap" aria-labelledby="heritage">
+  <p class="label">Heritage &amp; Service</p>
+  <h2 id="heritage" class="section-title">A family tradition of defending Country.</h2>
+  <div class="prose">
+    <p>Lyle is a Palawa man. His father&rsquo;s family comes from Flinders Island and traces its lineage to Mannalargenna, a Trawlwoolway leader and warrior of the Frontier Wars.</p>
+    <p>Lyle is the third generation of his family to serve. His grandfather Harold served at Gallipoli and on the Western Front, enlisted as a &ldquo;natural born British subject&rdquo; with his Aboriginality left off the record. His uncle Pat was a prisoner of war on the Sumatra railway, and later fought in Korea at the battles of Kapyong and Maryang-San. His father served aboard HMAS <em>Anzac</em> in Korea. Lyle pieced that history together only about a decade ago, through digitised family and mission records.</p>
+    <p>In his words to the Australian War Memorial: &ldquo;The legacy is less about fighting foreign wars as it is defending country.&rdquo;</p>
+    <p>Lyle&rsquo;s Lens is a veteran-owned business based on Ngunnawal Country, in Canberra. Service and heritage are part of the public record, not a marketing line.</p>
+  </div>
 
-    <div class="public-record">
-      <span class="eyebrow">In the Public Record</span>
-      <p class="record-cite">Mentioned in: <em>Our Mob Served: Aboriginal and Torres Strait Islander Histories of War and Defending Australia</em>, edited by Allison Cadzow and Mary Anne Jebb (Aboriginal Studies Press, 2019), section on Gaye Doolan, pp.&nbsp;64&ndash;65.</p>
-
-      <div class="record-links">
-        <a class="record-link" href="https://servingcountry.com.au/portfolio/lyle-holt/" target="_blank" rel="noopener">
-          Serving Country, Indigenous veterans portrait project
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-        </a>
-        <a class="record-link" href="https://wm.awm.gov.au/watch/lyle-holt" target="_blank" rel="noopener">
-          Australian War Memorial, &lsquo;All in&rsquo; with Lyle Holt
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-        </a>
-        <a class="record-link" href="https://www.theguardian.com/australia-news/2026/apr/25/supersonic-strike-navigator-indigenous-ancestry" target="_blank" rel="noopener">
-          The Guardian Australia, a family tradition of service
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-        </a>
-      </div>
-
-      <hr class="record-rule">
-    </div>
-
-    <figure class="featured-video">
+  <div class="subsection">
+    <h3 class="subhead" id="public-record">In the Public Record</h3>
+    <p class="prose">Mentioned in: <em>Our Mob Served: Aboriginal and Torres Strait Islander Histories of War and Defending Australia</em>, edited by Allison Cadzow and Mary Anne Jebb (Aboriginal Studies Press, 2019), section on Gaye Doolan, pp.&nbsp;64&ndash;65.</p>
+    <ul class="out-links">
+      <li><a href="https://servingcountry.com.au/portfolio/lyle-holt/" target="_blank" rel="noopener">Serving Country, Indigenous veterans portrait project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+      <li><a href="https://wm.awm.gov.au/watch/lyle-holt" target="_blank" rel="noopener">Australian War Memorial, &lsquo;All in&rsquo; with Lyle Holt <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+      <li><a href="https://www.theguardian.com/australia-news/2026/apr/25/supersonic-strike-navigator-indigenous-ancestry" target="_blank" rel="noopener">The Guardian Australia, a family tradition of service <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></li>
+    </ul>
+    <figure class="video-link stack-l">
       <a href="https://youtu.be/DvDuj5TMvDM" target="_blank" rel="noopener">
-        <img src="https://img.youtube.com/vi/DvDuj5TMvDM/hqdefault.jpg" alt="Family Service with Lyle Holt, Australian War Memorial" loading="lazy" decoding="async">
-        <span class="play-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+        <img src="https://img.youtube.com/vi/DvDuj5TMvDM/hqdefault.jpg" alt="Family Service with Lyle Holt, Australian War Memorial" width="480" height="360" loading="lazy" decoding="async">
+        <span class="video-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
       </a>
-      <figcaption>&ldquo;Family Service with Lyle Holt,&rdquo; Australian War Memorial. <a href="https://youtu.be/DvDuj5TMvDM" target="_blank" rel="noopener">Watch on YouTube&nbsp;&rarr;</a></figcaption>
+      <figcaption class="caption">&ldquo;Family Service with Lyle Holt,&rdquo; Australian War Memorial. <a class="text-link" href="https://youtu.be/DvDuj5TMvDM" target="_blank" rel="noopener">Watch on YouTube<span class="arrow" aria-hidden="true">&nbsp;&rarr;</span></a></figcaption>
     </figure>
   </div>
 </section>
 
-<section class="stats-strip">
-  <div class="wrap">
-    <h2>Questions, or ready to book?</h2>
-    <p>Based in Canberra | Ngunnawal Country.</p>
-    <div class="cta-row" style="justify-content:center;">
-      <a href="mailto:lyle.holt@lyleslens.com" class="btn-gold">Start the conversation&nbsp;&rarr;</a>
+<section class="closing on-ink closing--with-line" aria-labelledby="close">
+  <div class="wrap-content">
+    <h2 id="close">Questions, or ready to book?</h2>
+    <p class="closing-line">Based in Canberra | Ngunnawal Country.</p>
+    <div class="closing-actions">
+      <a href="mailto:lyle.holt@lyleslens.com" class="btn btn--gold">Start the conversation<span class="arrow" aria-hidden="true">&nbsp;&rarr;</span><span class="sr-only"> (opens email)</span></a>
     </div>
-    <p style="max-width:640px; margin:22px auto 0;">Tell Lyle who you are and what you need photographed. You'll get a written reply within one business day.</p>
-    <p style="margin:14px auto 0; font-size:15px;">Or email <a href="mailto:lyle.holt@lyleslens.com">lyle.holt@lyleslens.com</a></p>
+    <p class="closing-note">Tell Lyle who you are and what you need photographed. You'll get a written reply within one business day.</p>
+    <p class="closing-note">Or email <a href="mailto:lyle.holt@lyleslens.com">lyle.holt@lyleslens.com</a></p>
   </div>
 </section>
-
 </main>
 
-<footer class="site-footer">
+<footer class="site-footer on-ink">
   <div class="wrap">
-    <div>&copy; 2026 Lyle's Lens Photography. All rights reserved.<br>ACT Working with Vulnerable People Reg. 00758088. A veteran-owned Australian business on Ngunnawal Country.<br><a href="mailto:lyle.holt@lyleslens.com">lyle.holt@lyleslens.com</a></div>
     <nav class="footer-nav" aria-label="Footer">
       <a href="/portraits/">Identity</a>
       <a href="/sports-photography-canberra/">Action</a>
@@ -236,11 +204,7 @@
       <a href="/about/">About</a>
       <a href="/why-womens-sport/">Why women's sport</a>
     </nav>
-    <div class="footer-socials">
-      <a href="https://www.instagram.com/lyleslens/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 3.25.15 4.77 1.69 4.92 4.92.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.15 3.23-1.66 4.77-4.92 4.92-1.27.06-1.64.07-4.85.07s-3.58-.01-4.85-.07c-3.26-.15-4.77-1.7-4.92-4.92-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85C2.38 3.9 3.9 2.38 7.15 2.23 8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 2.7.27.27 2.7.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.2 4.35 2.63 6.78 6.98 6.98C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c4.35-.2 6.78-2.63 6.98-6.98.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.2-4.35-2.63-6.78-6.98-6.98C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 12 18.16 6.16 6.16 0 0 0 12 5.84zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-10.87a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></a>
-      <a href="https://www.linkedin.com/in/lyleholt/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg></a>
-      <a href="https://www.facebook.com/lyleslens" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg></a>
-    </div>
+    <p>&copy; 2026 Lyle's Lens Photography. ACT Working with Vulnerable People Reg. 00758088. A veteran-owned Australian business on Ngunnawal Country.</p>
   </div>
 </footer>
 
