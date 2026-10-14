@@ -41,11 +41,12 @@
 <meta property="og:image" content="https://lyleslens.com/images/evidence/warbirds-100-squadron/signature-portrait-100sqn-hero-1.jpg">
 <meta property="og:site_name" content="Lyle&rsquo;s Lens Photography">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/images/home/lyles-lens-logo-yellow-no-shadow.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css?v=20261013g">
+<link rel="stylesheet" href="/css/style.css?v=20261014a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -69,10 +70,10 @@
 <header class="site-header on-light">
   <div class="wrap">
     <a href="/" class="brand">
-      <img src="/images/home/lyles-lens-logo-yellow-no-shadow.png" alt="Lyle's Lens" width="800" height="800">
+      <img src="/images/home/lyles-lens-logo-80.png" srcset="/images/home/lyles-lens-logo-80.png 2x, /images/home/lyles-lens-logo-120.png 3x" alt="Lyle's Lens" width="40" height="40">
       Lyle's Lens
     </a>
-    <nav class="main-nav">
+    <nav class="main-nav" id="main-nav">
       <a href="/sports-photography-canberra/">Sport</a>
       <a href="/athlete-photography/">Athletes</a>
       <a href="/executive-portraits/" class="active">Leaders</a>
@@ -82,7 +83,7 @@
       <a href="/about/">About</a>
       <a href="mailto:lyle.holt@lyleslens.com?subject=Photography%20enquiry" class="btn-outline nav-cta">Get in touch</a>
     </nav>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -99,7 +100,7 @@
     <div class="exec-intro">
       <p class="lede">Portraits for CEOs, board members, senior officers and speakers. For LinkedIn, board and speaker bios, company announcements and the media.</p>
       <figure class="exec-pair">
-        <img src="/images/evidence/walker-ohp/walker-hero-blazer-white-4x5.jpg" alt="Dr Anthony Walker, Founder of Optimised Human Performance, open blazer, studio white" decoding="async" width="800" height="1000">
+        <img fetchpriority="high" src="/images/evidence/walker-ohp/walker-hero-blazer-white-4x5.jpg" alt="Dr Anthony Walker, Founder of Optimised Human Performance, open blazer, studio white" decoding="async" width="800" height="1000">
         <img src="/images/evidence/walker-ohp/walker-look-l4-black.jpg" alt="Dr Anthony Walker, the same open blazer look, studio black" decoding="async" width="400" height="500">
         <figcaption>The same look on white and black. Dr Anthony Walker, Optimised Human Performance.</figcaption>
       </figure>
@@ -201,6 +202,6 @@
   </div>
 </footer>
 
-<script src="/js/nav.js?v=20261007b"></script>
+<script src="/js/nav.js?v=20261014a"></script>
 </body>
 </html>

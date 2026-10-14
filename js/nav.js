@@ -89,20 +89,52 @@ document.addEventListener('DOMContentLoaded', function () {
     window.scrollTo(0, scrollLockY);
   }
 
+  // --- Focus while the menu is open ----------------------------------------
+  // The open menu covers the whole screen, so keyboard and screen-reader users
+  // are kept inside it: everything else in <body> (skip link, <main>, footer)
+  // goes inert, focus moves to the first menu link, Tab and Shift+Tab cycle
+  // through the menu links and the close button, and closing hands focus back
+  // to the toggle.
+  var navLinks = Array.prototype.slice.call(nav.querySelectorAll('a'));
+  var trapItems = navLinks.concat([toggle]); // DOM order: links, then the toggle
+  var inertEls = [];
+
+  function setPageInert(on) {
+    if (on) {
+      inertEls = Array.prototype.filter.call(document.body.children, function (el) {
+        return el !== header && el.tagName !== 'SCRIPT' && !el.hasAttribute('inert');
+      });
+      inertEls.forEach(function (el) { el.setAttribute('inert', ''); });
+    } else {
+      inertEls.forEach(function (el) { el.removeAttribute('inert'); });
+      inertEls = [];
+    }
+  }
+
+  function focusEl(el) {
+    try { el.focus({ preventScroll: true }); } catch (e) { el.focus(); }
+  }
+
   function openNav() {
     header.classList.add('nav-open');
     nav.classList.add('mobile-open');
     toggle.setAttribute('aria-expanded', 'true');
     lockScroll();
+    setPageInert(true);
+    if (navLinks.length) focusEl(navLinks[0]);
   }
 
-  function closeNav() {
+  // returnFocus: false only when the menu closes because the viewport grew
+  // past the breakpoint, where the toggle itself is hidden.
+  function closeNav(returnFocus) {
     if (!header.classList.contains('nav-open')) return;
     header.classList.remove('nav-open');
     nav.classList.remove('mobile-open');
     toggle.setAttribute('aria-expanded', 'false');
+    setPageInert(false);
     unlockScroll();
     updateHeaderHeight();
+    if (returnFocus !== false) focusEl(toggle);
   }
 
   toggle.addEventListener('click', function () {
@@ -110,12 +142,20 @@ document.addEventListener('DOMContentLoaded', function () {
     else openNav();
   });
 
-  nav.querySelectorAll('a').forEach(function (link) {
-    link.addEventListener('click', closeNav);
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function () { closeNav(); });
   });
 
   document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeNav();
+    if (!header.classList.contains('nav-open')) return;
+    if (e.key === 'Escape') { closeNav(); return; }
+    if (e.key !== 'Tab') return;
+    var first = trapItems[0];
+    var last = trapItems[trapItems.length - 1];
+    var i = trapItems.indexOf(document.activeElement);
+    if (i === -1) { e.preventDefault(); focusEl(e.shiftKey ? last : first); }
+    else if (e.shiftKey && i === 0) { e.preventDefault(); focusEl(last); }
+    else if (!e.shiftKey && i === trapItems.length - 1) { e.preventDefault(); focusEl(first); }
   });
 
   window.addEventListener('resize', function () {
@@ -123,6 +163,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // said 900 the overlay was the only nav between 901 and 1180px, yet any
     // resize event closed it — and on tablets the address bar hiding fires
     // resize, so the menu shut itself mid-tap.
-    if (window.innerWidth > 1120) closeNav();
+    if (window.innerWidth > 1120) closeNav(false);
   });
 });

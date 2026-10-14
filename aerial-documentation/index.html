@@ -41,11 +41,12 @@
 <meta property="og:image" content="https://lyleslens.com/video/silos-estate-berry-2025-poster.jpg">
 <meta property="og:site_name" content="Lyle&rsquo;s Lens Photography">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/images/home/lyles-lens-logo-yellow-no-shadow.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css?v=20261013g">
+<link rel="stylesheet" href="/css/style.css?v=20261014a">
 <style>
   /* Example picker: one player, selectable thumbnails (page-scoped) */
   .aerial-player video { display:block; width:100%; max-width:960px; aspect-ratio:16/9; background:var(--dark); }
@@ -60,12 +61,13 @@
   @media (max-width:560px) { .aerial-picks { grid-template-columns:1fr; } }
   .aerial-pick { display:block; width:100%; text-align:left; background:none; border:0; padding:0; cursor:pointer; color:inherit; font:inherit; text-decoration:none; }
   .aerial-pick img { display:block; width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; border:2px solid transparent; }
-  .aerial-pick[aria-pressed="true"] img { border-color:var(--gold); }
+  /* Selected: deep gold (AA on cool white) plus a heavier ring and an underlined title, so the state is not colour alone. */
+  .aerial-pick[aria-pressed="true"] img { border-color:var(--gold-deep); box-shadow:0 0 0 2px var(--gold-deep); }
+  .aerial-pick[aria-pressed="true"] strong { text-decoration:underline; text-decoration-thickness:2px; text-underline-offset:4px; }
   .aerial-pick:focus-visible { outline:2px solid var(--gold-deep); outline-offset:3px; }
   .aerial-pick strong { display:block; font-size:16px; margin-top:10px; color:var(--ink); }
   .aerial-pick span { display:block; font-size:14px; line-height:1.5; color:var(--gray-on-light); margin-top:4px; }
   .aerial-pick:hover strong { color:var(--gold-deep); }
-  #aerial-player { scroll-margin-top:110px; }
 </style>
 <script type="application/ld+json">
 {
@@ -167,10 +169,10 @@
 <header class="site-header on-light">
   <div class="wrap">
     <a href="/" class="brand">
-      <img src="/images/home/lyles-lens-logo-yellow-no-shadow.png" alt="Lyle's Lens" width="800" height="800">
+      <img src="/images/home/lyles-lens-logo-80.png" srcset="/images/home/lyles-lens-logo-80.png 2x, /images/home/lyles-lens-logo-120.png 3x" alt="Lyle's Lens" width="40" height="40">
       Lyle's Lens
     </a>
-    <nav class="main-nav">
+    <nav class="main-nav" id="main-nav">
       <a href="/sports-photography-canberra/">Sport</a>
       <a href="/athlete-photography/">Athletes</a>
       <a href="/executive-portraits/">Leaders</a>
@@ -180,7 +182,7 @@
       <a href="/about/">About</a>
       <a href="mailto:lyle.holt@lyleslens.com?subject=Photography%20enquiry" class="btn-outline nav-cta">Get in touch</a>
     </nav>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -215,7 +217,7 @@
                 data-src="/video/fleet-helicopters-armidale-2025-1920x1080-h264.mp4"
                 data-poster="/video/fleet-helicopters-armidale-2025-poster.jpg"
                 data-label="Fleet Helicopters at Armidale Regional Airport, August 2025: drone footage arriving at the base and moving through the hangars, finished photographs of the aircraft, cockpits, identification and firefighting equipment, then a helicopter towed out, prepared on the apron and lifting off. 53 seconds, music and helicopter sound, no speech.">
-          <img src="/video/thumbs/fleet-helicopters-armidale-2025-640.jpg" alt="" loading="lazy" width="640" height="360">
+          <img src="/video/thumbs/fleet-helicopters-armidale-2025-640.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
           <strong>Fleet Helicopters, Armidale</strong>
           <span>An aviation business: its base, hangars, aircraft and equipment.</span>
         </button>
@@ -223,7 +225,7 @@
                 data-src="/video/silos-estate-berry-2025-1920x1080-h264.mp4"
                 data-poster="/video/silos-estate-berry-2025-poster.jpg"
                 data-label="Silos Estate at Berry, New South Wales, filmed from the air at sunrise in June 2025. 40 seconds, music, no speech.">
-          <img src="/video/thumbs/silos-estate-berry-2025-640.jpg" alt="" loading="lazy" width="640" height="360">
+          <img src="/video/thumbs/silos-estate-berry-2025-640.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
           <strong>Silos Estate, Berry</strong>
           <span>A property: its layout, buildings, grounds and visitor facilities.</span>
         </button>
@@ -231,7 +233,7 @@
                 data-src="/video/aerial-documentation-farm-canterbury-nz-1920x1080-h264.mp4"
                 data-poster="/video/aerial-documentation-farm-canterbury-nz-poster.jpg"
                 data-label="Aerial documentation of a farm property in Canterbury, New Zealand, with on-screen captions. 33 seconds, music, no speech.">
-          <img src="/video/thumbs/aerial-documentation-farm-canterbury-nz-640.jpg" alt="" loading="lazy" width="640" height="360">
+          <img src="/video/thumbs/aerial-documentation-farm-canterbury-nz-640.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
           <strong>Farm property, Canterbury, New Zealand</strong>
           <span>A working site: roofs and structures inside and out.</span>
         </button>
@@ -245,7 +247,7 @@
                 data-src="/video/bangalay-shoalhaven-heads-2025-1920x1080-h264.mp4"
                 data-poster="/video/bangalay-shoalhaven-heads-2025-poster.jpg"
                 data-label="Bangalay Luxury Villas at Shoalhaven Heads, New South Wales, June 2025: the beach at dawn, the villas, pools and gardens, Bangalay Dining and the golf course, filmed from the air. 64 seconds, music, no speech.">
-          <img src="/video/thumbs/bangalay-shoalhaven-heads-2025-640.jpg" alt="" loading="lazy" width="640" height="360">
+          <img src="/video/thumbs/bangalay-shoalhaven-heads-2025-640.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
           <strong>Bangalay Luxury Villas, Shoalhaven Heads</strong>
           <span>A venue in its coastal setting: accommodation and amenities.</span>
         </button>
@@ -259,12 +261,12 @@
                 data-src="/video/outback-air-race-2025-1920x1080-h264.mp4"
                 data-poster="/video/outback-air-race-2025-poster.jpg"
                 data-label="Outback Air Race 2025, filmed from inside a light aircraft and from a drone, with location captions. 65 seconds, music, no speech.">
-          <img src="/video/thumbs/outback-air-race-2025-640.jpg" alt="" loading="lazy" width="640" height="360">
+          <img src="/video/thumbs/outback-air-race-2025-640.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
           <strong>Outback Air Race 2025</strong>
           <span>An aviation journey: air-to-ground and drone.</span>
         </button>
         <a class="aerial-pick" href="/sports-photography-canberra/#invictus-expo">
-          <img src="/video/thumbs/invictus-australia-defence-community-sport-expo-2025-640.jpg" alt="" loading="lazy" width="640" height="360">
+          <img src="/video/thumbs/invictus-australia-defence-community-sport-expo-2025-640.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
           <strong>Invictus Australia sport expo&nbsp;&rarr;</strong>
           <span>An event and the people taking part, on the sports photography page.</span>
         </a>
@@ -272,7 +274,7 @@
                 data-src="/video/harvest-canterbury-nz-2025-1920x1080-h264.mp4"
                 data-poster="/video/harvest-canterbury-nz-2025-poster.jpg"
                 data-label="Harvest on a cropping farm in Canterbury, New Zealand, filmed from the air. 82 seconds, music, no speech.">
-          <img src="/video/thumbs/harvest-canterbury-nz-2025-640.jpg" alt="" loading="lazy" width="640" height="360">
+          <img src="/video/thumbs/harvest-canterbury-nz-2025-640.jpg" alt="" loading="lazy" decoding="async" width="640" height="360">
           <strong>Harvest, Canterbury, New Zealand</strong>
           <span>Lyle&rsquo;s own aerial film of a harvest.</span>
         </button>
@@ -369,6 +371,6 @@
   </div>
 </footer>
 
-<script src="/js/nav.js?v=20261007b"></script>
+<script src="/js/nav.js?v=20261014a"></script>
 </body>
 </html>

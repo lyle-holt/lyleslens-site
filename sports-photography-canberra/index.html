@@ -41,11 +41,12 @@
 <meta property="og:image" content="https://lyleslens.com/images/evidence/hockey-act/lucy-nash-athlete-identity-action.jpg">
 <meta property="og:site_name" content="Lyle&rsquo;s Lens Photography">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/images/home/lyles-lens-logo-yellow-no-shadow.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css?v=20261013g">
+<link rel="stylesheet" href="/css/style.css?v=20261014a">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -109,10 +110,10 @@
 <header class="site-header on-light">
   <div class="wrap">
     <a href="/" class="brand">
-      <img src="/images/home/lyles-lens-logo-yellow-no-shadow.png" alt="Lyle's Lens" width="800" height="800">
+      <img src="/images/home/lyles-lens-logo-80.png" srcset="/images/home/lyles-lens-logo-80.png 2x, /images/home/lyles-lens-logo-120.png 3x" alt="Lyle's Lens" width="40" height="40">
       Lyle's Lens
     </a>
-    <nav class="main-nav">
+    <nav class="main-nav" id="main-nav">
       <a href="/sports-photography-canberra/" class="active">Sport</a>
       <a href="/athlete-photography/">Athletes</a>
       <a href="/executive-portraits/">Leaders</a>
@@ -122,7 +123,7 @@
       <a href="/about/">About</a>
       <a href="mailto:lyle.holt@lyleslens.com?subject=Photography%20enquiry" class="btn-outline nav-cta">Get in touch</a>
     </nav>
-    <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -148,9 +149,9 @@
       </div>
     </div>
     <div class="gallery-grid cols-3-tall evidence-lead">
-      <a href="/evidence/hockey-act-athlete-identity/"><img src="/images/evidence/hockey-act/lucy-nash-athlete-identity-action.jpg" alt="Hockey ACT pathway athlete in competition, Canberra" width="2048" height="2048"><span class="evidence-name">Hockey ACT</span><span class="evidence-go">Case record&nbsp;&rarr;</span></a>
-      <a href="/evidence/afl-canberra-media-day/"><img src="/images/evidence/afl-canberra/afl-canberra-media-day-399.jpg" alt="AFL Canberra Media Day portrait, Belconnen Magpies player" decoding="async" width="1365" height="2048"><span class="evidence-name">AFL Canberra</span><span class="evidence-go">Case record&nbsp;&rarr;</span></a>
-      <a href="/evidence/act-gridiron-flag-football/"><img src="/images/evidence/act-gridiron/flag-football-227.jpg" alt="American Football ACT flag football, Canberra competition" decoding="async" width="2048" height="2048"><span class="evidence-name">American Football ACT</span><span class="evidence-go">Case record&nbsp;&rarr;</span></a>
+      <a href="/evidence/hockey-act-athlete-identity/"><img src="/images/evidence/hockey-act/lucy-nash-athlete-identity-action.jpg" alt="Hockey ACT pathway athlete in competition, Canberra" loading="lazy" decoding="async" width="2048" height="2048"><span class="evidence-name">Hockey ACT</span><span class="evidence-go">Case record&nbsp;&rarr;</span></a>
+      <a href="/evidence/afl-canberra-media-day/"><img src="/images/evidence/afl-canberra/afl-canberra-media-day-399.jpg" alt="AFL Canberra Media Day portrait, Belconnen Magpies player" loading="lazy" decoding="async" width="1365" height="2048"><span class="evidence-name">AFL Canberra</span><span class="evidence-go">Case record&nbsp;&rarr;</span></a>
+      <a href="/evidence/act-gridiron-flag-football/"><img src="/images/evidence/act-gridiron/flag-football-227.jpg" alt="American Football ACT flag football, Canberra competition" loading="lazy" decoding="async" width="2048" height="2048"><span class="evidence-name">American Football ACT</span><span class="evidence-go">Case record&nbsp;&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -192,7 +193,7 @@
     <figure class="film" id="the-day">
       <div class="film-frame">
         <video class="film-video" id="the-day-video"
-               preload="metadata" playsinline
+               preload="none" playsinline
                poster="/video/the-day-poster-first-frame.jpg"
                aria-label="The Day, a two minute twenty explainer">
           <source src="/video/the-day-release-1080p-h264.mp4" type="video/mp4">
@@ -277,8 +278,8 @@
   <div class="wrap">
     <span class="eyebrow">Canberra Organisations</span>
     <h2 style="font-family:var(--serif); font-weight:600; font-size:clamp(26px,3.2vw,34px); margin:10px 0 20px 0;">Already in the evidence.</h2>
-    <figure id="chill-v-blaze" style="margin:12px 0 0 0; scroll-margin-top:120px;">
-      <video controls preload="metadata" playsinline
+    <figure id="chill-v-blaze" style="margin:12px 0 0 0;">
+      <video controls preload="none" playsinline
              poster="/video/chill-v-blaze-2025-poster.jpg"
              style="display:block;width:100%;max-width:540px;aspect-ratio:4/5;background:#0C1218;"
              aria-label="Canberra Chill v Brisbane Blaze, Hockey One 2025: the pre-match huddle, the sideline, the keeper's view, the community and the media, from one Lyle's Lens shoot. 28 seconds, music, no speech.">
@@ -286,8 +287,8 @@
       </video>
       <figcaption class="proof-caption">Canberra Chill v Brisbane Blaze, Hockey One 2025. One shoot for Hockey ACT: stills plus 360 video. <small>Music: Taelimb, &ldquo;Sports Rocker&rdquo;, courtesy of <a href="https://www.epidemicsound.com" target="_blank" rel="noopener">Epidemic Sound</a>.</small></figcaption>
     </figure>
-    <figure id="invictus-expo" style="margin:48px 0 0 0; scroll-margin-top:120px;">
-      <video controls preload="metadata" playsinline
+    <figure id="invictus-expo" style="margin:48px 0 0 0;">
+      <video controls preload="none" playsinline
              poster="/video/invictus-australia-defence-community-sport-expo-2025-poster.jpg"
              style="display:block;width:100%;max-width:960px;aspect-ratio:16/9;background:#0C1218;"
              aria-label="Invictus Australia Defence Community Sport Expo 2025: drone footage of archery, mountain biking and family activities, the finished photographs, and the pages where Invictus Australia and IPAR published them. 38 seconds, music, no speech.">
@@ -351,7 +352,7 @@
   </div>
 </footer>
 
-<script src="/js/nav.js?v=20261007b"></script>
+<script src="/js/nav.js?v=20261014a"></script>
 <script src="/js/film.js?v=20260912"></script>
 </body>
 </html>
