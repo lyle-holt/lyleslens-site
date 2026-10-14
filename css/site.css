@@ -724,3 +724,9 @@ body.nav-locked .record-bar { display: none; }
 }
 .chill-post { max-width: 25rem; }
 .mount-line { border: var(--rule) solid var(--rule-light); }
+
+/* Published posts inside a case-record list item (Action, ACT Gridiron) */
+.posts { margin-top: var(--space-m); max-width: 55rem; }
+.posts figcaption { margin-top: 0.625rem; }
+.exhibit-mat--flush { padding: 0; overflow: hidden; }
+.record-list .posts-note { margin-top: var(--space-s); font-size: var(--type-small); line-height: 1.5; color: var(--ink-soft); max-width: var(--measure); }
