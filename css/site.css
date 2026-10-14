@@ -338,7 +338,7 @@ cite { font-style: normal; }
   margin-top: var(--space-m); font-size: var(--type-action);
   border-color: var(--signal-gold); color: var(--signal-gold);
 }
-.site-header.nav-open .brand { color: var(--cool-paper); }
+.site-header.nav-open .brand { color: var(--cool-paper); min-height: calc(var(--header-h) - 1px); }
 
 @media (min-width: 40em) {
   .brand img { width: 2.25rem; height: 2.25rem; }
