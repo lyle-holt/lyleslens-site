@@ -765,7 +765,6 @@ strong { font-weight: var(--weight-strong); color: var(--ink-navy); }
 .on-ink strong { color: var(--cool-paper); }
 sup { font-size: 0.7em; line-height: 0; vertical-align: super; }
 sup a { padding-inline: 0.15em; }
-.arrow { white-space: nowrap; }
 
 /* ---------- Breadcrumb ---------- */
 .crumbs { padding-top: var(--space-s); }
@@ -987,3 +986,12 @@ sup a { padding-inline: 0.15em; }
 .closing .closing-line + .closing-line { margin-top: var(--space-xs); }
 .closing-note { margin-top: var(--space-m); font-size: var(--type-small); line-height: 1.6; color: var(--mist); max-width: 36em; }
 .closing-note + .closing-note { margin-top: var(--space-xs); }
+
+/* Footer social links: 44px targets, icon in the footer's text colour */
+.footer-socials { display: flex; gap: var(--space-2xs); margin-inline-start: -0.75rem; }
+.footer-socials a {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.75rem; height: 2.75rem; color: var(--mist);
+}
+.footer-socials a:hover { color: var(--cool-paper); }
+.footer-socials svg { width: 1.25rem; height: 1.25rem; fill: currentColor; }
