@@ -159,10 +159,12 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   window.addEventListener('resize', function () {
-    // Must match the nav breakpoint in style.css (max-width: 1120px). When this
-    // said 900 the overlay was the only nav between 901 and 1180px, yet any
-    // resize event closed it — and on tablets the address bar hiding fires
-    // resize, so the menu shut itself mid-tap.
-    if (window.innerWidth > 1120) closeNav(false);
+    // Close only once the full navigation row has taken over, which is when
+    // the toggle itself is hidden. Reading the toggle's computed display keeps
+    // this in step with whichever stylesheet the page uses (style.css switches
+    // at 1120px, site.css at 64em) without a hard-coded number. On tablets the
+    // address bar hiding fires resize, so the menu must not shut itself while
+    // the toggle is still showing.
+    if (window.getComputedStyle(toggle).display === 'none') closeNav(false);
   });
 });
