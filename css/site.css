@@ -6,8 +6,8 @@
    Phone first. Four breakpoints in em: phone (base), tablet 40em,
    desktop 64em, wide 80em. Flat: no shadows, no lift, square corners,
    hairline rules. Hover changes an underline, never position.
-   css/style.css stays in place for About, Why women's sport and the
-   case records until they are migrated.
+   Also carries the reading pages (About, Why women's sport and the six
+   case records), migrated 15 Oct 2026.
    ========================================================================== */
 
 /* ---------- Fonts ----------
@@ -257,6 +257,7 @@ cite { font-style: normal; }
 
 .text-link {
   display: inline-block;
+  min-height: 2.75rem;
   padding-block: var(--space-xs);
   font-size: var(--type-action);
   font-weight: var(--weight-strong);
@@ -299,6 +300,12 @@ cite { font-style: normal; }
   text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.4em;
 }
 .on-paper .main-nav a[aria-current="page"] { color: var(--ink-navy); }
+/* A case record marks its section (Evidence) in the nav */
+.main-nav a[aria-current="true"] {
+  font-weight: var(--weight-strong);
+  text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.4em;
+}
+.on-paper .main-nav a[aria-current="true"] { color: var(--ink-navy); }
 .main-nav .nav-cta {
   padding: var(--space-xs) 1.125rem;
   border: var(--rule) solid var(--signal-gold);
@@ -341,7 +348,8 @@ cite { font-style: normal; }
   padding: var(--space-l) 0 var(--space-2xl);
 }
 .site-header.nav-open .main-nav a { font-size: 1.375rem; color: var(--cool-paper); }
-.site-header.nav-open .main-nav a[aria-current="page"] { color: var(--cool-paper); }
+.site-header.nav-open .main-nav a[aria-current="page"],
+.site-header.nav-open .main-nav a[aria-current="true"] { color: var(--cool-paper); }
 .site-header.nav-open .main-nav .nav-cta {
   margin-top: var(--space-m); font-size: var(--type-action);
   border-color: var(--signal-gold); color: var(--signal-gold);
@@ -739,3 +747,243 @@ body.nav-locked .record-bar { display: none; }
 /* A link inside a figure caption sits on its own line, so its tap padding
    doesn't open up the caption's line spacing */
 .caption .text-link { display: block; width: fit-content; margin-top: var(--space-2xs); }
+
+/* ==========================================================================
+   Reading pages: About, Why women's sport and the six case records
+   (migrated from style.css, 15 Oct 2026). Same grounds, type roles and
+   image rules as the area pages; the additions below are the long-form
+   reading column, the case-record header and fields, gallery rows, quotes
+   on ink, stats, source notes and related links.
+   ========================================================================== */
+:root { --section-tight: var(--space-l); }
+@media (min-width: 40em) { :root { --section-tight: var(--space-xl); } }
+@media (min-width: 64em) { :root { --section-tight: var(--space-2xl); } }
+
+/* Publication titles and other italics: Lora italic 400, never Inter italic */
+em, cite.pub { font-family: var(--font-serif); font-style: italic; font-weight: var(--weight-regular); }
+strong { font-weight: var(--weight-strong); color: var(--ink-navy); }
+.on-ink strong { color: var(--cool-paper); }
+sup { font-size: 0.7em; line-height: 0; vertical-align: super; }
+sup a { padding-inline: 0.15em; }
+.arrow { white-space: nowrap; }
+
+/* ---------- Breadcrumb ---------- */
+.crumbs { padding-top: var(--space-s); }
+.crumbs ol { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; align-items: center; }
+.crumbs li { display: inline-flex; align-items: center; font-size: var(--type-caption); line-height: 1.4; color: var(--slate); }
+.crumbs li + li::before { content: "/"; margin-inline: var(--space-xs); color: var(--slate); }
+.crumbs a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+.crumbs > a { font-size: var(--type-caption); gap: 0.35em; }
+
+/* ---------- Page head (one template for every reading page) ---------- */
+.page-head { padding-block: var(--space-xl) var(--space-l); }
+.crumbs + .page-head { padding-top: var(--space-xs); }
+.page-head .title { max-width: 20em; }
+.page-head .lede { margin-top: var(--space-s); }
+@media (min-width: 64em) { .page-head { padding-block: var(--space-2xl) var(--space-xl); } .crumbs + .page-head { padding-top: var(--space-s); } }
+
+/* A landscape lead frame: edge to edge on phones, never taller than 75svh */
+.lead-frame { margin-inline: calc(-1 * var(--gutter)); }
+.lead-frame img { width: 100%; }
+@media (min-width: 40em) { .lead-frame { margin-inline: 0; max-width: min(100%, 75svh * 1.5); } }
+
+/* The opening block of a reading page, before its first section */
+.page-body { padding-bottom: var(--section); }
+.page-body--tight { padding-bottom: var(--section-tight); }
+@media (min-width: 40em) {
+  .case-lead--tall { max-width: min(36rem, 75svh * 2 / 3); }
+  .case-lead--portrait { max-width: min(25rem, 75svh * 4 / 5); }
+}
+
+/* ---------- Reading column ---------- */
+.prose { max-width: var(--measure); color: var(--ink-soft); }
+.prose > * + * { margin-top: 1em; }
+.prose > h3 { margin-top: var(--space-xl); }
+.on-ink .prose { color: var(--mist); line-height: 1.65; letter-spacing: 0.01em; }
+.on-ink .prose h3 { color: var(--cool-paper); letter-spacing: 0; }
+.prose ul > li, .dash-list > li { position: relative; padding-left: 1.25em; }
+.prose ul > li + li, .dash-list > li + li { margin-top: 0.5em; }
+.prose ul > li::before, .dash-list > li::before { content: "\2014"; position: absolute; left: 0; color: var(--slate); }
+.section-intro { margin-top: var(--space-xs); max-width: var(--measure); color: var(--ink-soft); }
+
+/* ---------- Case record: lead frames beside the fields ---------- */
+/* Phone and tablet: the frames come first (edge to edge on phones), then
+   the fields in one column at the measure. Desktop: fields left, frames right. */
+.case-body { display: grid; gap: var(--space-xl); padding-bottom: var(--section-tight); }
+.case-lead { margin-inline: calc(-1 * var(--gutter)); }
+.case-lead > * + * { margin-top: var(--space-xs); }
+.case-lead img { width: 100%; }
+.case-lead .pair { gap: var(--space-xs); }
+.case-fields { max-width: var(--measure); }
+.case-fields > * + * { margin-top: var(--space-l); }
+.field > p { color: var(--ink-soft); }
+.field > * + * { margin-top: var(--space-2xs); }
+.field > p + p { margin-top: 1em; }
+.field > .quote { margin-top: var(--space-m); }
+.field > .section-title + p { margin-top: var(--space-s); }
+@media (min-width: 40em) {
+  .case-lead { margin-inline: 0; max-width: 36rem; }
+  .case-lead > * + *, .case-lead .pair { gap: var(--space-s); }
+  .case-lead > * + * { margin-top: var(--space-s); }
+}
+@media (min-width: 64em) {
+  .case-body { grid-template-columns: minmax(0, 36rem) minmax(0, 34rem); column-gap: clamp(3rem, 7vw, 7rem); align-items: start; }
+  .case-lead { grid-column: 2; grid-row: 1; }
+  .case-fields { grid-column: 1; grid-row: 1; }
+  .case-body > .source-notes { grid-column: 1; }
+}
+
+/* ---------- Sections on reading pages ---------- */
+.read-section { padding-block: var(--section-tight); border-top: var(--rule) solid var(--rule-light); }
+.read-section:has(+ .closing), .read-section:last-child { padding-bottom: var(--section); }
+.read-section.on-ink { border-top: 0; padding-block: var(--section); }
+.read-section > .label + .section-title { margin-top: var(--space-xs); }
+.read-section > .section-title + .prose,
+.read-section > .section-title + .section-intro { margin-top: var(--space-s); }
+.read-section > .gallery, .read-section > .sheet, .read-section > .trail,
+.read-section > .posts-2, .read-section > .grid-2, .read-section > .grid-3,
+.read-section > .film, .read-section > .looks { margin-top: var(--space-l); }
+.read-section > * + .caption { margin-top: var(--space-s); }
+.read-section > .subsection { margin-top: var(--space-2xl); }
+.subsection > .subhead + * { margin-top: var(--space-xs); }
+.subsection > .label + .subhead, .subsection > .label + h2 { margin-top: var(--space-xs); }
+.subsection > * + * { margin-top: var(--space-s); }
+.read-section .stack-l { margin-top: var(--space-l); }
+.read-section > .trail { max-width: var(--content-max); }
+.exhibit .exhibit-note + .exhibit-note { margin-top: var(--space-2xs); }
+
+/* ---------- Gallery rows: equal widths and ratios within a row ---------- */
+.gallery { display: grid; gap: var(--space-2xs); align-items: start; }
+.gallery img { width: 100%; }
+/* Five frames: stacked on phones; lead plus two by two on tablets;
+   two larger frames over three on desktop */
+@media (min-width: 40em) {
+  .gallery--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xs); }
+  .gallery--5 > :first-child { grid-column: 1 / -1; }
+}
+@media (min-width: 64em) {
+  .gallery--5 { grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--space-s); }
+  .gallery--5 > :nth-child(-n+2) { grid-column: span 3; }
+  .gallery--5 > :nth-child(n+3) { grid-column: span 2; }
+}
+/* Two frames, two across at every width (portrait pairs). Under a row of
+   three, the pair takes the same column width as the row above. */
+.gallery--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 40em) { .gallery--3 + .gallery--2 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.gallery + .gallery { margin-top: var(--space-2xs); }
+@media (min-width: 40em) { .gallery--2 { gap: var(--space-xs); } .gallery + .gallery { margin-top: var(--space-xs); } }
+@media (min-width: 64em) { .gallery--2 { gap: var(--space-s); } .gallery + .gallery { margin-top: var(--space-s); } }
+/* Four frames: stacked on phones, two by two from tablet */
+@media (min-width: 40em) { .gallery--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-xs); } }
+@media (min-width: 64em) { .gallery--4 { gap: var(--space-s); } }
+/* A lead frame with two below, at every width */
+.gallery--lead2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.gallery--lead2 > :first-child { grid-column: 1 / -1; }
+/* A lead frame with three below: stacked on phones */
+@media (min-width: 40em) {
+  .gallery--lead2 { gap: var(--space-xs); }
+  .gallery--lead3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xs); }
+  .gallery--lead3 > :first-child { grid-column: 1 / -1; }
+}
+@media (min-width: 64em) { .gallery--lead2, .gallery--lead3 { gap: var(--space-s); max-width: min(100%, 75svh * 1.5); } }
+/* Three frames: stacked on phones (so "centre" stays the middle frame), three across from tablet */
+@media (min-width: 40em) { .gallery--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-xs); } }
+@media (min-width: 64em) { .gallery--3 { gap: var(--space-s); } }
+
+/* Contact sheet of portraits: two across, four across only when each
+   frame is 300px or more (owner decision 7) */
+.sheet { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2xs); }
+.sheet img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+@media (min-width: 40em) { .sheet { gap: var(--space-xs); } }
+@media (min-width: 64em) { .sheet { max-width: 52rem; gap: var(--space-s); } }
+@media (min-width: 84em) { .sheet--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: none; } }
+@media (min-width: 64em) { .sheet--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+/* Twelve looks (Walker): two across on phones, three from tablet */
+.looks { max-width: 44rem; }
+@media (min-width: 40em) { .looks { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Mats in rows of landscape artefacts: same mat, same padding, same ratio
+   for every item in the row */
+.grid-2 > figure > .mat img, .split .mat img { width: 100%; }
+.grid-2 figcaption, .gallery figcaption { margin-top: var(--space-xs); }
+.mat--wide { max-width: 52rem; }
+.diagram { max-width: 60rem; }
+.diagram img { width: 100%; }
+
+/* ---------- Text beside a frame (About bio, Walker published use) ---------- */
+.split { display: grid; gap: var(--space-xl); align-items: start; }
+.split-frame { margin-inline: calc(-1 * var(--gutter)); }
+.split-frame img { width: 100%; }
+@media (min-width: 40em) { .split-frame { margin-inline: 0; max-width: 30rem; } }
+@media (min-width: 64em) {
+  .split { grid-template-columns: minmax(0, 28rem) minmax(0, 36rem); column-gap: clamp(3rem, 7vw, 7rem); }
+  .split--text-first { grid-template-columns: minmax(0, 36rem) minmax(0, 28rem); }
+}
+.split > .post-mat, .split-artefact { max-width: 28rem; }
+
+/* ---------- Quotes on Ink Navy (About: Kabul, 2009) ---------- */
+.feature-quote { max-width: 25rem; margin-top: var(--space-2xl); }
+.feature-quote img { width: 100%; }
+.feature-quote figcaption {
+  margin-top: var(--space-m);
+  font-family: var(--font-serif); font-style: italic; font-weight: var(--weight-regular);
+  font-size: var(--type-quote); line-height: 1.5; color: var(--cool-paper);
+}
+.on-ink .quote { border-left-color: var(--rule-dark); }
+
+/* ---------- Credentials (About, on Ink Navy) ---------- */
+.credentials { display: grid; gap: var(--space-xl); margin-top: var(--space-l); }
+.credentials h3 { font-size: var(--type-subhead); line-height: 1.3; }
+.credentials p { margin-top: var(--space-xs); max-width: var(--measure); }
+.on-ink .credentials p { color: var(--mist); line-height: 1.65; letter-spacing: 0.01em; }
+@media (min-width: 64em) { .credentials { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--space-2xl); } }
+
+/* ---------- Links out to the public record (About) ---------- */
+.out-links { margin-top: var(--space-m); }
+.out-links a { display: inline-flex; align-items: center; gap: var(--space-2xs); min-height: 2.75rem; padding-block: var(--space-2xs); line-height: 1.35; }
+.out-links svg { width: 1rem; height: 1rem; flex: none; }
+
+/* A linked film thumbnail that opens elsewhere (About: Australian War Memorial) */
+.video-link { max-width: 40rem; }
+.video-link a { display: block; position: relative; }
+.video-link img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.video-badge {
+  position: absolute; left: var(--space-m); bottom: var(--space-m);
+  display: flex; align-items: center; justify-content: center;
+  width: 3rem; height: 3rem; background: var(--ink-navy); color: var(--cool-paper);
+}
+.video-badge svg { width: 1.25rem; height: 1.25rem; fill: currentColor; }
+.video-link a:focus-visible { outline-offset: 4px; }
+
+/* ---------- Stats (Why women's sport) ---------- */
+.stats { display: grid; margin-top: var(--space-xl); border-top: var(--rule) solid var(--rule-light); }
+.stats > div { padding-block: var(--space-m); border-bottom: var(--rule) solid var(--rule-light); }
+.stat-num { font-family: var(--font-serif); font-weight: var(--weight-strong); font-size: var(--type-title); line-height: 1; font-variant-numeric: lining-nums tabular-nums; }
+.stat-label { margin-top: var(--space-2xs); font-size: var(--type-caption); line-height: 1.5; color: var(--slate); }
+@media (min-width: 40em) {
+  .stats { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--space-l); border-bottom: var(--rule) solid var(--rule-light); }
+  .stats > div { border-bottom: 0; }
+}
+
+/* ---------- Source notes and references ---------- */
+.source-notes { margin-top: var(--space-xl); max-width: var(--measure); font-size: var(--type-caption); line-height: 1.6; color: var(--slate); }
+.source-notes h2, .source-notes h3 { font-family: var(--font-sans); font-size: var(--type-caption); font-weight: var(--weight-strong); line-height: 1.4; color: var(--ink-navy); }
+.source-notes h2 + ol, .source-notes h3 + ul { margin-top: var(--space-xs); }
+.source-notes ol { margin: 0; padding-left: 1.4em; }
+.source-notes ul { margin-top: var(--space-xs); }
+.source-notes li + li { margin-top: var(--space-2xs); }
+.source-notes ol + h2 { margin-top: var(--space-m); }
+.source-notes h2 + ul { margin-top: var(--space-xs); }
+.source-note { margin-top: var(--space-xs); font-size: var(--type-caption); line-height: 1.6; color: var(--slate); max-width: var(--measure); }
+.source-note + .source-note { margin-top: var(--space-3xs); }
+
+/* ---------- Related links ---------- */
+.link-list { margin-top: var(--space-s); }
+.link-list .text-link { padding-block: var(--space-xs); }
+
+/* ---------- Closing band: second action and notes ---------- */
+.on-ink .btn--outline { color: var(--signal-gold); border-color: var(--signal-gold); }
+.on-ink .btn--outline:hover { color: var(--signal-gold); }
+.closing .closing-line + .closing-line { margin-top: var(--space-xs); }
+.closing-note { margin-top: var(--space-m); font-size: var(--type-small); line-height: 1.6; color: var(--mist); max-width: 36em; }
+.closing-note + .closing-note { margin-top: var(--space-xs); }
