@@ -431,12 +431,16 @@ cite { font-style: normal; }
   display: grid; gap: var(--space-2xl);
   margin-top: var(--space-2xl);
 }
-.exhibit-mat {
+/* Published posts and mock-ups: one style everywhere. A 4:5 mat, 24px
+   inside, the artefact contained and centred, no border. Lyle's own
+   photographs never sit in a mat; they bleed at 4:5. */
+.post-mat {
   aspect-ratio: 4 / 5; background: var(--mat);
   display: flex; align-items: center; justify-content: center;
-  padding: var(--space-m);
+  padding: var(--space-m); overflow: hidden;
 }
-.exhibit-mat img { width: 100%; height: 100%; object-fit: contain; }
+.post-mat img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; }
+.frame-4x5 { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
 .exhibit figcaption { margin-top: 1.25rem; }
 .exhibit-title { display: block; font-family: var(--font-serif); font-weight: var(--weight-strong); font-size: var(--type-subhead); line-height: 1.3; }
 .exhibit-note { display: block; margin-top: var(--space-2xs); font-size: var(--type-small); line-height: 1.55; color: var(--ink-soft); max-width: 30em; }
@@ -446,7 +450,6 @@ cite { font-style: normal; }
 }
 @media (min-width: 64em) {
   .trail { margin-top: var(--space-3xl); gap: 7rem var(--space-3xl); }
-  .exhibit-mat { padding: var(--space-l); }
 }
 
 /* Standards: 2 x 2 */
@@ -601,13 +604,19 @@ figure > figcaption.caption { margin-top: var(--space-xs); }
   .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-m); }
   .grid-3 > :first-child { grid-column: auto; }
 }
-/* Athlete beside leader: kept side by side at every width, bottoms aligned */
-.pair { display: grid; grid-template-columns: 1.65fr 1fr; gap: var(--space-s); align-items: end; }
-/* 2:3 and 4:5 frames at 0.667 : 0.8 come out the same height */
-.bball-row { display: flex; gap: var(--space-s); align-items: flex-start; margin-top: var(--space-s); }
-.bball-row img:first-child { flex: 0.667 1 0; min-width: 0; }
-.bball-row img:last-child { flex: 0.8 1 0; min-width: 0; aspect-ratio: 4 / 5; object-fit: cover; }
-@media (min-width: 40em) { .bball-row { gap: var(--space-m); margin-top: var(--space-m); } }
+/* Two-up rows of photographs: equal columns, tops and captions on one line,
+   at every width */
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-s); align-items: start; }
+.pair figcaption { margin-top: var(--space-xs); }
+.pair .label { display: block; margin-bottom: var(--space-3xs); }
+.pair + .caption { margin-top: var(--space-s); }
+@media (min-width: 40em) { .pair { gap: var(--space-m); } }
+/* Two published posts: stacked on phones, equal columns from tablet */
+.posts-2 { display: grid; gap: var(--space-xl); align-items: start; max-width: 55rem; }
+.posts-2 figcaption { margin-top: var(--space-xs); }
+@media (min-width: 40em) { .posts-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-m); } }
+.bball-row { margin-top: var(--space-s); }
+@media (min-width: 40em) { .bball-row { margin-top: var(--space-m); } }
 
 .panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-m) var(--space-s); margin-top: var(--space-xl); align-items: start; }
 .panels > :first-child { grid-column: 1 / -1; }
@@ -615,7 +624,6 @@ figure > figcaption.caption { margin-top: var(--space-xs); }
   .panels { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-m); }
   .panels > :first-child { grid-column: auto; }
 }
-.panel-mat { aspect-ratio: 4 / 5; background: var(--mat); padding: var(--space-s); display: flex; align-items: center; }
 .panel-crop { aspect-ratio: 4 / 5; overflow: hidden; }
 .panel-crop img { width: 100%; height: 100%; object-fit: cover; }
 .panels figcaption { margin-top: 0.625rem; }
@@ -641,8 +649,6 @@ figure > figcaption.caption { margin-top: var(--space-xs); }
 
 /* Mats and mounts for artefacts */
 .mat { background: var(--mat); padding: var(--space-m); }
-.mat--tight { padding: var(--space-xs); }
-.mount { border: var(--rule) solid var(--rule-light); padding: var(--space-s); }
 @media (min-width: 64em) { .mat { padding: var(--space-l); } }
 
 /* Six jobs */
@@ -679,6 +685,7 @@ figure > figcaption.caption { margin-top: var(--space-xs); }
 .film-play:focus-visible { outline: 2px solid var(--cool-paper); outline-offset: -5px; }
 .film.is-playing .film-play { display: none; }
 .film-narrow { max-width: 35rem; }
+.film-narrow .film-play { left: 1.25rem; bottom: 1.25rem; }
 .credit { display: block; margin-top: var(--space-3xs); }
 .credit a { color: var(--slate); }
 
@@ -716,17 +723,7 @@ body.nav-locked .record-bar { display: none; }
   .record-col { position: static; }
 }
 
-/* Chill huddle film beside the Chill's own Ball Patrol post (Action) */
-.chill-pair {
-  display: grid; gap: var(--space-xl); align-items: end;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18.75rem), 1fr));
-  max-width: 65rem;
-}
-.chill-post { max-width: 25rem; }
-.mount-line { border: var(--rule) solid var(--rule-light); }
-
 /* Published posts inside a case-record list item (Action, ACT Gridiron) */
 .posts { margin-top: var(--space-m); max-width: 55rem; }
 .posts figcaption { margin-top: 0.625rem; }
-.exhibit-mat--flush { padding: 0; overflow: hidden; }
 .record-list .posts-note { margin-top: var(--space-s); font-size: var(--type-small); line-height: 1.5; color: var(--ink-soft); max-width: var(--measure); }
