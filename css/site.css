@@ -667,18 +667,6 @@ figure > figcaption.caption { margin-top: var(--space-xs); }
 .size img { grid-row: 1; align-self: end; display: block; width: 100%; height: auto; }
 .size .caption { grid-row: 2; align-self: start; }
 
-/* Group price table */
-.price-table { width: 100%; max-width: 36rem; border-collapse: collapse; border-top: var(--rule) solid var(--rule-light); }
-.price-table caption { caption-side: bottom; text-align: left; padding-top: var(--space-xs); }
-.price-table th, .price-table td {
-  padding: 0.875rem var(--space-xs) 0.875rem 0; border-bottom: var(--rule) solid var(--rule-light);
-  font-size: var(--type-small); line-height: 1.4; text-align: left; vertical-align: baseline;
-  font-variant-numeric: tabular-nums lining-nums;
-}
-.price-table thead th { font-size: var(--type-label); font-weight: var(--weight-strong); letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); }
-.price-table tbody th { font-weight: var(--weight-regular); color: var(--ink-soft); }
-.price-table td:last-child, .price-table th:last-child { text-align: right; padding-right: 0; }
-.price-table tbody td:last-child { font-weight: var(--weight-strong); font-size: var(--type-lede); }
 
 .panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-m) var(--space-s); margin-top: var(--space-xl); align-items: start; }
 .panels > :first-child { grid-column: 1 / -1; }
