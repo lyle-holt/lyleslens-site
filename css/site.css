@@ -634,8 +634,36 @@ figure > figcaption.caption { margin-top: var(--space-xs); }
 .posts-2 { display: grid; gap: var(--space-xl); align-items: start; max-width: 55rem; }
 .posts-2 figcaption { margin-top: var(--space-xs); }
 @media (min-width: 40em) { .posts-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-m); } }
-.bball-row { margin-top: var(--space-s); }
-@media (min-width: 40em) { .bball-row { margin-top: var(--space-m); } }
+/* Package contact sheets (Identity): one sheet per package, four frames
+   across at every width, so the sheets read as a ladder: one row, two rows,
+   three rows. Every tile is the same 4:5 frame. */
+.ladder > .body-text { margin-top: var(--space-s); }
+.ladder-sheet { margin-top: var(--space-xl); }
+.ladder-sheet + .ladder-sheet { margin-top: var(--space-2xl); }
+.ladder-head {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
+  gap: var(--space-3xs) var(--space-xs);
+  padding-bottom: var(--space-xs);
+}
+.ladder-head h3 { font-size: var(--type-subhead); line-height: 1.3; }
+.ladder-grid {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--seam);
+}
+.ladder-grid img { display: block; width: 100%; height: auto; }
+.ladder-sheet figcaption { margin-top: var(--space-xs); }
+
+/* Group price table */
+.price-table { width: 100%; max-width: 36rem; border-collapse: collapse; border-top: var(--rule) solid var(--rule-light); }
+.price-table caption { caption-side: bottom; text-align: left; padding-top: var(--space-xs); }
+.price-table th, .price-table td {
+  padding: 0.875rem var(--space-xs) 0.875rem 0; border-bottom: var(--rule) solid var(--rule-light);
+  font-size: var(--type-small); line-height: 1.4; text-align: left; vertical-align: baseline;
+  font-variant-numeric: tabular-nums lining-nums;
+}
+.price-table thead th { font-size: var(--type-label); font-weight: var(--weight-strong); letter-spacing: 0.1em; text-transform: uppercase; color: var(--slate); }
+.price-table tbody th { font-weight: var(--weight-regular); color: var(--ink-soft); }
+.price-table td:last-child, .price-table th:last-child { text-align: right; padding-right: 0; }
+.price-table tbody td:last-child { font-weight: var(--weight-strong); font-size: var(--type-lede); }
 
 .panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-m) var(--space-s); margin-top: var(--space-xl); align-items: start; }
 .panels > :first-child { grid-column: 1 / -1; }
