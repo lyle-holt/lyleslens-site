@@ -995,3 +995,12 @@ sup a { padding-inline: 0.15em; }
 }
 .footer-socials a:hover { color: var(--cool-paper); }
 .footer-socials svg { width: 1.25rem; height: 1.25rem; fill: currentColor; }
+
+/* Homepage promise band: VISIBLE. CREDIBLE. INVESTABLE. */
+.promise .section-title { max-width: 22em; }
+.promise-line {
+  display: block; margin-top: var(--space-2xs);
+  color: var(--signal-gold); letter-spacing: 0.06em;
+}
+.promise .lede + .lede { margin-top: var(--space-s); }
+.promise .text-link { margin-top: var(--space-s); }
