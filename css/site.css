@@ -675,6 +675,9 @@ figure > figcaption.caption { margin-top: var(--space-xs); }
   .panels > :first-child { grid-column: auto; }
 }
 .panel-crop { aspect-ratio: 4 / 5; overflow: hidden; }
+/* Published posts beside a source frame: no inset, so each post fills the panel width at the same size as the frame next to it */
+.post-mat--flush { padding: 0; }
+.post-mat--flush img { width: 100%; height: auto; }
 .panel-crop img { width: 100%; height: 100%; object-fit: cover; }
 .panels figcaption { margin-top: 0.625rem; }
 .record-entry h3 { font-size: var(--type-subhead); line-height: 1.3; }
