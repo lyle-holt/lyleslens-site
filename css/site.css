@@ -675,9 +675,17 @@ figure > figcaption.caption { margin-top: var(--space-xs); }
   .panels > :first-child { grid-column: auto; }
 }
 .panel-crop { aspect-ratio: 4 / 5; overflow: hidden; }
-/* Published posts beside a source frame: no inset, so each post fills the panel width at the same size as the frame next to it */
-.post-mat--flush { padding: 0; }
-.post-mat--flush img { width: 100%; height: auto; }
+/* A client post's mat hugs the post: the standard 24px inset on every side,
+   the post at its own shape (square or 4:5) */
+.post-mat--hug { aspect-ratio: auto; display: block; }
+.post-mat--hug img { width: 100%; height: auto; max-height: none; }
+/* Tablet up: frames and posts sit on one baseline so the captions start level */
+@media (min-width: 40em) {
+  .panels--level { grid-auto-flow: column; grid-template-rows: auto auto; row-gap: 0.625rem; }
+  .panels--level > figure { display: contents; }
+  .panels--level > figure > :first-child { grid-row: 1; align-self: end; }
+  .panels--level figcaption { grid-row: 2; align-self: start; margin-top: 0; }
+}
 .panel-crop img { width: 100%; height: 100%; object-fit: cover; }
 .panels figcaption { margin-top: 0.625rem; }
 .record-entry h3 { font-size: var(--type-subhead); line-height: 1.3; }
