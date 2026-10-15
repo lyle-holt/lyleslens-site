@@ -278,9 +278,12 @@ cite { font-style: normal; }
 .brand {
   display: inline-flex; align-items: center; gap: var(--space-xs);
   min-height: 2.75rem;
-  color: inherit; text-decoration: none;
+  color: var(--signal-gold); text-decoration: none;
 }
-.brand:hover { color: inherit; }
+/* The wordmark is gold on every page: Signal Gold on ink, Deep Brass (the
+   site's gold on light grounds) on paper headers */
+.brand:hover { color: var(--signal-gold); }
+.site-header.on-paper .brand, .site-header.on-paper .brand:hover { color: var(--deep-brass); }
 .brand img { width: 2rem; height: 2rem; }
 .brand-word {
   font-family: var(--font-serif); font-weight: var(--weight-strong);
@@ -354,7 +357,7 @@ cite { font-style: normal; }
   margin-top: var(--space-m); font-size: var(--type-action);
   border-color: var(--signal-gold); color: var(--signal-gold);
 }
-.site-header.nav-open .brand { color: var(--cool-paper); min-height: calc(var(--header-h) - 1px); }
+.site-header.nav-open .brand { color: var(--signal-gold); min-height: calc(var(--header-h) - 1px); }
 
 @media (min-width: 40em) {
   .brand img { width: 2.25rem; height: 2.25rem; }
@@ -433,7 +436,6 @@ cite { font-style: normal; }
 }
 @media (min-width: 64em) {
   .areas .wrap { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3xl) var(--space-2xl); padding-top: 4.5rem; }
-  .area-mat { padding: 2.5rem; }
   .area .figure-num { margin-top: 1.25rem; }
 }
 
@@ -536,6 +538,7 @@ cite { font-style: normal; }
 @media (max-width: 63.99em) {
   .site-header.joins-ink { background: var(--ink-navy); color: var(--cool-paper); border-bottom-color: var(--rule-dark); }
   .site-header.joins-ink .nav-toggle { border-color: var(--rule-dark); }
+  .site-header.joins-ink .brand { color: var(--signal-gold); }
 }
 
 /* ---------- Area pages: the record column ---------- */
@@ -663,9 +666,9 @@ figure > figcaption.caption { margin-top: var(--space-xs); }
 .quote blockquote p { font-family: var(--font-serif); font-style: italic; font-weight: var(--weight-regular); font-size: var(--type-quote); line-height: 1.45; max-width: 40ch; }
 .quote figcaption { margin-top: var(--space-2xs); }
 
-/* Mats and mounts for artefacts */
+/* Mats and mounts for artefacts: the same colour and 24px inset as
+   .post-mat; wide artefacts keep their own shape */
 .mat { background: var(--mat); padding: var(--space-m); }
-@media (min-width: 64em) { .mat { padding: var(--space-l); } }
 
 /* Six jobs */
 .jobs { display: grid; column-gap: 2.5rem; margin-top: var(--space-l); }
@@ -1004,3 +1007,7 @@ sup a { padding-inline: 0.15em; }
 }
 .promise .lede + .lede { margin-top: var(--space-s); }
 .promise .text-link { margin-top: var(--space-s); }
+
+/* Rows whose published pieces are wide (banners, fixture graphics) stack on
+   phones so each piece stays readable; square posts can stay two across */
+@media (max-width: 39.99em) { .stack-phone { grid-template-columns: minmax(0, 1fr); } }
