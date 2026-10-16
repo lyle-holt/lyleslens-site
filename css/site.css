@@ -815,6 +815,10 @@ body.nav-locked .record-bar { display: none; }
 
 /* Published posts inside a case-record list item (Action, ACT Gridiron) */
 .posts { margin-top: var(--space-m); max-width: 55rem; }
+/* League posts in the record column: the column is too narrow for three across to read,
+   so the first post takes the full column and the other two share the next row (16 Oct 2026) */
+.record-list .posts.grid-3 { max-width: none; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-m); }
+.record-list .posts.grid-3 > :first-child { grid-column: 1 / -1; }
 .posts figcaption { margin-top: 0.625rem; }
 .record-list .posts-note { margin-top: var(--space-s); font-size: var(--type-small); line-height: 1.5; color: var(--ink-soft); max-width: var(--measure); }
 
