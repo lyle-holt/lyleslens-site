@@ -707,11 +707,12 @@ figure > figcaption.caption { margin-top: var(--space-xs); }
    the post at its own shape (square or 4:5) */
 .post-mat--hug { aspect-ratio: auto; display: block; }
 .post-mat--hug img { width: 100%; height: auto; max-height: none; }
-/* Tablet up: frames and posts sit on one baseline so the captions start level */
+/* Tablet up: frames and posts share one top line and the captions start on
+   one line below the tallest of them (owner rule: rows align to the top) */
 @media (min-width: 40em) {
   .panels--level { grid-auto-flow: column; grid-template-rows: auto auto; row-gap: 0.625rem; }
   .panels--level > figure { display: contents; }
-  .panels--level > figure > :first-child { grid-row: 1; align-self: end; }
+  .panels--level > figure > :first-child { grid-row: 1; align-self: start; }
   .panels--level figcaption { grid-row: 2; align-self: start; margin-top: 0; }
 }
 .panel-crop img { width: 100%; height: 100%; object-fit: cover; }
