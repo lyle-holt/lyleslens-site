@@ -679,6 +679,9 @@ figure > figcaption.caption { margin-top: var(--space-xs); }
 }
 .ladder-grid img { display: block; width: 100%; height: auto; }
 .ladder-sheet figcaption { margin-top: var(--space-xs); }
+.ladder > .film, .ladder > .film + .ladder-sheet { margin-top: var(--space-2xl); }
+.record-section > .film { margin-top: var(--space-l); }
+.ladder > .film figcaption, .record-section > .film figcaption { margin-top: var(--space-xs); }
 
 /* One photograph in its six sizes: each row keeps one height, images sit on
    a common baseline so the labels start on one line */
