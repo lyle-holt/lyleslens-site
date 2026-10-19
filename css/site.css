@@ -630,6 +630,7 @@ cite { font-style: normal; }
 .pkg-index .price { font-family: var(--font-sans); text-align: right; }
 .pkg-index .price--small { font-size: var(--type-lede); }
 .pkg-index .pkg-note { font-family: var(--font-sans); font-weight: normal; font-size: var(--type-lede); color: var(--ink-soft); white-space: nowrap; }
+.pkg-index .price-extra { font-size: var(--type-lede); }
 .packages-list--groups { max-width: var(--measure); }
 
 /* Record content */
