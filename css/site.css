@@ -630,8 +630,6 @@ cite { font-style: normal; }
 .pkg-index .price { font-family: var(--font-sans); text-align: right; }
 .pkg-index .price--small { font-size: var(--type-small); }
 .pkg-index .pkg-note { font-family: var(--font-sans); font-weight: normal; font-size: var(--type-small); color: var(--ink-soft); white-space: nowrap; }
-.pkg-index .price .pkg-note { display: block; white-space: normal; margin-top: 0.125rem; }
-.pkg-index .nowrap { white-space: nowrap; }
 .packages-list--groups { max-width: var(--measure); }
 
 /* Record content */
