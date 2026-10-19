@@ -629,6 +629,7 @@ cite { font-style: normal; }
 .pkg-index a:hover > span:first-child { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
 .pkg-index .price { font-family: var(--font-sans); text-align: right; }
 .pkg-index .price--small { font-size: var(--type-small); }
+.pkg-index .pkg-note { font-family: var(--font-sans); font-weight: normal; font-size: var(--type-small); color: var(--ink-soft); white-space: nowrap; }
 .packages-list--groups { max-width: var(--measure); }
 
 /* Record content */
