@@ -549,6 +549,15 @@ cite { font-style: normal; }
 @media (min-width: 81.5em) {
   .squad--pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+/* A trio: two athletes from different sports and one leader, three across at every width */
+.squad--trio { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 72rem; }
+@media (min-width: 81.5em) {
+  .squad--trio { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+/* On phones the trio is captioned by its labels alone; the alt text carries who each person is */
+@media (max-width: 39.99em) {
+  .squad--trio .caption-detail { display: none; }
+}
 /* On phones and tablets the Identity header joins the ink lead band */
 @media (max-width: 63.99em) {
   .site-header.joins-ink { background: var(--ink-navy); color: var(--cool-paper); border-bottom-color: var(--rule-dark); }
