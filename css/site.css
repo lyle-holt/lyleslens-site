@@ -777,6 +777,9 @@ figure > figcaption.caption { margin-top: var(--space-xs); }
 .film-frame video { width: 100%; }
 .film-frame--16x9 video { aspect-ratio: 16 / 9; }
 .film-frame--4x5 video { aspect-ratio: 4 / 5; }
+.film-frame--9x16 video { aspect-ratio: 9 / 16; }
+.films-2 { max-width: 46rem; }
+.films-2 .film-play { left: 1.25rem; bottom: 1.25rem; }
 .film-play {
   position: absolute; left: var(--space-m); bottom: var(--space-m);
   min-height: 2.75rem; padding: var(--space-xs) 1.25rem;
