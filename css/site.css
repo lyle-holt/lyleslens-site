@@ -793,6 +793,12 @@ figure > figcaption.caption { margin-top: var(--space-xs); }
 .film.is-playing .film-play { display: none; }
 .film-narrow { max-width: 35rem; }
 .film-narrow .film-play { left: 1.25rem; bottom: 1.25rem; }
+.film-side { max-width: 46rem; }
+.film-side .film-play { left: 1.25rem; bottom: 1.25rem; }
+@media (min-width: 40em) {
+  .film-side { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-m); align-items: end; }
+  .film-side > figcaption.caption { margin-top: 0; }
+}
 .credit { display: block; margin-top: var(--space-3xs); }
 .credit a { color: var(--slate); }
 
