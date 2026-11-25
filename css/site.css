@@ -80,8 +80,9 @@
   --type-subhead: clamp(1.25rem, 1.203rem + 0.19vw, 1.375rem);
   --type-terms-head: clamp(1.375rem, 1.282rem + 0.381vw, 1.625rem);
   --type-quote: clamp(1.1875rem, 1.164rem + 0.095vw, 1.25rem);
-  --type-lede: clamp(1.0625rem, 1.039rem + 0.095vw, 1.125rem);
-  --type-body: clamp(1rem, 0.977rem + 0.095vw, 1.0625rem);
+  --type-lede: clamp(1.0625rem, 0.993rem + 0.286vw, 1.25rem); /* D138 test: 17 to 20px, stays a step above body */
+  --type-body: clamp(1rem, 0.954rem + 0.19vw, 1.125rem); /* D138 test: 16 to 18px (was 16 to 17) */
+  --type-price-phrase: clamp(1.0625rem, 1.039rem + 0.095vw, 1.125rem); /* D138: the old lede size, kept for price phrases */
   --type-small: 0.9375rem;
   --type-caption: 0.875rem;
   --type-label: 0.75rem;
@@ -225,7 +226,7 @@ main:focus { outline: none; }
   font-variant-numeric: tabular-nums lining-nums;
   white-space: normal;
 }
-.price--small { font-size: var(--type-lede); }
+.price--small { font-size: var(--type-price-phrase); }
 .price--quoted { font-size: var(--type-small); color: var(--slate); }
 cite { font-style: normal; }
 
@@ -637,9 +638,9 @@ cite { font-style: normal; }
 }
 .pkg-index a:hover > span:first-child { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em; }
 .pkg-index .price { font-family: var(--font-sans); text-align: right; }
-.pkg-index .price--small { font-size: var(--type-lede); }
-.pkg-index .pkg-note { font-family: var(--font-sans); font-weight: normal; font-size: var(--type-lede); color: var(--ink-soft); white-space: nowrap; }
-.pkg-index .price-extra { font-size: var(--type-lede); }
+.pkg-index .price--small { font-size: var(--type-price-phrase); }
+.pkg-index .pkg-note { font-family: var(--font-sans); font-weight: normal; font-size: var(--type-price-phrase); color: var(--ink-soft); white-space: nowrap; }
+.pkg-index .price-extra { font-size: var(--type-price-phrase); }
 .packages-list--groups { max-width: var(--measure); }
 
 /* Record content */
